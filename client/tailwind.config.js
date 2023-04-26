@@ -15,9 +15,8 @@ export default {
         border_gray: "#00000012",
         button_border: "#00000029",
       },
-      fontFamily: {
-        font_roboto: "Roboto",
-        font_roboto_slab: "Roboto Slab",
+      screens: {
+        xs: "450px",
       },
     },
   },

@@ -1,8 +1,51 @@
+/* Roboto & Roboto Slab */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.line_boder{
+
+
+/* colors */
+:root {
+    --clr-main-bg: #F8F7F2;
+    --clr-white: #FFFFFF;
+    --clr-green: #96BB36;
+    --clr-orange: #F0972A;
+    --clr-midgrey: #A5A5A5;
+    --clr-darkgrey: #626262;
+    --clr-lightgrey: #D8D8D8;
+    --clr-border-grey: #00000012;
+    --clr-border-lightgrey: #F0EFEA;
+    --clr-border-btn: #00000029;
+  
+    /* fonts */
+    --ff-roboto: "Roboto";
+    --ff-roboto-slab: "Roboto Slab";
+  
+    /* border */
+    --line-border: 2px solid var(--clr-lightgrey);
+  }
+  
+
+.roboto{
+  font-family: var(--ff-roboto);
+}
+
+.robotoSlab{
+  font-family: var(--ff-roboto-slab);
+}
+
+.line-border{
     border: 2px solid #D8D8D8;
+}
+
+.dot {
+width: .9rem;
+background:var(--clr-orange);
+height: .9rem;
+border-radius: 50%;
+display: inline-block;
 }
 

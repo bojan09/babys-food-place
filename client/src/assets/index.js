@@ -14,6 +14,8 @@ import plusIcon from "./icon_plus_white.svg";
 import starIcon from "./icon_star.svg";
 import timeIcon from "./icon_time.svg";
 import trashIcon from "./icon_trashcan.svg";
+import menu from "./menu.svg";
+import close from "./close.svg";
 
 export {
   avatar_img,
@@ -30,4 +32,6 @@ export {
   starIcon,
   timeIcon,
   trashIcon,
+  menu,
+  close,
 };
