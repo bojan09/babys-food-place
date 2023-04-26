@@ -23,7 +23,7 @@ const Navbar = () => {
           }
         }}
       >
-        <img src={logoColor} alt="logo" className="xs:w-24 md:w-[250px]" />
+        <img src={logoColor} alt="logo" className="xs:w-24 md:w-[176px]" />
       </Link>
 
       {/* Categories */}
