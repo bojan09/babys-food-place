@@ -32,7 +32,7 @@ const Navbar = () => {
           <li
             key={link.id}
             className={
-              "md:text-[14px] xl:text-[18px] text-color_midgray hover:text-color_darkgray font-medium cursor-pointer"
+              "md:text-[14px] xl:text-[18px] text-color_midgray hover:text-color_darkgray font-medium cursor-pointer flex items-center"
             }
             onClick={() => setActive(link.title)}
           >
@@ -63,7 +63,7 @@ const Navbar = () => {
           } p-4 absolute top-10 right-0  my-2 min-w[140px] z-10 rounded-xl  `}
         >
           {/* Nav List */}
-          <ul className="list-none flex justify-end items-center flex-col gap-3 bg-secondary p-4 rounded-md">
+          <ul className="list-none flex justify-end items-center flex-col gap-3 bg-secondary p-4 px-8 rounded-md">
             {navLinks.map((link) => (
               <li
                 key={link.id}
@@ -80,8 +80,10 @@ const Navbar = () => {
                 <a href={`#${link.id}`}>{link.title}</a>
               </li>
             ))}
-
-            {/*  Guest Navbar on Mobile Navbar */}
+            {/* ------------*/}
+            {/* ------------*/}
+            {/*  Guest Navbar on Mobile Navbar 
+         
             <div className="flex justify-center items-center flex-col">
               <button className="mt-3  text-color_orange border-b-2">
                 LOG IN
@@ -91,13 +93,57 @@ const Navbar = () => {
                 CREATE ACCOUNT
               </button>
             </div>
+            */}
+
+            {/* ------------*/}
+            {/* ------------*/}
+            {/* User Navbar */}
+            {/* ------------ */}
+            {/* ------------ */}
+            <div className="uppercase">
+              <ul className="xs:inline-block md:flex items-center gap-4">
+                <li className="mb-2 mt-4">
+                  <Link
+                    to="/my-recipes"
+                    className="border-bottom pb-0.4 font-bold text-color_green"
+                  >
+                    my recipes
+                  </Link>
+                </li>
+
+                <li className="mb-2">
+                  <Link
+                    to="/user-profile"
+                    className="border-bottom pb-0.4 font-bold text-color_orange"
+                  >
+                    my profile
+                  </Link>
+                </li>
+
+                <li className="mb-2">
+                  <Link
+                    to="/logout"
+                    className="border-bottom pb-0.4 font-bold text-color_midgray"
+                  >
+                    log out
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </ul>
         </div>
       </div>
 
+      {/* ------------*/}
+      {/* ------------*/}
       {/* User Navbar or Guest Navbar on Desktop, based on login */}
+      {/* ------------*/}
+      {/* ------------*/}
       <div className="xs:hidden md:flex ">
-        {/* Guest Navbar         <div className="flex gap-2 items-center font-medium">
+        {/* ------------*/}
+        {/* ------------*/}
+        {/* Guest Navbar         
+        <div className="flex gap-2 items-center font-medium">
           <button className="w-[107px] h-[44px] p-2 line-border rounded-lg text-color_darkgray">
             LOG IN
           </button>
@@ -105,10 +151,42 @@ const Navbar = () => {
           <button className="w-[178px] h-[44px] p-2 rounded-lg bg-color_green text-white">
             CREATE ACCOUNT
           </button>
-        </div> 
-      */}
+        </div>
+        */}
+        {/* ------------*/}
+        {/* ------------*/}
         {/* User Navbar */}
-        <h2>Hello world</h2>
+
+        <div className="uppercase">
+          <ul className="flex items-center gap-4">
+            <li>
+              <Link
+                to="/my-recipes"
+                className="border-bottom pb-0.2 font-bold text-color_green"
+              >
+                my recipes
+              </Link>
+            </li>
+            <span className="black_dot md:hidden lg:inline-block"></span>
+            <li>
+              <Link
+                to="/user-profile"
+                className="border-bottom pb-0.2 font-bold text-color_orange"
+              >
+                my profile
+              </Link>
+            </li>
+            <span className="black_dot md:hidden lg:inline-block"></span>
+            <li>
+              <Link
+                to="/logout"
+                className="border-bottom pb-0.2 font-bold text-color_midgray"
+              >
+                log out
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

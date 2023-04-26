@@ -45,10 +45,30 @@ body {
   border: 2px solid #D8D8D8;
 }
 
+.border-bottom {
+  border-bottom: 3px solid #D8D8D8;
+}
+
 .dot {
-  width: .9rem;
+  width: 9px;
+  height: 9px;
   background: var(--clr-orange);
-  height: .9rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.black_dot {
+  width: 9px;
+  height: 9px;
+  background: var(--clr-darkgrey);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.gray_dot {
+  width: 9px;
+  height: 9px;
+  background: var(--clr-lightgrey);
   border-radius: 50%;
   display: inline-block;
 }
