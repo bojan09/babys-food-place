@@ -24,7 +24,7 @@ import { Navbar, Footer } from "./components";
 
 const App = () => {
   return (
-    <div className="bg-primary roboto relative z-0">
+    <div>
       <BrowserRouter>
         <Navbar />
         <Routes>

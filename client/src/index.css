@@ -9,43 +9,149 @@
 
 /* colors */
 :root {
-    --clr-main-bg: #F8F7F2;
-    --clr-white: #FFFFFF;
-    --clr-green: #96BB36;
-    --clr-orange: #F0972A;
-    --clr-midgrey: #A5A5A5;
-    --clr-darkgrey: #626262;
-    --clr-lightgrey: #D8D8D8;
-    --clr-border-grey: #00000012;
-    --clr-border-lightgrey: #F0EFEA;
-    --clr-border-btn: #00000029;
-  
-    /* fonts */
-    --ff-roboto: "Roboto";
-    --ff-roboto-slab: "Roboto Slab";
-  
-    /* border */
-    --line-border: 2px solid var(--clr-lightgrey);
-  }
-  
+  --clr-main-bg: #F8F7F2;
+  --clr-secondary-bg: #f2f2d9;
+  --clr-white: #FFFFFF;
+  --clr-green: #96BB36;
+  --clr-orange: #F0972A;
+  --clr-midgrey: #A5A5A5;
+  --clr-darkgrey: #626262;
+  --clr-lightgrey: #D8D8D8;
+  --clr-border-grey: #00000012;
+  --clr-border-lightgrey: #F0EFEA;
+  --clr-border-btn: #00000029;
 
-.roboto{
-  font-family: var(--ff-roboto);
+  /* fonts */
+  --ff-roboto: "Roboto";
+  --ff-roboto-slab: "Roboto Slab";
 }
 
-.robotoSlab{
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-roboto);
+  background-color: var(--clr-main-bg);
+  position: relative;
+  z-index: 0;
+}
+
+.robotoSlab {
   font-family: var(--ff-roboto-slab);
 }
 
-.line-border{
-    border: 2px solid #D8D8D8;
+.line-border {
+  border: 2px solid #D8D8D8;
 }
 
 .dot {
-width: .9rem;
-background:var(--clr-orange);
-height: .9rem;
-border-radius: 50%;
-display: inline-block;
+  width: .9rem;
+  background: var(--clr-orange);
+  height: .9rem;
+  border-radius: 50%;
+  display: inline-block;
 }
 
+.textMainHead {
+  color: var(--clr-green);
+  font-family: var(--ff-roboto-slab);
+  font-weight: bold;
+}
+
+.textMainHead::after {
+  content: "";
+  display: inline-block;
+  height: 0.5em;
+  width: min(30vw, 70vw);
+  vertical-align: bottom;
+  margin: 0 -100% 0 10px;
+  border-bottom: 2px solid #D8D8D8;
+}
+
+.textSubHead {
+  color: var(--clr-orange);
+  font-family: var(--ff-roboto-slab);
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+
+
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'],
+li,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+
+/* Universal styling for all the inputs and select fields*/
+input,
+select,
+textarea {
+  margin: 1rem;
+  height: 4rem;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--clr-darkgrey);
+  background-color: var(--clr-border-lightgrey);
+  border: 1px solid var(--clr-midgrey);
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
+select,
+option,
+textarea::placeholder,
+input[type="text"]::placeholder,
+input[type="textarea"]::placeholder,
+input[type="email"]::placeholder,
+input[type="date"]::placeholder,
+input[type="password"]::placeholder,
+input[type="number"]::placeholder {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--clr-midgrey);
+}
+
+input[type="file"] {
+  background-color: red;
+  position: absolute;
+  top: 0;
+}
+
+
+
+input:focus,
+select:focus,
+textarea:focus {
+  border: 1px solid var(--clr-midgrey);
+  outline: 1px solid var(--clr-midgrey);
+  box-shadow: 0 3px 6px var(--clr-lightgrey);
+  font-size: 1.4rem;
+  color: var(--clr-darkgrey);
+}
+
+textarea {
+  resize: none;
+}
+
+textarea::placeholder {
+  font-weight: 400;
+  font-family: var(--ff-roboto);
+  line-height: 1.5;
+}

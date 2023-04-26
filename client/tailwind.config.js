@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         primary: "#F8F7F2",
+        secondary: "#f2f2d9",
         color_green: "#96BB36",
         color_orange: "#F0972A",
         color_lightgray: "#D8D8D8",
@@ -16,7 +17,7 @@ export default {
         button_border: "#00000029",
       },
       screens: {
-        xs: "450px",
+        xs: "350px",
       },
     },
   },
