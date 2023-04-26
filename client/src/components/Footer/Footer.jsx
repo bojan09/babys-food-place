@@ -10,7 +10,7 @@ import { logoWhite } from "../../assets";
 const Footer = () => {
   const [active, setActive] = useState("");
   return (
-    <div className="absolute z-20 top-[90rem] bg-color_darkgray w-full flex justify-evenly items-center h-[180px]">
+    <div className="absolute z-20 top-[90rem] bg-color_darkgray w-full flex justify-evenly items-center xs:h-[120px] md:h-[180px]">
       {/* Logo */}
       <Link
         to="/"
@@ -43,7 +43,7 @@ const Footer = () => {
       </ul>
 
       {/* Categories */}
-      <p className="text-color_lightgray">
+      <p className="text-color_lightgray xs:text-[13px] md:text-[14px]">
         Baby’s Food Place <br /> copyright © 2021
       </p>
     </div>
