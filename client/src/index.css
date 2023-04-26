@@ -83,10 +83,22 @@ body {
   content: "";
   display: inline-block;
   height: 0.5em;
-  width: min(30vw, 70vw);
+  width: 71vw;
   vertical-align: bottom;
   margin: 0 -100% 0 10px;
   border-bottom: 2px solid #D8D8D8;
+}
+
+@media screen and (max-width:500px) {
+  .textMainHead::after {
+    content: "";
+    display: inline-block;
+    height: 0.5em;
+    width: min(40vw, 70vw);
+    vertical-align: bottom;
+    margin: 0 -100% 0 10px;
+    border-bottom: 2px solid #D8D8D8;
+  }
 }
 
 .textSubHead {
