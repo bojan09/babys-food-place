@@ -4,6 +4,14 @@ import { Link } from "react-router-dom";
 // constants
 import { navLinks } from "../../constants";
 
+// components
+import {
+  GuestMobileNavbar,
+  GuestNavbar,
+  UserMobileNavbar,
+  UserNavbar,
+} from "./";
+
 // assets
 import { logoColor, menu, close } from "../../assets";
 
@@ -12,7 +20,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="flex justify-around items-center w-full p-4 xs:py-[30px] md:py-[50px] fixed top-0 bg-primary z-10">
+    <div className="flex md:justify-around items-center w-full xs:py-[30px] md:py-[50px] fixed top-0 left-0 bg-primary z-10">
       {/* Logo */}
       <Link
         to="/"
@@ -23,7 +31,7 @@ const Navbar = () => {
           }
         }}
       >
-        <img src={logoColor} alt="logo" className="xs:w-24 md:w-[176px]" />
+        <img src={logoColor} alt="logo" className="xs:w-24 md:w-[176px] ml-8" />
       </Link>
 
       {/* Categories */}
@@ -45,15 +53,11 @@ const Navbar = () => {
       </ul>
 
       {/* Mobile Navigation Bar */}
-      <div
-        className="
-        md:hidden flex flex-1 justify-end items-center mx-3
-        "
-      >
+      <div className="md:hidden flex flex-1 justify-end items-center mr-7">
         <img
           src={toggle ? close : menu}
           alt="navlist-menu"
-          className="w-[35px] h-[35xp] object-contain cursor-pointer"
+          className="w-[40px] h-[40xp] object-contain cursor-pointer"
           onClick={() => setToggle(!toggle)}
         />
         {/* Menu container */}
@@ -80,113 +84,27 @@ const Navbar = () => {
                 <a href={`#${link.id}`}>{link.title}</a>
               </li>
             ))}
-            {/* ------------*/}
-            {/* ------------*/}
-            {/*  Guest Navbar on Mobile Navbar 
-         
-            <div className="flex justify-center items-center flex-col">
-              <button className="mt-3  text-color_orange border-b-2">
-                LOG IN
-              </button>
-              <p className="text-color_darkgray font-bold p-1">or</p>
-              <button className="text-color_green font-bold border-b-2">
-                CREATE ACCOUNT
-              </button>
-            </div>
+
+            {/* ----- Guest Mobile Navbar ----- 
+           <GuestMobileNavbar />
             */}
 
-            {/* ------------*/}
-            {/* ------------*/}
-            {/* User Navbar */}
-            {/* ------------ */}
-            {/* ------------ */}
-            <div className="uppercase">
-              <ul className="xs:inline-block md:flex items-center gap-4">
-                <li className="mb-2 mt-4">
-                  <Link
-                    to="/my-recipes"
-                    className="border-bottom pb-0.4 font-bold text-color_green"
-                  >
-                    my recipes
-                  </Link>
-                </li>
-
-                <li className="mb-2">
-                  <Link
-                    to="/user-profile"
-                    className="border-bottom pb-0.4 font-bold text-color_orange"
-                  >
-                    my profile
-                  </Link>
-                </li>
-
-                <li className="mb-2">
-                  <Link
-                    to="/logout"
-                    className="border-bottom pb-0.4 font-bold text-color_midgray"
-                  >
-                    log out
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            {/* ----- User Mobile Navbar ----- */}
+            <UserMobileNavbar />
           </ul>
         </div>
       </div>
 
-      {/* ------------*/}
-      {/* ------------*/}
+      {/* -------------------------------------------------------*/}
       {/* User Navbar or Guest Navbar on Desktop, based on login */}
-      {/* ------------*/}
-      {/* ------------*/}
+      {/* -------------------------------------------------------*/}
       <div className="xs:hidden md:flex ">
-        {/* ------------*/}
-        {/* ------------*/}
-        {/* Guest Navbar         
-        <div className="flex gap-2 items-center font-medium">
-          <button className="w-[107px] h-[44px] p-2 line-border rounded-lg text-color_darkgray">
-            LOG IN
-          </button>
-          <p className="text-color_orange font-bold mx-2">or</p>
-          <button className="w-[178px] h-[44px] p-2 rounded-lg bg-color_green text-white">
-            CREATE ACCOUNT
-          </button>
-        </div>
+        {/* ----- Guest Navbar -----         
+        <GuestNavbar />
         */}
-        {/* ------------*/}
-        {/* ------------*/}
-        {/* User Navbar */}
 
-        <div className="uppercase">
-          <ul className="flex items-center gap-4">
-            <li>
-              <Link
-                to="/my-recipes"
-                className="border-bottom pb-0.2 font-bold text-color_green"
-              >
-                my recipes
-              </Link>
-            </li>
-            <span className="black_dot md:hidden lg:inline-block"></span>
-            <li>
-              <Link
-                to="/user-profile"
-                className="border-bottom pb-0.2 font-bold text-color_orange"
-              >
-                my profile
-              </Link>
-            </li>
-            <span className="black_dot md:hidden lg:inline-block"></span>
-            <li>
-              <Link
-                to="/logout"
-                className="border-bottom pb-0.2 font-bold text-color_midgray"
-              >
-                log out
-              </Link>
-            </li>
-          </ul>
-        </div>
+        {/* ----- User Navbar ----- */}
+        <UserNavbar />
       </div>
     </div>
   );
