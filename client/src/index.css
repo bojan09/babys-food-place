@@ -53,6 +53,16 @@ body {
   border-bottom: 3px solid #D8D8D8;
 }
 
+/* Recipe Image */
+
+.recipe_img {
+  position: relative;
+}
+
+.category {
+  position: absolute;
+}
+
 /* Dots */
 
 .dot {
@@ -91,7 +101,7 @@ body {
   content: "";
   display: inline-block;
   height: 0.5em;
-  width: 71vw;
+  width: 56vw;
   vertical-align: bottom;
   margin: 0 0 0 10px;
   border-bottom: 2px solid #D8D8D8;
@@ -102,7 +112,7 @@ body {
     content: "";
     display: inline-block;
     height: 0.5em;
-    width: min(30vw, 70vw);
+    width: min(40vw, 70vw);
     vertical-align: bottom;
     margin: 0 0 0 10px;
     border-bottom: 2px solid #D8D8D8;

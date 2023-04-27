@@ -12,22 +12,19 @@ import {
   meal_1,
 } from "../../../assets";
 
-// recipe mock data
-import { recipesData } from "../../../constants";
-
 const RecipePosts = () => {
   const [openModal, setOpenModal] = useState(false);
   return (
-    <div className="xs:w-[300px] md:w-[373px] h-fit bg-white">
+    <div className="xs:w-[330px] md:w-[400px] h-fit bg-white">
       {/* Recipe Picture - Container */}
-      <div>
+      <div className="relative">
         <img
           src={meal_1}
           alt="recipe-1"
-          className="w-[373px] h-[234px] relative rounded-t-md cursor-pointer"
+          className="w-full h-[234px] rounded-t-md cursor-pointer recipe_img"
           onClick={() => setOpenModal(true)}
         />
-        <span className="absolute top-3 left-4 rounded-[15px] bg-color_green text-white font-bold robotoSlab px-3 py-1 capitalize">
+        <span className="absolute top-3 left-2 rounded-[15px] bg-color_green text-white font-bold robotoSlab px-3 py-1 capitalize">
           category
         </span>
 

@@ -20,7 +20,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="flex md:justify-around items-center w-full xs:py-[30px] md:py-[50px] fixed top-0 left-0 bg-primary z-10">
+    <div className="flex md:justify-evenly items-center w-full xs:py-[30px] md:py-[50px] fixed top-0 left-0 bg-primary z-10">
       {/* Logo */}
       <Link
         to="/"
@@ -31,7 +31,11 @@ const Navbar = () => {
           }
         }}
       >
-        <img src={logoColor} alt="logo" className="xs:w-24 md:w-[176px] ml-8" />
+        <img
+          src={logoColor}
+          alt="logo"
+          className="xs:w-24 md:w-[176px] ml-8 "
+        />
       </Link>
 
       {/* Categories */}
@@ -53,7 +57,7 @@ const Navbar = () => {
       </ul>
 
       {/* Mobile Navigation Bar */}
-      <div className="md:hidden flex flex-1 justify-end items-center mr-7">
+      <div className="md:hidden flex flex-1 justify-end items-center mr-7 ">
         <img
           src={toggle ? close : menu}
           alt="navlist-menu"
