@@ -10,7 +10,7 @@ import { logoWhite } from "../../assets";
 const Footer = () => {
   const [active, setActive] = useState("");
   return (
-    <div className="absolute z-25 sm:top-[100rem] xs:top-[245rem] bg-color_darkgray w-full flex justify-evenly items-center xs:h-[120px] md:h-[180px]">
+    <div className="bg-color_darkgray w-full flex justify-evenly items-center xs:h-[120px] md:h-[180px] sm:mt-[6rem] xs:mt-[4rem]">
       {/* Logo */}
       <Link
         to="/"

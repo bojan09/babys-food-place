@@ -35,6 +35,8 @@ body {
   background-color: var(--clr-main-bg);
   position: relative;
   z-index: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* fonts */
@@ -101,7 +103,7 @@ body {
   content: "";
   display: inline-block;
   height: 0.5em;
-  width: 56vw;
+  width: min(55.6vw, 90vw);
   vertical-align: bottom;
   margin: 0 0 0 10px;
   border-bottom: 2px solid #D8D8D8;

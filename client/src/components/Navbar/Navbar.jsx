@@ -13,14 +13,14 @@ import {
 } from "./";
 
 // assets
-import { logoColor, menu, close } from "../../assets";
+import { logoColor, menu, closeIcon } from "../../assets";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="flex md:justify-evenly items-center w-full xs:py-[30px] md:py-[50px] fixed top-0 left-0 bg-primary z-10">
+    <div className="flex md:justify-evenly items-center w-full xs:py-[30px] sticky top-0 left-0 bg-primary z-10">
       {/* Logo */}
       <Link
         to="/"
@@ -59,7 +59,7 @@ const Navbar = () => {
       {/* Mobile Navigation Bar */}
       <div className="md:hidden flex flex-1 justify-end items-center mr-7 ">
         <img
-          src={toggle ? close : menu}
+          src={toggle ? closeIcon : menu}
           alt="navlist-menu"
           className="w-[40px] h-[40xp] object-contain cursor-pointer"
           onClick={() => setToggle(!toggle)}
