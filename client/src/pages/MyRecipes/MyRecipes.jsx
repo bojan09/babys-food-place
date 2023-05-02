@@ -10,7 +10,7 @@ import { plusIcon } from "../../assets";
 
 const MyRecipes = () => {
   return (
-    <div className="grid md:justify-center items-center">
+    <div className="grid md:justify-center items-center mb-[40%]">
       {/* My Recipes - Container */}
 
       {/* Heading & Add Recipe - Container */}
@@ -30,16 +30,19 @@ const MyRecipes = () => {
       </div>
 
       {/* Categories & Recipe Items -  Container */}
-      <div className="flex md:flex-col justify-evenly items-center">
+      <div className="md:flex md:flex-col justify-evenly items-center">
         {/* Categories -  Container */}
-        <div className="md:flex md:gap-[10rem] md:mt-[3rem] md:mb-4 text-color_orange font-bold text-[18px]">
-          <h3 className="xs:my-1">Recipe Name</h3>
+        <div className="flex xs:gap-4 justify-center items-center md:gap-[10rem] md:mt-[3rem] md:mb-4 text-color_orange font-bold">
+          <h3 className="xs:my-1 xs:">Recipe Name</h3>
           <h3 className="xs:my-1">Category</h3>
           <h3 className="xs:my-1">Created On</h3>
           <h3 className="xs:my-1  md:flex md:ml-[43.5%]">Delete</h3>
         </div>
 
         {/* UserRecipes Component */}
+        <UserRecipes />
+        <UserRecipes />
+        <UserRecipes />
         <UserRecipes />
       </div>
     </div>
