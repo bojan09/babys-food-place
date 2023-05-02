@@ -44,7 +44,7 @@ const Footer = () => {
 
       {/* Categories */}
       <p className="text-color_lightgray xs:text-[13px] md:text-[14px]">
-        Baby’s Food Place <br /> copyright © 2021
+        Baby’s Food Place <br /> copyright © 2023
       </p>
     </div>
   );

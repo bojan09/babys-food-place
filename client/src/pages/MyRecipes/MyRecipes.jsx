@@ -10,7 +10,7 @@ import { plusIcon } from "../../assets";
 
 const MyRecipes = () => {
   return (
-    <div className="grid md:justify-center items-center mb-[40%]">
+    <div className="grid md:justify-center items-center mb-[50%]">
       {/* My Recipes - Container */}
 
       {/* Heading & Add Recipe - Container */}

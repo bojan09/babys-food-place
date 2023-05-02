@@ -71,7 +71,7 @@ const Navbar = () => {
           } p-4 absolute top-10 right-0  my-2 min-w[140px] z-10 rounded-xl  `}
         >
           {/* Nav List - Categories */}
-          <ul className="list-none flex justify-end items-center flex-col gap-3 bg-secondary p-4 px-8 rounded-md">
+          <ul className="list-none flex justify-end items-center flex-col gap-3 bg-secondary p-4 px-8 mt-5 rounded-md">
             {navLinks.map((link) => (
               <li
                 key={link.id}
