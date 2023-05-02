@@ -66,7 +66,11 @@ const RecipePosts = () => {
           className="flex justify-center items-center w-[30px] h-[28px] bg-color_green p-1.5 rounded-[4px]"
           onClick={() => setOpenModal(true)}
         >
-          <img src={arrowsRightIcon} alt="arrows-right" className="w-full " />
+          <img
+            src={arrowsRightIcon}
+            alt="arrows-right"
+            className="w-full cursor-pointer"
+          />
         </div>
       </div>
     </div>

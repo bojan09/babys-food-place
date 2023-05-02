@@ -20,7 +20,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="flex md:justify-evenly items-center w-full xs:py-[30px] sticky top-0 left-0 bg-primary z-10">
+    <div className="flex md:justify-evenly items-center w-full sm:pt-[50px] xs:py-[30px] sticky top-0 left-0 bg-primary z-10 sm:mb-12">
       {/* Logo */}
       <Link
         to="/"
@@ -34,7 +34,7 @@ const Navbar = () => {
         <img
           src={logoColor}
           alt="logo"
-          className="xs:w-24 md:w-[176px] ml-8 "
+          className="xs:w-[125px] md:w-[175px] ml-8 "
         />
       </Link>
 
