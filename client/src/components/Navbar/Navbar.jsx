@@ -70,22 +70,19 @@ const Navbar = () => {
             !toggle ? "hidden" : "flex"
           } p-4 absolute top-10 right-0  my-2 min-w[140px] z-10 rounded-xl  `}
         >
-          {/* Nav List */}
+          {/* Nav List - Categories */}
           <ul className="list-none flex justify-end items-center flex-col gap-3 bg-secondary p-4 px-8 rounded-md">
             {navLinks.map((link) => (
               <li
                 key={link.id}
+                onClick={() => setActive(link.title)}
                 className={`${
                   active === link.title
                     ? "text-color_midgray"
                     : "text-color_darkgray"
                 } font-poppins font-medium cursor-pointer text-[16px]`}
-                onClick={() => {
-                  setActive(link.title);
-                  setToggle(!toggle);
-                }}
               >
-                <a href={`#${link.id}`}>{link.title}</a>
+                <Link to={`/${link.id}`}>{link.title}</Link>
               </li>
             ))}
 

@@ -17,7 +17,7 @@ const Home = () => {
       </div>
 
       {/*  Most Popular Recipes - Container */}
-      <h1 className="textMainHead xs:text-[28px] sm:text-[36px] sm:mt-[4rem] xs:mt-[4rem] text-center">
+      <h1 className="textMainHead after:w-[55vw] xs:text-[28px] sm:text-[36px] sm:mt-[4rem] xs:mt-[4rem] text-center">
         Most Popular
       </h1>
       <div className=" flex justify-center items-center flex-wrap gap-12">

@@ -103,7 +103,7 @@ body {
   content: "";
   display: inline-block;
   height: 0.5em;
-  width: min(55.6vw, 90vw);
+  width: min(56vw, 1200px);
   vertical-align: bottom;
   margin: 0 0 0 10px;
   border-bottom: 2px solid #D8D8D8;
