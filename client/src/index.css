@@ -1,24 +1,22 @@
 /* Roboto & Roboto Slab */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-
 /* colors */
 :root {
-  --clr-main-bg: #F8F7F2;
+  --clr-main-bg: #f8f7f2;
   --clr-secondary-bg: #f2f2d9;
-  --clr-white: #FFFFFF;
-  --clr-green: #96BB36;
-  --clr-orange: #F0972A;
-  --clr-midgrey: #A5A5A5;
+  --clr-white: #ffffff;
+  --clr-green: #96bb36;
+  --clr-orange: #f0972a;
+  --clr-midgrey: #a5a5a5;
   --clr-darkgrey: #626262;
-  --clr-lightgrey: #D8D8D8;
+  --clr-lightgrey: #d8d8d8;
   --clr-border-grey: #00000012;
-  --clr-border-lightgrey: #F0EFEA;
+  --clr-border-lightgrey: #f0efea;
   --clr-border-btn: #00000029;
 
   /* fonts */
@@ -39,14 +37,13 @@ body {
   height: 100%;
 }
 
-
 /* Universal styling for all the inputs and select fields*/
 input,
 select,
 textarea {
   margin: 10px;
   height: 40px;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 900;
   color: var(--clr-darkgrey);
   background-color: var(--clr-border-lightgrey);
@@ -57,26 +54,22 @@ textarea {
 
 select,
 option,
-input[type="text"],
-input[type="textarea"],
-input[type="email"],
-input[type="date"],
-input[type="password"],
-input[type="number"] {
-  font-size: 15px;
+input[type="text"]::placeholder,
+input[type="textarea"]::placeholder,
+input[type="email"]::placeholder,
+input[type="date"]::placeholder,
+input[type="password"]::placeholder,
+input[type="number"]::placeholder {
+  font-size: 18px;
   font-weight: 900;
   color: var(--clr-midgrey);
 }
-
-
-
-
 
 textarea:focus {
   border: 1px solid var(--clr-midgrey);
   outline: 1px solid var(--clr-midgrey);
   box-shadow: 0 3px 6px var(--clr-lightgrey);
-  font-size: 14px;
+  font-size: 16px;
   color: var(--clr-darkgrey);
 }
 
@@ -90,9 +83,22 @@ textarea::placeholder {
   line-height: 1.5;
 }
 
-label {
-  font-size: 20px;
+
+@media screen and (max-width:500px) {
+  label {
+    font-size: 20px;
+  }
 }
+
+@media screen and (min-width:505px) {
+  label {
+    font-size: 17px;
+    text-align: left;
+    margin-left: 1rem;
+  }
+}
+
+
 
 
 /* fonts */
@@ -104,11 +110,11 @@ label {
 /* Borders */
 
 .line-border {
-  border: 2px solid #D8D8D8;
+  border: 2px solid #d8d8d8;
 }
 
 .border-bottom {
-  border-bottom: 3px solid #D8D8D8;
+  border-bottom: 3px solid #d8d8d8;
 }
 
 /* Recipe Image */
@@ -162,10 +168,10 @@ label {
   width: min(56vw, 1200px);
   vertical-align: bottom;
   margin: 0 0 0 10px;
-  border-bottom: 2px solid #D8D8D8;
+  border-bottom: 2px solid #d8d8d8;
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width: 500px) {
   .textMainHead::after {
     content: "";
     display: inline-block;
@@ -173,7 +179,7 @@ label {
     width: min(40vw, 70vw);
     vertical-align: bottom;
     margin: 0 0 0 10px;
-    border-bottom: 2px solid #D8D8D8;
+    border-bottom: 2px solid #d8d8d8;
   }
 }
 
@@ -183,7 +189,6 @@ label {
   text-transform: capitalize;
   font-weight: bold;
 }
-
 
 /* Modal custom CSS */
 .modal-overlay {
@@ -198,7 +203,7 @@ label {
   height: 100%;
 }
 
-@media screen and (min-width:250px) {
+@media screen and (min-width: 250px) {
   .modal {
     position: fixed;
     z-index: 5;
@@ -206,26 +211,22 @@ label {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    box-shadow: 0px 0px 100rem rgba(0, 0, 0, .75);
-    border-radius: .4rem;
+    box-shadow: 0px 0px 100rem rgba(0, 0, 0, 0.75);
+    border-radius: 0.4rem;
   }
 }
 
-@media screen and (min-width:400px) {
+@media screen and (min-width: 400px) {
   .modal {
     width: min(55vw, 150rem);
   }
 }
 
-
-@media screen and (max-width:399px) {
+@media screen and (max-width: 399px) {
   .modal {
     width: min(85vw, 30rem);
   }
 }
-
-
-
 
 /* Avoid text overflows */
 p,
@@ -239,68 +240,10 @@ h6 {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'],
+ul[role="list"],
+ol[role="list"],
 li,
 a {
   list-style: none;
   text-decoration: none;
-}
-
-
-/* Universal styling for all the inputs and select fields*/
-input,
-select,
-textarea {
-  margin: 1rem;
-  height: 4rem;
-  font-size: 1.4rem;
-  font-weight: 900;
-  color: var(--clr-darkgrey);
-  background-color: var(--clr-border-lightgrey);
-  border: 1px solid var(--clr-midgrey);
-  border-radius: .5rem;
-  padding: 1rem;
-}
-
-select,
-option,
-textarea::placeholder,
-input[type="text"]::placeholder,
-input[type="textarea"]::placeholder,
-input[type="email"]::placeholder,
-input[type="date"]::placeholder,
-input[type="password"]::placeholder,
-input[type="number"]::placeholder {
-  font-size: 1.4rem;
-  font-weight: 900;
-  color: var(--clr-midgrey);
-}
-
-input[type="file"] {
-  background-color: red;
-  position: absolute;
-  top: 0;
-}
-
-
-
-input:focus,
-select:focus,
-textarea:focus {
-  border: 1px solid var(--clr-midgrey);
-  outline: 1px solid var(--clr-midgrey);
-  box-shadow: 0 3px 6px var(--clr-lightgrey);
-  font-size: 1.4rem;
-  color: var(--clr-darkgrey);
-}
-
-textarea {
-  resize: none;
-}
-
-textarea::placeholder {
-  font-weight: 400;
-  font-family: var(--ff-roboto);
-  line-height: 1.5;
 }
