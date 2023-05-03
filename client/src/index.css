@@ -39,6 +39,62 @@ body {
   height: 100%;
 }
 
+
+/* Universal styling for all the inputs and select fields*/
+input,
+select,
+textarea {
+  margin: 10px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--clr-darkgrey);
+  background-color: var(--clr-border-lightgrey);
+  border: 1px solid var(--clr-midgrey);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+select,
+option,
+input[type="text"],
+input[type="textarea"],
+input[type="email"],
+input[type="date"],
+input[type="password"],
+input[type="number"] {
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--clr-midgrey);
+}
+
+
+
+
+
+textarea:focus {
+  border: 1px solid var(--clr-midgrey);
+  outline: 1px solid var(--clr-midgrey);
+  box-shadow: 0 3px 6px var(--clr-lightgrey);
+  font-size: 14px;
+  color: var(--clr-darkgrey);
+}
+
+textarea {
+  resize: none;
+}
+
+textarea::placeholder {
+  font-weight: 400;
+  font-family: var(--ff-roboto);
+  line-height: 1.5;
+}
+
+label {
+  font-size: 20px;
+}
+
+
 /* fonts */
 
 .robotoSlab {
