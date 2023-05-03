@@ -32,7 +32,7 @@ const MyRecipes = () => {
       {/* Categories & Recipe Items -  Container */}
       <div className="md:flex md:flex-col justify-evenly items-center">
         {/* Categories -  Container */}
-        <div className="flex justify-start items-center xs:gap-6 md:gap-[8rem] md:mt-[3rem] md:mb-4 text-color_orange font-bold">
+        <div className="flex xs:justify-center md:justify-start items-center xs:gap-4 md:gap-[8rem] md:mt-[3rem] md:mb-4 text-color_orange font-bold">
           <h3 className="xs:my-1 ">Recipe Name</h3>
           <h3 className="xs:my-1 md:ml-[3vw]">Category</h3>
           <h3 className="xs:my-1 md:ml-[2vw]">Created On</h3>
