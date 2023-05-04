@@ -24,7 +24,7 @@ const RecipesForm = () => {
             alt="meal-1"
             className="xs:w-[310px] md:w-[280px] h-fit mx-auto rounded-md my-3"
           />
-          <button className="line-border text-color_midgray rounded-lg xs:w-[300px] md:w-[270px] h-[45px] uppercase text-[18px] font-bold mb-6">
+          <button className="line-border text-color_midgray rounded-lg xs:w-[300px] md:w-[270px] h-[45px] uppercase text-[18px] my-4">
             Upload Image
           </button>
         </div>
@@ -32,7 +32,7 @@ const RecipesForm = () => {
         {/* Recipe Title,Category, PrepTime, No.People, Short Desc - Container */}
         <div>
           {/* Recipe Title - Container */}
-          <div className="md:flex flex-col justify-center">
+          <div className="md:flex flex-col justify-center xs:mt-4 md:mt-0">
             <label className="robotoSlab font-bold text-color_orange">
               Recipe Title
             </label>
@@ -44,16 +44,16 @@ const RecipesForm = () => {
           </div>
 
           {/* Category, PrepTime, No.People - Container */}
-          <div className="xs:mt-3 md:mt-0 md:flex justify-center items-center">
+          <div className="xs:mt-5 md:mt-0 md:flex justify-center items-center">
             {/* Category - Container */}
-            <div className="md:grid">
+            <div className="grid justify-center">
               <label className="robotoSlab font-bold text-color_orange md:mt-[.5rem]">
                 Category
               </label>
               <select
                 name="recipeCategory"
                 placeholder="Breakfast"
-                className="xs:w-[300px] md:w-[200px] text-center mt-1"
+                className="xs:w-[300px] md:w-[200px] text-center mt-3"
               >
                 <option value="" disabled defaultChecked hidden>
                   Breakfast
@@ -102,7 +102,7 @@ const RecipesForm = () => {
               Short Description
             </label>
             <textarea
-              className="xs:w-[350px] md:w-[580px] xs:h-[220px] md:h-[180px]"
+              className="xs:w-[320px] md:w-[580px] xs:h-[220px] md:h-[180px]"
               placeholder="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage"
             ></textarea>
 
@@ -121,13 +121,13 @@ const RecipesForm = () => {
             Recipe
           </label>
           <textarea
-            className="xs:w-[350px] md:w-[450px] xs:h-[460px] md:h-[350px]"
+            className="xs:w-[320px] md:w-[450px] xs:h-[490px] md:h-[350px]"
             placeholder="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures."
           ></textarea>
           {/* Save Recipe - Button */}
 
           {isMobile && (
-            <button className="xs:w-[340px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4">
+            <button className="xs:w-[310px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4">
               save
             </button>
           )}
