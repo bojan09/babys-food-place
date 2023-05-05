@@ -82,7 +82,9 @@ const Navbar = () => {
                     : "text-color_darkgray"
                 } font-poppins font-medium cursor-pointer text-[16px]`}
               >
-                <Link to={`/${link.id}`}>{link.title}</Link>
+                <Link onClick={() => setToggle(!toggle)} to={`/${link.id}`}>
+                  {link.title}
+                </Link>
               </li>
             ))}
 

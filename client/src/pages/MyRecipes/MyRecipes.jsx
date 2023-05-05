@@ -24,7 +24,7 @@ const MyRecipes = () => {
           <img
             src={plusIcon}
             alt="plus_icon"
-            className="md:w-[40px] xs:w-[30px]  sm:mb-[-1.5rem] ml-2 rounded-full p-2 bg-orange-400"
+            className="md:w-[40px] xs:w-[30px] sm:mb-[-1.5rem] ml-2 rounded-full p-2 bg-orange-400"
           />
         </Link>
       </div>

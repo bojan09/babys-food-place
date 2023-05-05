@@ -44,13 +44,15 @@ textarea {
   margin: 10px;
   height: 40px;
   font-size: 18px;
-  font-weight: 900;
+  font-weight: 400;
   color: var(--clr-darkgrey);
   background-color: var(--clr-border-lightgrey);
   border: 1px solid var(--clr-midgrey);
   border-radius: 5px;
   padding: 10px;
 }
+
+
 
 select,
 option,
@@ -61,26 +63,20 @@ input[type="date"]::placeholder,
 input[type="password"]::placeholder,
 input[type="number"]::placeholder {
   font-size: 18px;
-  font-weight: 900;
+  font-weight: 500;
   color: var(--clr-midgrey);
+  line-height: 1.5;
+  text-align: left;
 }
 
-textarea:focus {
-  border: 1px solid var(--clr-midgrey);
-  outline: 1px solid var(--clr-midgrey);
+textarea:focus:active {
+  border: 1px solid var(--clr-lightgrey);
   box-shadow: 0 3px 6px var(--clr-lightgrey);
-  font-size: 16px;
-  color: var(--clr-darkgrey);
+  font-size: 18px;
 }
 
 textarea {
   resize: none;
-}
-
-textarea::placeholder {
-  font-weight: 400;
-  font-family: var(--ff-roboto);
-  line-height: 1.5;
 }
 
 
@@ -97,8 +93,6 @@ textarea::placeholder {
     margin-left: 1rem;
   }
 }
-
-
 
 
 /* fonts */

@@ -15,7 +15,7 @@ const CreateRecipes = () => {
 
       {/* Heading & Add Recipe - Container */}
       <div className="flex justify-center items-center md:mb-4">
-        <h1 className="textMainHead md:after:w-[61vw] xs:after:w-[35vw] xs:my-4 xs:text-[28px] sm:text-[36px] text-center">
+        <h1 className="textMainHead md:after:w-[58vw] xs:after:w-[35vw] xs:my-4 xs:text-[28px] sm:text-[36px] text-center">
           My Recipes
         </h1>
 
@@ -24,7 +24,7 @@ const CreateRecipes = () => {
           <img
             src={arrowBackIcon}
             alt="plus_icon"
-            className="md:w-[40px] xs:w-[35px]  sm:mb-[-1.5rem] ml-2 rounded-full p-2 bg-orange-400"
+            className="md:w-[40px] xs:w-[30px]  sm:mb-[-1.5rem] ml-2 rounded-full p-2 bg-orange-400"
           />
         </Link>
       </div>

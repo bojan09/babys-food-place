@@ -53,7 +53,7 @@ const RecipesForm = () => {
               <select
                 name="recipeCategory"
                 placeholder="Breakfast"
-                className="xs:w-[300px] md:w-[200px] text-center mt-3"
+                className="xs:w-[300px] md:w-[200px] text-center mt-2"
               >
                 <option value="" disabled defaultChecked hidden>
                   Breakfast
