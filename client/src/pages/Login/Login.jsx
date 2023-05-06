@@ -31,7 +31,7 @@ const Login = () => {
         </div>
 
         {/* Email & Password - Container */}
-        <div className="text-center md:grid justify-center md:w-[50%]">
+        <div className="text-center grid justify-center md:w-[50%]">
           {/* Email - Container */}
 
           <label className="robotoSlab font-bold text-color_orange">
@@ -40,18 +40,18 @@ const Login = () => {
           <input
             type="email"
             placeholder="john@smith.com"
-            className="xs:w-[300px] md:w-[300px] md:h-[50px] text-center"
+            className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
           />
 
           {/* Password - Container */}
-          <div className="xs:mt-5 md:m-0 md:grid">
+          <div className="xs:mt-5 md:m-0 grid">
             <label className="robotoSlab font-bold text-color_orange">
               Password
             </label>
             <input
               type="password"
               placeholder="********"
-              className="xs:w-[300px] md:w-[300px] md:h-[50px] text-center"
+              className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
             />
           </div>
 

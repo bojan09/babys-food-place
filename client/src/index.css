@@ -207,20 +207,10 @@ textarea {
     background-color: #fff;
     box-shadow: 0px 0px 100rem rgba(0, 0, 0, 0.75);
     border-radius: 0.4rem;
+    width: min(90vw, 130rem);
   }
 }
 
-@media screen and (min-width: 400px) {
-  .modal {
-    width: min(55vw, 150rem);
-  }
-}
-
-@media screen and (max-width: 399px) {
-  .modal {
-    width: min(85vw, 30rem);
-  }
-}
 
 /* Avoid text overflows */
 p,

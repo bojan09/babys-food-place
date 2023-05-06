@@ -5,7 +5,10 @@ const GuestMobileNavbar = ({ toggle, setToggle }) => {
   return (
     <div className="flex justify-center items-center flex-col">
       {/* Log in */}
-      <Link to="/login" onClick={() => setToggle(!toggle)}>
+      <Link
+        to="/login"
+        onClick={() => setToggle(!toggle) || window.scrollTo(0, 0)}
+      >
         <button className="mt-3  text-color_orange font-bold border-b-4 border-color_lightgray">
           LOG IN
         </button>

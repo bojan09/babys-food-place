@@ -33,14 +33,14 @@ const UserProfile = () => {
         {/* Form - Container */}
         <form className="md:flex xs:text-center xs:mt-5 md:m-0">
           {/* Name & LastName - Container */}
-          <div className="md:grid">
+          <div className="grid">
             <label className="robotoSlab font-bold text-color_orange">
               Name
             </label>
             <input
               type="text"
               placeholder="John"
-              className="xs:w-[300px] md:w-[300px] md:h-[50px] text-center"
+              className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
             />
 
             {/* LastName - Container */}
@@ -71,24 +71,24 @@ const UserProfile = () => {
           </div>
 
           {/* Email & Birthdate - Container */}
-          <div className="xs:mt-5 md:ml-[1rem] md:m-0 md:grid">
+          <div className="xs:mt-5 md:ml-[1rem] md:m-0 grid">
             <label className="robotoSlab font-bold text-color_orange">
               Email
             </label>
             <input
               type="email"
               placeholder="john@smith.com"
-              className="xs:w-[300px] md:w-[300px] md:h-[50px] text-center"
+              className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
             />
 
             {/* Birthdate - Container */}
-            <div className="xs:mt-5 md:m-0 md:grid">
+            <div className="xs:mt-5 md:m-0 grid">
               <label className="robotoSlab font-bold text-color_orange">
                 Birthdate
               </label>
               <input
                 type="date"
-                className="xs:w-[300px] md:w-[300px] md:h-[50px] md:text-left xs:text-center text-color_midgray"
+                className="xs:w-[300px] md:w-[300px] md:h-[50px] md:text-left mx-auto text-color_midgray"
               />
             </div>
 
@@ -109,14 +109,14 @@ const UserProfile = () => {
 
           {/* Password & Repeat Password - Container */}
           {isMobile && (
-            <div className="xs:mt-5 md:m-0 md:grid">
+            <div className="xs:mt-5 md:m-0 grid">
               <label className="robotoSlab font-bold text-color_orange">
                 Password
               </label>
               <input
                 type="password"
                 placeholder="********"
-                className="xs:w-[300px] md:w-[300px] md:h-[50px] text-center"
+                className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
               />
 
               {/* Repeat Password  - Container */}
