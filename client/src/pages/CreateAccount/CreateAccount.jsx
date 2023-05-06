@@ -9,7 +9,7 @@ const CreateAccount = () => {
   return (
     <div>
       {/* Create Account Heading - Container */}
-      <h1 className="textMainHead md:after:w-[59.5vw] xs:after:w-[42vw] xs:my-4  xs:text-[28px] sm:text-[36px] text-center">
+      <h1 className="textMainHead md:after:w-[59.5vw] xs:after:w-[35vw] xs:my-4  xs:text-[28px] sm:text-[36px] text-center">
         Create Account
       </h1>
 
@@ -46,7 +46,7 @@ const CreateAccount = () => {
             />
 
             {/* LastName - Container */}
-            <div className="xs:mt-5 md:m-0 text-center md:grid">
+            <div className="xs:mt-5 md:m-0 text-center grid">
               <label className="robotoSlab font-bold text-color_orange">
                 LastName
               </label>
