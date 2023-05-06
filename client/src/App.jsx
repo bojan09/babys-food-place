@@ -9,6 +9,7 @@ import {
   CreateRecipes,
   UpdateRecipes,
   MyRecipes,
+  RecipePage,
 } from "./pages";
 
 // meal categories
@@ -29,6 +30,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/recipe/:id" element={<RecipePage />} />
           <Route path="/breakfast" element={<BreakfastRecipes />} />
           <Route path="/brunch" element={<BrunchRecipes />} />
           <Route path="/lunch" element={<LunchRecipes />} />

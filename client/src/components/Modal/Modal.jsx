@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Link } from "react-router-dom";
+
 // assets
 import { plateIcon, starIcon, timeIcon, closeIcon, meal_1 } from "../../assets";
 
@@ -9,14 +11,17 @@ const Modal = ({ open, onClose }) => {
 
   return (
     <div onClick={onClose} className="modal-overlay">
-      <div className="modal">
+      <div className="modal md:w-[70vw]">
+        {/* Recipe Heading */}
         <div className="flex justify-between items-center py-3 px-3 md:px-5">
-          <h1 className="textSubHead xs:text-[18px] sm:text-[32px] robotoSlab ">
-            Recipe Title
-          </h1>
+          <Link to="/recipe/:id">
+            <h1 className="textSubHead xs:text-[18px] sm:text-[32px] robotoSlab ">
+              Recipe Title
+            </h1>
+          </Link>
+
           <button onClick={() => setOpenModal(false)}>
             <Modal open={openModal} onClose={() => setOpenModal(false)} />
-
             <img className="w-[30px] " src={closeIcon} alt="close" />
           </button>
         </div>

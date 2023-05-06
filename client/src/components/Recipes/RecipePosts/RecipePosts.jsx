@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Link } from "react-router-dom";
+
 // components
 import Modal from "../../Modal/Modal";
 
@@ -21,7 +23,7 @@ const RecipePosts = () => {
         <img
           src={meal_1}
           alt="recipe-1"
-          className="w-full h-[234px] rounded-t-md cursor-pointer recipe_img"
+          className="w-[90vw] h-[260px] rounded-t-md cursor-pointer recipe_img"
           onClick={() => setOpenModal(true)}
         />
         <span className="absolute top-3 left-2 rounded-[15px] bg-color_green text-white font-bold robotoSlab px-3 py-1 capitalize">
@@ -33,9 +35,12 @@ const RecipePosts = () => {
       </div>
 
       {/* Recipe Name and Short Description Container */}
-      <h2 className="py-3 px-5 textSubHead text-[20px] robotoSlab">
-        Recipe name
-      </h2>
+      <Link to="/recipe/:id">
+        <h2 className="py-3 px-5 textSubHead text-[20px] robotoSlab">
+          Recipe name
+        </h2>
+      </Link>
+
       <p className="py-3 px-5 text-color_midgray ">
         It is a long established fact that a reader will be distracted by the
         readable content of a page when looking at its layout. The point of

@@ -1,4 +1,5 @@
 export { default as Home } from "./Home/Home";
+export { default as RecipePage } from "./RecipePage/RecipePage";
 export { default as CreateAccount } from "./CreateAccount/CreateAccount";
 export { default as CreateRecipes } from "./CreateRecipes/CreateRecipes";
 export { default as UpdateRecipes } from "./UpdateRecipes/UpdateRecipes";
