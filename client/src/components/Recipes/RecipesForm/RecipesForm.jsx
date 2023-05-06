@@ -34,22 +34,22 @@ const RecipesForm = () => {
         {/* Recipe Title,Category, PrepTime, No.People, Short Desc - Container */}
         <div>
           {/* Recipe Title - Container */}
-          <div className="md:flex flex-col justify-center xs:mt-4 md:mt-0">
+          <div className="md:flex flex-col justify-center xs:mt-4 md:mt-0 md:ml-1">
             <label className="robotoSlab font-bold text-color_orange">
               Recipe Title
             </label>
             <input
               type="text"
               placeholder="Homemade Pizza"
-              className="xs:w-[300px] md:w-[580px] text-center"
+              className="xs:w-[300px] md:w-[580px]"
             />
           </div>
 
           {/* Category, PrepTime, No.People - Container */}
-          <div className="xs:mt-5 md:mt-0 md:flex justify-center items-center">
+          <div className="xs:mt-5 md:mt-0 md:flex justify-center items-center gap-5">
             {/* Category - Container */}
             <div className="grid justify-center">
-              <label className="robotoSlab font-bold text-color_orange md:mt-[.5rem]">
+              <label className="robotoSlab font-bold text-color_orange md:mt-[.5rem] ml-2">
                 Category
               </label>
               <select
@@ -68,7 +68,7 @@ const RecipesForm = () => {
             </div>
 
             {/* Preperation Time - Container */}
-            <div className="md:grid">
+            <div className="grid">
               <label className="robotoSlab font-bold text-color_orange">
                 Preparation Time
               </label>
@@ -77,12 +77,12 @@ const RecipesForm = () => {
                 placeholder="45"
                 min="1"
                 max="150"
-                className="xs:w-[55px] md:w-[165px] text-center xs:mt-4 xs:mb-4 md:mt-1 md:mb-0"
+                className="xs:w-[55px] md:w-[165px] mx-auto xs:mt-4 xs:mb-4 md:mt-1 md:mb-0"
               />
             </div>
 
             {/* No.People - Container */}
-            <div className="md:grid">
+            <div className="grid">
               <label className="robotoSlab font-bold text-color_orange">
                 No.People
               </label>
@@ -92,7 +92,7 @@ const RecipesForm = () => {
                 name="persons"
                 min="1"
                 max="15"
-                className="xs:w-[45px] md:w-[165px] xs:my-2 xs:mb-8 md:my-0 md:mb-0 md:mt-1 text-center"
+                className="xs:w-[45px] md:w-[165px] xs:my-2 xs:mb-8 md:my-0 md:mb-0 md:mt-1 mx-auto"
               />
             </div>
           </div>
@@ -104,7 +104,7 @@ const RecipesForm = () => {
               Short Description
             </label>
             <textarea
-              className="xs:w-[320px] md:w-[580px] xs:h-[220px] md:h-[180px]"
+              className="xs:w-[320px] md:w-[590px] xs:h-[220px] md:h-[180px]"
               placeholder="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage"
             ></textarea>
 
@@ -118,12 +118,12 @@ const RecipesForm = () => {
         </div>
 
         {/* Recipe Description - Container */}
-        <div className="xs:mt-3 md:mt-0">
+        <div className="xs:mt-3 md:mt-0 grid">
           <label className="robotoSlab font-bold text-color_orange md:flex">
             Recipe
           </label>
           <textarea
-            className="xs:w-[320px] md:w-[450px] xs:h-[490px] md:h-[350px]"
+            className="xs:w-[320px] md:w-[460px] xs:h-[490px] md:h-[360px] xs:mx-auto md:mt-[-4.4rem]"
             placeholder="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures."
           ></textarea>
 

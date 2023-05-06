@@ -12,6 +12,7 @@ const UserProfile = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
+      {/* My Profile Heading - Container */}
       <h1 className="textMainHead md:after:w-[63vw] xs:after:w-[42vw] xs:my-4  xs:text-[28px] sm:text-[36px] text-center">
         My Profile
       </h1>
@@ -44,14 +45,14 @@ const UserProfile = () => {
             />
 
             {/* LastName - Container */}
-            <div className="xs:mt-5 md:m-0 text-center md:grid">
+            <div className="xs:mt-5 md:m-0 text-center grid">
               <label className="robotoSlab font-bold text-color_orange">
                 LastName
               </label>
               <input
                 type="text"
                 placeholder="Smith"
-                className="xs:w-[300px] md:w-[300px] md:h-[50px] text-center"
+                className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
               />
             </div>
 
@@ -64,8 +65,12 @@ const UserProfile = () => {
                 <input
                   type="password"
                   placeholder="********"
-                  className="xs:w-[300px] md:w-[300px] md:h-[50px] text-center"
+                  className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
                 />
+
+                <button className="md:ml-2 md:mt-[4rem] xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4">
+                  save
+                </button>
               </div>
             )}
           </div>
@@ -92,7 +97,7 @@ const UserProfile = () => {
               />
             </div>
 
-            {/* Password  - Container */}
+            {/* Repeat Password  - Container */}
             {isDesktopOrLaptop && (
               <div className="xs:mt-5 md:m-0 md:grid">
                 <label className="robotoSlab font-bold text-color_orange">
@@ -101,7 +106,7 @@ const UserProfile = () => {
                 <input
                   type="password"
                   placeholder="********"
-                  className="xs:w-[300px] md:w-[300px] md:h-[50px] text-center"
+                  className="md:mb-[8.45rem] xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
                 />
               </div>
             )}
@@ -127,7 +132,7 @@ const UserProfile = () => {
                 <input
                   type="password"
                   placeholder="********"
-                  className="xs:w-[300px] md:w-[300px] md:h-[50px] text-center"
+                  className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
                 />
               </div>
             </div>
