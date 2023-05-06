@@ -128,9 +128,7 @@ const RecipePage = () => {
           itemClass="carousel-item-padding-40-px"
           responsive={responsive}
         >
-          <div className="grid justify-center items-center gap-[2rem]">
-            <RecipePosts />
-            <RecipePosts />
+          <div className="grid justify-center items-center">
             <RecipePosts />
           </div>
         </Carousel>
