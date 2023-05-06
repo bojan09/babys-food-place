@@ -13,7 +13,7 @@ const Login = () => {
       </div>
 
       {/*  Container */}
-      <div className="md:flex mx-auto md:w-[75%] md:mt-[3rem] mb-[10%]">
+      <div className="md:flex mx-auto md:w-[70%] md:mt-[3rem] mb-[10%]">
         {/* Secondary Heading & Paragraph - Container */}
         <div className="xs:mx-4 xs:my-4 md:m-0 robotoSlab md:w-[50%]">
           <h1 className="md:text-[46px] xs:text-[36px]  font-bold my-4 text-color_darkgray">
