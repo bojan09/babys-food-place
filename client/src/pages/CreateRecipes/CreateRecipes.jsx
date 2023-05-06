@@ -15,7 +15,7 @@ const CreateRecipes = () => {
 
       {/* Heading & Add Recipe - Container */}
       <div className="flex justify-center items-center md:mb-4">
-        <h1 className="textMainHead md:after:w-[58vw] xs:after:w-[35vw] xs:my-4 xs:text-[28px] sm:text-[36px] text-center">
+        <h1 className="textMainHead md:after:w-[60vw] xs:after:w-[35vw] xs:my-4 xs:text-[28px] sm:text-[36px] text-center">
           My Recipes
         </h1>
 

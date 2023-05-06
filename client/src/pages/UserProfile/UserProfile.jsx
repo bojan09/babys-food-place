@@ -12,12 +12,12 @@ const UserProfile = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="textMainHead md:after:w-[65vw] xs:after:w-[42vw] xs:my-4  xs:text-[28px] sm:text-[36px] text-center">
+      <h1 className="textMainHead md:after:w-[63vw] xs:after:w-[42vw] xs:my-4  xs:text-[28px] sm:text-[36px] text-center">
         My Profile
       </h1>
 
       {/* Container */}
-      <div className="md:flex gap-[5rem] md:mr-[28rem] md:mb-[6.5%]">
+      <div className="md:flex gap-[5rem] md:mr-[24rem] md:mt-7 md:mb-[6.5%]">
         {/* Avatar & Upload Button - Container */}
         <div className="xs:text-center">
           <img

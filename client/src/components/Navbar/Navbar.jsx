@@ -20,7 +20,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="flex md:justify-evenly items-center w-full sm:pt-[50px] xs:py-[30px] sticky top-0 left-0 bg-primary z-10 sm:mb-12">
+    <div className="flex md:justify-between items-center xs:w-full md:w-[74%] mx-auto sm:pt-[50px] xs:py-[30px] sticky top-0 left-0 bg-primary z-10 sm:mb-12">
       {/* Logo */}
       <Link
         to="/"
@@ -34,7 +34,7 @@ const Navbar = () => {
         <img
           src={logoColor}
           alt="logo"
-          className="xs:w-[125px] md:w-[175px] ml-8 "
+          className="xs:w-[125px] md:w-[175px] xs:ml-8 md:m-0 "
         />
       </Link>
 
@@ -88,12 +88,11 @@ const Navbar = () => {
               </li>
             ))}
 
-            {/* ----- Guest Mobile Navbar ----- 
-           <GuestMobileNavbar toggle={toggle} setToggle={setToggle} />
-            */}
+            {/* ----- Guest Mobile Navbar ----- */}
+            <GuestMobileNavbar toggle={toggle} setToggle={setToggle} />
 
             {/* ----- User Mobile Navbar ----- */}
-            <UserMobileNavbar toggle={toggle} setToggle={setToggle} />
+            {/*   <UserMobileNavbar toggle={toggle} setToggle={setToggle} /> */}
           </ul>
         </div>
       </div>
@@ -102,12 +101,10 @@ const Navbar = () => {
       {/* User Navbar or Guest Navbar on Desktop, based on login */}
       {/* -------------------------------------------------------*/}
       <div className="xs:hidden md:flex ">
-        {/* ----- Guest Navbar -----         
+        {/*  ----- Guest Navbar -----*/}
         <GuestNavbar />
-        */}
-
         {/* ----- User Navbar ----- */}
-        <UserNavbar />
+        {/* <UserNavbar />   */}
       </div>
     </div>
   );

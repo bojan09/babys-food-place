@@ -6,8 +6,8 @@ const Login = () => {
   return (
     <div>
       {/* Login Heading - Container */}
-      <div>
-        <h1 className="textMainHead md:after:w-[69vw] xs:after:w-[62vw] xs:text-[28px] sm:text-[36px] sm:mt-[4rem] xs:mt-[4rem] text-center">
+      <div className="xs:mt-[-2rem] md:m-0">
+        <h1 className="textMainHead md:after:w-[67vw] xs:after:w-[62vw] xs:text-[28px] sm:text-[36px] sm:mt-[4rem] xs:mt-[4rem] text-center">
           Log in
         </h1>
       </div>
@@ -56,11 +56,8 @@ const Login = () => {
           </div>
 
           {/* Login Button - Container */}
-          <Link
-            to="/user-profile"
-            className="xs:mt-10 md:mt-5 md:ml-3 md:text-start"
-          >
-            <button className=" xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] ">
+          <Link to="/user-profile" className="md:ml-3 md:text-start">
+            <button className="xs:mt-10 md:mt-5  xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] ">
               log in
             </button>
           </Link>
