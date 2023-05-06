@@ -89,11 +89,11 @@ const Navbar = () => {
             ))}
 
             {/* ----- Guest Mobile Navbar ----- 
-           <GuestMobileNavbar />
+           <GuestMobileNavbar toggle={toggle} setToggle={setToggle} />
             */}
 
             {/* ----- User Mobile Navbar ----- */}
-            <UserMobileNavbar />
+            <UserMobileNavbar toggle={toggle} setToggle={setToggle} />
           </ul>
         </div>
       </div>

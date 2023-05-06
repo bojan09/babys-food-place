@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 // jsx code based on media query
 import { useMediaQuery } from "react-responsive";
 
@@ -124,12 +126,14 @@ const RecipesForm = () => {
             className="xs:w-[320px] md:w-[450px] xs:h-[490px] md:h-[350px]"
             placeholder="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures."
           ></textarea>
-          {/* Save Recipe - Button */}
 
+          {/* Save Recipe - Button */}
           {isMobile && (
-            <button className="xs:w-[310px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4">
-              save
-            </button>
+            <Link to="/my-recipes">
+              <button className="xs:w-[310px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4">
+                save
+              </button>
+            </Link>
           )}
         </div>
       </form>

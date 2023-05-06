@@ -7,7 +7,7 @@ const LunchRecipes = () => {
   return (
     <div className="flex justify-center items-center flex-col gap-10">
       {/* Fresh & New Recipes - Container */}
-      <h1 className="textMainHead xs:text-[28px] sm:text-[36px] text-center after:w-[61.5vw]">
+      <h1 className="textMainHead xs:text-[28px] sm:text-[36px] text-center md:after:w-[61.5vw] xs:after:w-[58vw]">
         Lunch
       </h1>
       <div className=" flex justify-center items-center flex-wrap gap-12">
