@@ -2,6 +2,9 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+// RoutePath
+import { createRecipe } from "../../constants";
+
 // components
 import { UserRecipes } from "../../components/Recipes";
 
@@ -20,7 +23,7 @@ const MyRecipes = () => {
         </h1>
 
         {/* Add Recipe - Button Container */}
-        <Link to="/create-recipes">
+        <Link to={createRecipe}>
           <img
             src={plusIcon}
             alt="plus_icon"

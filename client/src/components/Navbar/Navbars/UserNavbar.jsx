@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// RoutePath
+import { logout, myRecipes, userProfile } from "../../../constants";
+
 const UserNavbar = () => {
   return (
     <div className="uppercase">
       <ul className="flex items-center gap-4">
         <li>
           <Link
-            to="/my-recipes"
+            to={myRecipes}
             className="border-bottom pb-0.2 font-bold text-color_green"
           >
             my recipes
@@ -16,7 +19,7 @@ const UserNavbar = () => {
         <span className="black_dot md:hidden lg:inline-block"></span>
         <li>
           <Link
-            to="/user-profile"
+            to={userProfile}
             className="border-bottom pb-0.2 font-bold text-color_orange"
           >
             my profile
@@ -25,7 +28,7 @@ const UserNavbar = () => {
         <span className="black_dot md:hidden lg:inline-block"></span>
         <li>
           <Link
-            to="/logout"
+            to={logout}
             className="border-bottom pb-0.2 font-bold text-color_midgray"
           >
             log out

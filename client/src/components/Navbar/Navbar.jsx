@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-// constants
-import { navLinks } from "../../constants";
+// constants - naVLinks & RoutePath
+import { navLinks, mainPath } from "../../constants";
 
 // components
 import {
@@ -23,7 +23,7 @@ const Navbar = () => {
     <div className="flex md:justify-around items-center w-full mx-auto sm:pt-[50px] xs:py-[30px] sticky top-0 left-0 bg-primary z-10 sm:mb-8">
       {/* Logo */}
       <Link
-        to="/"
+        to={mainPath}
         onClick={() => {
           setActive("");
           {

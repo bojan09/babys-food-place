@@ -2,6 +2,9 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+// RoutePath
+import { myRecipes } from "../../../constants";
+
 // jsx code based on media query
 import { useMediaQuery } from "react-responsive";
 
@@ -129,7 +132,7 @@ const RecipesForm = () => {
 
           {/* Save Recipe - Button */}
           {isMobile && (
-            <Link to="/my-recipes">
+            <Link to={myRecipes}>
               <button className="xs:w-[310px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4">
                 save
               </button>

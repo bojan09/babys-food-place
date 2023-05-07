@@ -2,13 +2,16 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+// RoutePath
+import { updateRecipe } from "../../../constants";
+
 // assets
 import { trashIcon } from "../../../assets";
 
 const UserRecipes = () => {
   return (
     <div className=" md:w-[70vw] md:gap-[8rem] h-full mx-auto mt-4 py-4 xs:px-3 md:px-0 rounded-md flex justify-center items-center  bg-white xs:w-[90vw] xs:gap-5 xs:text-[14px]">
-      <Link to={"/update-recipe"}>
+      <Link to={updateRecipe}>
         {/* Recipe Title */}
         <h3 className="text-color_midgray font-bold md:text-[18px]">
           Homemade Pizza

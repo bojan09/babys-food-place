@@ -2,6 +2,9 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+// RoutePath
+import { myRecipes } from "../../constants";
+
 // assets
 import { arrowBackIcon } from "../../assets";
 
@@ -20,7 +23,7 @@ const CreateRecipes = () => {
         </h1>
 
         {/* Add Recipe - Button Container */}
-        <Link to="/my-recipes">
+        <Link to={myRecipes}>
           <img
             src={arrowBackIcon}
             alt="plus_icon"

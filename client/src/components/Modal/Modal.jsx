@@ -2,6 +2,9 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
+// RoutePath
+import { recipeId } from "../../constants";
+
 // assets
 import { plateIcon, starIcon, timeIcon, closeIcon, meal_1 } from "../../assets";
 
@@ -14,7 +17,7 @@ const Modal = ({ open, onClose }) => {
       <div className="modal md:w-[70vw]">
         {/* Recipe Heading */}
         <div className="flex justify-between items-center py-3 px-3 md:px-5">
-          <Link to="/recipe/:id">
+          <Link to={recipeId}>
             <h1 className="textSubHead xs:text-[18px] sm:text-[32px] robotoSlab ">
               Recipe Title
             </h1>

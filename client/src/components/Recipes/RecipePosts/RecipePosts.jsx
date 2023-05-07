@@ -2,6 +2,9 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
+// RoutePath
+import { recipeId } from "../../../constants";
+
 // components
 import Modal from "../../Modal/Modal";
 
@@ -35,7 +38,7 @@ const RecipePosts = () => {
       </div>
 
       {/* Recipe Name and Short Description Container */}
-      <Link to="/recipe/:id">
+      <Link to={recipeId}>
         <h2 className="py-3 px-5 textSubHead text-[20px] robotoSlab">
           Recipe name
         </h2>

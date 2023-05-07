@@ -2,6 +2,9 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+// RoutePath
+import { userProfile } from "../../constants";
+
 const Login = () => {
   return (
     <div>
@@ -56,7 +59,7 @@ const Login = () => {
           </div>
 
           {/* Login Button - Container */}
-          <Link to="/user-profile" className="md:ml-3 md:text-start">
+          <Link to={userProfile} className="md:ml-3 md:text-start">
             <button className="xs:mt-10 md:mt-5  xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] ">
               log in
             </button>

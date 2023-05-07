@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+// RoutePath
+import { logout, myRecipes, userProfile } from "../../../constants";
+
 const UserMobileNavbar = ({ toggle, setToggle }) => {
   return (
     <div className="uppercase">
@@ -8,7 +11,7 @@ const UserMobileNavbar = ({ toggle, setToggle }) => {
         <li className="mb-2 mt-4">
           <Link
             onClick={() => setToggle(!toggle) || window.scrollTo(0, 0)}
-            to="/my-recipes"
+            to={myRecipes}
             className="border-bottom pb-0.4 font-bold text-color_green"
           >
             my recipes
@@ -18,7 +21,7 @@ const UserMobileNavbar = ({ toggle, setToggle }) => {
         <li className="mb-2">
           <Link
             onClick={() => setToggle(!toggle)}
-            to="/user-profile"
+            to={userProfile}
             className="border-bottom pb-0.4 font-bold text-color_orange"
           >
             my profile
@@ -28,7 +31,7 @@ const UserMobileNavbar = ({ toggle, setToggle }) => {
         <li className="mb-2">
           <Link
             onClick={() => setToggle(!toggle)}
-            to="/logout"
+            to={logout}
             className="border-bottom pb-0.4 font-bold text-color_midgray"
           >
             log out

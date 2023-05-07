@@ -23,25 +23,42 @@ import {
 // components
 import { Navbar, Footer } from "./components";
 
+// route paths
+import {
+  mainPath,
+  recipeId,
+  createRecipe,
+  updateRecipe,
+  myRecipes,
+  breakfast,
+  brunch,
+  lunch,
+  dinner,
+  login,
+  logout,
+  userProfile,
+  createAccount,
+} from "./constants";
+
 const App = () => {
   return (
     <div>
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/recipe/:id" element={<RecipePage />} />
-          <Route path="/breakfast" element={<BreakfastRecipes />} />
-          <Route path="/brunch" element={<BrunchRecipes />} />
-          <Route path="/lunch" element={<LunchRecipes />} />
-          <Route path="/dinner" element={<DinnerRecipes />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Login />} />
-          <Route path="/user-profile" element={<UserProfile />} />
-          <Route path="/create-account" element={<CreateAccount />} />
-          <Route path="/create-recipes" element={<CreateRecipes />} />
-          <Route path="/my-recipes" element={<MyRecipes />} />
-          <Route path="/update-recipe/:id" element={<UpdateRecipes />} />
+          <Route path={mainPath} element={<Home />} />
+          <Route path={recipeId} element={<RecipePage />} />
+          <Route path={createRecipe} element={<CreateRecipes />} />
+          <Route path={myRecipes} element={<MyRecipes />} />
+          <Route path={updateRecipe} element={<UpdateRecipes />} />
+          <Route path={breakfast} element={<BreakfastRecipes />} />
+          <Route path={brunch} element={<BrunchRecipes />} />
+          <Route path={lunch} element={<LunchRecipes />} />
+          <Route path={dinner} element={<DinnerRecipes />} />
+          <Route path={login} element={<Login />} />
+          <Route path={logout} element={<Login />} />
+          <Route path={userProfile} element={<UserProfile />} />
+          <Route path={createAccount} element={<CreateAccount />} />
         </Routes>
         <Footer />
       </BrowserRouter>

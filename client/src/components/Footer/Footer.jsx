@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-// constants
-import { navLinks } from "../../constants";
+// constants - naVLinks & RoutePath
+import { navLinks, mainPath } from "../../constants";
 
 // assets
 import { logoWhite } from "../../assets";
@@ -13,7 +13,7 @@ const Footer = () => {
     <div className="bg-color_darkgray w-full flex justify-evenly items-center xs:h-[120px] md:h-[180px] sm:mt-[6rem] xs:mt-[4rem]">
       {/* Logo */}
       <Link
-        to="/"
+        to={mainPath}
         onClick={() => {
           setActive("");
           {
