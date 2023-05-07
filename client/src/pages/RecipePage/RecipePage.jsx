@@ -1,4 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+// RoutePath
+import { updateRecipe } from "../../constants";
 
 // jsx code based on media query
 import { useMediaQuery } from "react-responsive";
@@ -82,10 +86,24 @@ const RecipePage = () => {
             autem laborum inventore beatae ea, neque non maiores corrupti atque
             consectetur porro? Facilis.
           </p>
+
+          {/*----------- Add ternary here, only if user is logged in this will show, otherwise hidden -----------*/}
           {/* Recipe Made By - Container */}
           <p className="robotoSlab text-color_orange font-bold mb-4 ml-4">
             Recipe Made By: John Smith
           </p>
+
+          {/* Edit Recipe - Container */}
+          <div className="xs:flex md:block flex-col justify-center items-center md:mt-[3rem] md:ml-4">
+            <p className="robotoSlab text-color_orange font-bold">
+              Hi John. Does the recipe need any changes?
+            </p>
+            <Link to={updateRecipe}>
+              <button className="xs:mt-10 md:mt-5 xs:w-[175px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] ">
+                Edit Recipe
+              </button>
+            </Link>
+          </div>
         </div>
         {/* Recipe Picture - Container */}
         {isDesktopOrLaptop && (

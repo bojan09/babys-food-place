@@ -7,7 +7,6 @@ import {
   CreateAccount,
   UserProfile,
   CreateRecipes,
-  UpdateRecipes,
   MyRecipes,
   RecipePage,
 } from "./pages";
@@ -19,6 +18,8 @@ import {
   LunchRecipes,
   DinnerRecipes,
 } from "./pages/MealCategories";
+// UpdateRecipes
+import { RecipesForm } from "./components/Recipes";
 
 // components
 import { Navbar, Footer } from "./components";
@@ -50,7 +51,7 @@ const App = () => {
           <Route path={recipeId} element={<RecipePage />} />
           <Route path={createRecipe} element={<CreateRecipes />} />
           <Route path={myRecipes} element={<MyRecipes />} />
-          <Route path={updateRecipe} element={<UpdateRecipes />} />
+          <Route path={updateRecipe} element={<RecipesForm />} />
           <Route path={breakfast} element={<BreakfastRecipes />} />
           <Route path={brunch} element={<BrunchRecipes />} />
           <Route path={lunch} element={<LunchRecipes />} />
