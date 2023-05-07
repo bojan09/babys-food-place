@@ -110,13 +110,13 @@ const RecipePage = () => {
           <img
             src={meal_1}
             alt="meal_1"
-            className="md:w-[700px] rounded-lg mx-auto mt-[2rem]"
+            className="md:w-[700px] md:h-[500px] rounded-lg mx-auto mt-[2rem]"
           />
         )}
       </div>
 
       {/* !---------- Recipe Comments ----------! */}
-      <div className="flex justify-center items-center my-[3rem]">
+      <div className="flex justify-center items-center mb-[2rem] mt-[8rem]">
         <RecipeComments />
       </div>
 
