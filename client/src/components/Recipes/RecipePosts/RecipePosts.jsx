@@ -38,7 +38,7 @@ const RecipePosts = () => {
       </div>
 
       {/* Recipe Name and Short Description Container */}
-      <Link to={recipeId}>
+      <Link to={recipeId} onClick={window.scrollTo(0, 0)}>
         <h2 className="py-3 px-5 textSubHead text-[20px] robotoSlab">
           Recipe name
         </h2>

@@ -15,7 +15,7 @@ import "react-multi-carousel/lib/styles.css";
 import { meal_1 } from "../../assets";
 
 // components
-import { RecipePosts } from "../../components/Recipes";
+import { RecipePosts, RecipeComments } from "../../components/Recipes";
 
 const RecipePage = () => {
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1224px)" });
@@ -113,6 +113,11 @@ const RecipePage = () => {
             className="md:w-[700px] rounded-lg mx-auto mt-[2rem]"
           />
         )}
+      </div>
+
+      {/* !---------- Recipe Comments ----------! */}
+      <div className="flex justify-center items-center my-[3rem]">
+        <RecipeComments />
       </div>
 
       {/* You might also like - Container */}

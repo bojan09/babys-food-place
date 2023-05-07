@@ -14,10 +14,10 @@ const Modal = ({ open, onClose }) => {
 
   return (
     <div onClick={onClose} className="modal-overlay">
-      <div className="modal md:w-[70vw]">
+      <div className="modal md:w-[60vw]">
         {/* Recipe Heading */}
         <div className="flex justify-between items-center py-3 px-3 md:px-5">
-          <Link to={recipeId}>
+          <Link to={recipeId} onClick={window.scrollTo(0, 0)}>
             <h1 className="textSubHead xs:text-[18px] sm:text-[32px] robotoSlab ">
               Recipe Title
             </h1>
@@ -40,7 +40,7 @@ const Modal = ({ open, onClose }) => {
               <h2 className="text-color_green robotoSlab font-bold text-[18px] md:text-[22px]">
                 Best Served For
               </h2>
-              <span className="rounded-[15px] bg-color_green text-white font-bold robotoSlab px-3 py-1 capitalize md:text-[18px] ">
+              <span className="absolute top-[5.2rem] left-[1.6rem] rounded-[15px] bg-color_green text-white font-bold robotoSlab px-3 py-1 capitalize md:text-[18px] ">
                 category
               </span>
             </div>

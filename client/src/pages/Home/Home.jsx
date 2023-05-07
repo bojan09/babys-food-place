@@ -1,11 +1,14 @@
 import React from "react";
 
 // components
-import { RecipePosts } from "../../components/Recipes";
+import { RecipePosts, SearchRecipes } from "../../components/Recipes";
 
 const Home = () => {
   return (
     <div className="flex justify-center items-center flex-col gap-10">
+      {/* Search Recipes */}
+      <SearchRecipes />
+
       {/* Fresh & New Recipes - Container */}
       <h1 className="textMainHead md:after:w-[59vw] xs:text-[28px] sm:text-[36px] text-center">
         Fresh & New

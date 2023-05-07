@@ -16,6 +16,7 @@ import timeIcon from "./icon_time.svg";
 import trashIcon from "./icon_trashcan.svg";
 import menu from "./menu.svg";
 import close from "./close.svg";
+import searchIcon from "./search.svg";
 
 export {
   avatar_img,
@@ -34,4 +35,5 @@ export {
   trashIcon,
   menu,
   close,
+  searchIcon,
 };
