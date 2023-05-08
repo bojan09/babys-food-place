@@ -21,7 +21,7 @@ export const navLinks = [
 /*--------------*  Route paths *--------------*/
 export const mainPath = "/";
 // Recipe
-export const recipeId = "/recipe/;id";
+export const recipeId = "/recipe/:id";
 export const createRecipe = "/create-recipe";
 export const updateRecipe = "/update-recipe/:id";
 export const myRecipes = "/my-recipes";
