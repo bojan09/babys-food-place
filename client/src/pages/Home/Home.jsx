@@ -23,9 +23,17 @@ const Home = () => {
 
       {console.log(posts)}
       <div className=" flex justify-center items-center flex-wrap gap-12">
-        {posts.map(
-          (post, index) =>
-            index < 3 && <RecipePosts key={post._id} post={post} />
+        {!posts.length ? (
+          <Loader />
+        ) : (
+          <div className="flex justify-center items-center flex-wrap gap-12">
+            {posts
+              .sort((a, b) => a.starsCount - b.starsCount)
+              .map(
+                (post, index) =>
+                  index < 3 && <RecipePosts key={post._id} post={post} />
+              )}
+          </div>
         )}
       </div>
 
@@ -36,7 +44,14 @@ const Home = () => {
       {!posts.length ? (
         <Loader />
       ) : (
-        <div className="flex justify-center items-center flex-wrap gap-12"></div>
+        <div className="flex justify-center items-center flex-wrap gap-12">
+          {posts
+            .sort((a, b) => a.starsCount - b.starsCount)
+            .map(
+              (post, index) =>
+                index < 6 && <RecipePosts key={post._id} post={post} />
+            )}
+        </div>
       )}
     </div>
   );

@@ -175,14 +175,12 @@ const RecipesForm = () => {
 
             {/* Save Recipe - Button */}
             {isDesktopOrLaptop && (
-              <Link to={myRecipes}>
-                <button
-                  type="submit"
-                  className="w-[180px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4 md:ml-[.6rem]"
-                >
-                  save
-                </button>
-              </Link>
+              <button
+                type="submit"
+                className="w-[180px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4 md:ml-[.6rem]"
+              >
+                save
+              </button>
             )}
           </div>
         </div>

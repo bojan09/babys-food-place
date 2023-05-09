@@ -42,17 +42,21 @@ const RecipePosts = ({ post }) => {
       </div>
 
       {/* Recipe Name and Short Description Container */}
-      <Link to={recipeId} onClick={window.scrollTo(0, 0)}>
-        <h2 className="py-3 px-5 textSubHead text-[20px] robotoSlab">
-          {post.title}
-        </h2>
-      </Link>
+      <div className="h-[10rem] break-words mb-[3.5rem]">
+        <Link to={recipeId} onClick={window.scrollTo(0, 0)}>
+          <h2 className=" py-3 px-5 textSubHead text-[20px] robotoSlab ">
+            {post.title}
+          </h2>
+        </Link>
 
-      {/* Recipe - Short Description */}
-      <p className="py-3 px-5 text-color_midgray ">{post.shortDescription}</p>
+        {/* Recipe - Short Description */}
+        <p className="pt-3 px-5 text-color_midgray text-ellipsis overflow-hidden h-full">
+          {post.shortDescription}
+        </p>
+      </div>
 
       {/* Icons & ArrowRight Container */}
-      <div className="flex justify-between py-5 p-4 bg-inherit">
+      <div className="flex justify-between py-3 p-4 bg-inherit">
         {/* Icons Container */}
         <div className="flex justify-center items-center gap-2">
           <img src={timeIcon} alt="cooking-time" className="w-[16.3px]" />
