@@ -2,6 +2,9 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
+// redux
+import { useDispatch } from "react-redux";
+
 // RoutePath
 import { recipeId } from "../../../constants";
 
@@ -14,23 +17,24 @@ import {
   starIcon,
   timeIcon,
   arrowsRightIcon,
-  meal_1,
 } from "../../../assets";
 
-const RecipePosts = () => {
+const RecipePosts = ({ post }) => {
   const [openModal, setOpenModal] = useState(false);
+  const dispatch = useDispatch();
+
   return (
     <div className="xs:w-[330px] md:w-[400px] h-fit bg-white">
       {/* Recipe Picture - Container */}
       <div className="relative">
         <img
-          src={meal_1}
-          alt="recipe-1"
+          src={post.recipeImage}
+          alt={post.recipeImage}
           className="w-[90vw] h-[260px] rounded-t-md cursor-pointer recipe_img"
           onClick={() => setOpenModal(true)}
         />
         <span className="absolute top-3 left-2 rounded-[15px] bg-color_green text-white font-bold robotoSlab px-3 py-1 capitalize">
-          category
+          {post.category}
         </span>
 
         {/* Recipe Modal */}
@@ -40,17 +44,12 @@ const RecipePosts = () => {
       {/* Recipe Name and Short Description Container */}
       <Link to={recipeId} onClick={window.scrollTo(0, 0)}>
         <h2 className="py-3 px-5 textSubHead text-[20px] robotoSlab">
-          Recipe name
+          {post.title}
         </h2>
       </Link>
 
-      <p className="py-3 px-5 text-color_midgray ">
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters, as opposed to using ‘Content here, content here’, making it
-        look like readable English.
-      </p>
+      {/* Recipe - Short Description */}
+      <p className="py-3 px-5 text-color_midgray ">{post.shortDescription}</p>
 
       {/* Icons & ArrowRight Container */}
       <div className="flex justify-between py-5 p-4 bg-inherit">
@@ -58,15 +57,15 @@ const RecipePosts = () => {
         <div className="flex justify-center items-center gap-2">
           <img src={timeIcon} alt="cooking-time" className="w-[16.3px]" />
           <p className="text-[12px] text-color_darkgray robotoSlab font-bold">
-            45min
+            {post.preperationTime}
           </p>
           <img src={plateIcon} alt="plates" className="w-[16.3px]" />
           <p className="text-[12px] text-color_darkgray robotoSlab font-bold">
-            4 persons
+            {post.persons}
           </p>
           <img src={starIcon} alt="stars" className="w-[16.3px]" />
           <p className="text-[12px] text-color_darkgray robotoSlab font-bold">
-            2
+            {post.starsCount}
           </p>
         </div>
         {/* ArrowsRight Container */}

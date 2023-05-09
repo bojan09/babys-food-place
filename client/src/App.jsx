@@ -1,4 +1,13 @@
+import React, { useEffect } from "react";
+
+// react-router
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// redux
+import { useDispatch } from "react-redux";
+
+// actions
+import { getPosts } from "./actions/posts";
 
 // pages
 import {
@@ -42,6 +51,12 @@ import {
 } from "./constants";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
+
   return (
     <div>
       <BrowserRouter>

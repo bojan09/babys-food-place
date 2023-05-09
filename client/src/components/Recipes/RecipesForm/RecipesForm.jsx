@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
+
+// redux
+import { useDispatch } from "react-redux";
+
+// actions
+import { createPost } from "../../../actions/posts";
+
+// fileBase for img upload
+import FileBase from "react-file-base64";
 
 // RoutePath
 import { myRecipes } from "../../../constants";
@@ -9,29 +18,59 @@ import { myRecipes } from "../../../constants";
 import { useMediaQuery } from "react-responsive";
 
 // assets
-import { meal_1 } from "../../../assets";
+import { blankImage } from "../../../assets";
 
 const RecipesForm = () => {
+  const dispatch = useDispatch();
+
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1224px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1000px)" });
+
+  const [postData, setPostData] = useState({
+    title: "",
+    category: "",
+    shortDescription: "",
+    recipeDescription: "",
+    preperationTime: "",
+    persons: "",
+    starsCount: "",
+    recipeImage: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(createPost(postData));
+  };
 
   return (
     <div>
       {/* Recipes Form */}
-      <form className="md:flex gap-6 justify-center xs:text-center md:w-[70vw] mx-auto">
+      <form
+        onSubmit={handleSubmit}
+        className="md:flex gap-6 justify-center xs:text-center md:w-[70vw] mx-auto mb-[6%]"
+      >
         {/* Image & Upload Button - Container */}
         <div className="xs:mt-5 md:mt-0">
           <label className="robotoSlab font-bold text-color_orange md:flex md:ml-[2px]">
             Recipe Image
           </label>
           <img
-            src={meal_1}
-            alt="meal-1"
-            className="xs:w-[310px] md:w-[280px] h-fit mx-auto rounded-md my-3"
+            src={postData.recipeImage ? postData.recipeImage : blankImage}
+            alt={postData.recipeImage}
+            className="xs:w-[310px] md:w-[280px] h-[230px] mx-auto rounded-md my-3"
           />
-          <button className="line-border text-color_midgray rounded-lg xs:w-[300px] md:w-[270px] h-[45px] uppercase text-[18px] my-4">
-            Upload Image
-          </button>
+
+          <div className="input-file">
+            <FileBase
+              placeholder="Upload file"
+              type="file"
+              multiple={false}
+              onDone={({ base64 }) =>
+                setPostData({ ...postData, recipeImage: base64 })
+              }
+            />
+          </div>
         </div>
 
         {/* Recipe Title,Category, PrepTime, No.People, Short Desc - Container */}
@@ -45,6 +84,11 @@ const RecipesForm = () => {
               type="text"
               placeholder="Homemade Pizza"
               className="xs:w-[300px] md:w-[580px]"
+              name="title"
+              value={postData.title}
+              onChange={(e) =>
+                setPostData({ ...postData, title: e.target.value })
+              }
             />
           </div>
 
@@ -56,7 +100,11 @@ const RecipesForm = () => {
                 Category
               </label>
               <select
-                name="recipeCategory"
+                name="category"
+                value={postData.category}
+                onChange={(e) =>
+                  setPostData({ ...postData, category: e.target.value })
+                }
                 placeholder="Breakfast"
                 className="xs:w-[300px] md:w-[200px] text-center mt-2"
               >
@@ -80,6 +128,11 @@ const RecipesForm = () => {
                 placeholder="45"
                 min="1"
                 max="150"
+                name="preperationTime"
+                value={postData.preperationTime}
+                onChange={(e) =>
+                  setPostData({ ...postData, preperationTime: e.target.value })
+                }
                 className="xs:w-[55px] md:w-[165px] mx-auto xs:mt-4 xs:mb-4 md:mt-1 md:mb-0"
               />
             </div>
@@ -93,6 +146,10 @@ const RecipesForm = () => {
                 type="number"
                 placeholder="4"
                 name="persons"
+                value={postData.persons}
+                onChange={(e) =>
+                  setPostData({ ...postData, persons: e.target.value })
+                }
                 min="1"
                 max="15"
                 className="xs:w-[45px] md:w-[165px] xs:my-2 xs:mb-8 md:my-0 md:mb-0 md:mt-1 mx-auto"
@@ -107,15 +164,25 @@ const RecipesForm = () => {
               Short Description
             </label>
             <textarea
+              name="shortDescription"
+              value={postData.shortDescription}
+              onChange={(e) =>
+                setPostData({ ...postData, shortDescription: e.target.value })
+              }
               className="xs:w-[320px] md:w-[590px] xs:h-[220px] md:h-[180px]"
               placeholder="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage"
             ></textarea>
 
             {/* Save Recipe - Button */}
             {isDesktopOrLaptop && (
-              <button className="w-[180px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4 md:ml-[.6rem]">
-                save
-              </button>
+              <Link to={myRecipes}>
+                <button
+                  type="submit"
+                  className="w-[180px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4 md:ml-[.6rem]"
+                >
+                  save
+                </button>
+              </Link>
             )}
           </div>
         </div>
@@ -126,6 +193,11 @@ const RecipesForm = () => {
             Recipe
           </label>
           <textarea
+            name="recipeDescription"
+            value={postData.recipeDescription}
+            onChange={(e) =>
+              setPostData({ ...postData, recipeDescription: e.target.value })
+            }
             className="xs:w-[320px] md:w-[460px] xs:h-[490px] md:h-[360px] xs:mx-auto md:mt-[-4.4rem]"
             placeholder="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures."
           ></textarea>
@@ -133,7 +205,10 @@ const RecipesForm = () => {
           {/* Save Recipe - Button */}
           {isMobile && (
             <Link to={myRecipes}>
-              <button className="xs:w-[310px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4">
+              <button
+                type="submit"
+                className="xs:w-[310px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4"
+              >
                 save
               </button>
             </Link>

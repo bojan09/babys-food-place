@@ -17,6 +17,7 @@ import trashIcon from "./icon_trashcan.svg";
 import menu from "./menu.svg";
 import close from "./close.svg";
 import searchIcon from "./search.svg";
+import blankImage from "./blank_image.png";
 
 export {
   avatar_img,
@@ -36,4 +37,5 @@ export {
   menu,
   close,
   searchIcon,
+  blankImage,
 };

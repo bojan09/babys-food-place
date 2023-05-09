@@ -2,6 +2,9 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+// moment - date library
+import moment from "moment";
+
 // RoutePath
 import { updateRecipe } from "../../../constants";
 
@@ -24,7 +27,9 @@ const UserRecipes = () => {
       </h3>
 
       {/* Date Created */}
-      <h3 className="text-color_midgray md:text-[18px]">23.04.2023</h3>
+      <h3 className="text-color_midgray md:text-[18px]">
+        {moment(post.createdOn).fromNow()}
+      </h3>
 
       {/* Delete Button */}
       <button className="xs:my-1 xs:w-[20px] md:w-[25px] md:ml-[25vw]">

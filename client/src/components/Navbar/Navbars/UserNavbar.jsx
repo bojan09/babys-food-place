@@ -11,6 +11,7 @@ const UserNavbar = () => {
         <li>
           <Link
             to={myRecipes}
+            onClick={window.scrollTo(0, 0)}
             className="border-bottom pb-0.2 font-bold text-color_green"
           >
             my recipes
@@ -20,6 +21,7 @@ const UserNavbar = () => {
         <li>
           <Link
             to={userProfile}
+            onClick={window.scrollTo(0, 0)}
             className="border-bottom pb-0.2 font-bold text-color_orange"
           >
             my profile
@@ -29,6 +31,7 @@ const UserNavbar = () => {
         <li>
           <Link
             to={logout}
+            onClick={window.scrollTo(0, 0)}
             className="border-bottom pb-0.2 font-bold text-color_midgray"
           >
             log out

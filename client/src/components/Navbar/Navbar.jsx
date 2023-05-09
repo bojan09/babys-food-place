@@ -25,10 +25,7 @@ const Navbar = () => {
       <Link
         to={mainPath}
         onClick={() => {
-          setActive("");
-          {
-            window.scrollTo(0, 0);
-          }
+          setActive(""), window.scrollTo(0, 0);
         }}
       >
         <img
@@ -46,7 +43,7 @@ const Navbar = () => {
             className={
               "md:text-[14px] xl:text-[18px] text-color_midgray hover:text-color_darkgray font-medium cursor-pointer flex items-center"
             }
-            onClick={() => setActive(link.title)}
+            onClick={() => setActive(link.title) || window.scrollTo(0, 0)}
           >
             <span className="dot md:hidden lg:inline-block"></span>
             <Link className="mx-2" to={`/${link.id}`}>
@@ -91,11 +88,11 @@ const Navbar = () => {
               </li>
             ))}
 
-            {/* ----- Guest Mobile Navbar ----- */}
-            <GuestMobileNavbar toggle={toggle} setToggle={setToggle} />
+            {/* ----- Guest Mobile Navbar ----- 
+            <GuestMobileNavbar toggle={toggle} setToggle={setToggle} />*/}
 
             {/* ----- User Mobile Navbar ----- */}
-            {/*   <UserMobileNavbar toggle={toggle} setToggle={setToggle} /> */}
+            <UserMobileNavbar toggle={toggle} setToggle={setToggle} />
           </ul>
         </div>
       </div>
@@ -104,10 +101,10 @@ const Navbar = () => {
       {/* User Navbar or Guest Navbar on Desktop, based on login */}
       {/* -------------------------------------------------------*/}
       <div className="xs:hidden md:flex ">
-        {/*  ----- Guest Navbar -----*/}
-        <GuestNavbar />
+        {/*  ----- Guest Navbar -----
+        <GuestNavbar />*/}
         {/* ----- User Navbar ----- */}
-        {/* <UserNavbar />   */}
+        <UserNavbar />
       </div>
     </div>
   );

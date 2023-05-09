@@ -5,8 +5,6 @@ export const getPosts = async (req, res) => {
   try {
     const posts = await postModel.find();
 
-    console.log(posts);
-
     res.status(200).json(posts);
   } catch (error) {
     res.status(404).json({ message: message.error });
@@ -16,7 +14,7 @@ export const getPosts = async (req, res) => {
 // GetPosts
 export const createPost = async (req, res) => {
   const post = req.body;
-  const newPost = new PostModel(post);
+  const newPost = new postModel(post);
   try {
     await newPost.save();
 

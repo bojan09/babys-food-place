@@ -231,3 +231,33 @@ a {
   list-style: none;
   text-decoration: none;
 }
+
+
+/* React- FileBase64 Upload Button */
+.input-file input[type="file"],
+[role="button"] ::-webkit-file-upload-button {
+  border: 1px solid var(--clr-border-grey);
+  color: var(--clr-midgrey);
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: 500;
+  height: 45px;
+  cursor: pointer;
+  width: 270px;
+  margin: .5rem auto;
+}
+
+.input-file input[type="file"]::-webkit-file-upload-button {
+  display: none;
+}
+
+@media screen and (max-width: 540px) {
+
+  .input-file input[type="file"],
+  [role=button] ::-webkit-file-upload-button {
+    width: 300px;
+    margin: 1rem auto;
+
+  }
+}

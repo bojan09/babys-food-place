@@ -2,26 +2,21 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
-// import dotenv from "dotenv";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-console.log(process.env.DB_URI);
-
 // postRoutes
 import postRoutes from "./routes/posts.js";
-
+// import dotenv from "dotenv";
+import dotenv from "dotenv";
+dotenv.config();
 // initialize the app
 const app = express();
-
-// middleware
-app.use("/posts", postRoutes);
 
 // limit images to 30mb
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+
+// middleware
+app.use("/posts", postRoutes);
 
 // connect to database
 const PORT = process.env.PORT || 5000;
