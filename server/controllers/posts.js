@@ -9,11 +9,19 @@ export const getPosts = async (req, res) => {
 
     res.status(200).json(posts);
   } catch (error) {
-    return error;
+    res.status(404).json({ message: message.error });
   }
 };
 
 // GetPosts
-export const createPost = (req, res) => {
-  res.send("Hello World, create post");
+export const createPost = async (req, res) => {
+  const post = req.body;
+  const newPost = new PostModel(post);
+  try {
+    await newPost.save();
+
+    res.status(201).json(post);
+  } catch (error) {
+    res.status(409).json({ message: message.error });
+  }
 };
