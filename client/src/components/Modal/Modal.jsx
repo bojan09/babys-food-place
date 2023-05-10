@@ -8,7 +8,7 @@ import { recipeId } from "../../constants";
 // assets
 import { plateIcon, starIcon, timeIcon, closeIcon, meal_1 } from "../../assets";
 
-const Modal = ({ open, onClose }) => {
+const Modal = ({ open, onClose, post }) => {
   const [openModal, setOpenModal] = useState(false);
   if (!open) return null;
 
@@ -30,27 +30,32 @@ const Modal = ({ open, onClose }) => {
         </div>
         <div className="flex">
           {/*Left side*/}
+
+          {/* Image - Container*/}
           <div className="md:w-[40%]">
             <img
-              src={meal_1}
+              src={post.recipeImage}
               alt="meal"
-              className="xs:rounded-sm md:rounded-md md:w-[412px] md:pl-5"
+              className="xs:rounded-sm md:rounded-md md:w-[412px] h-[260px] md:pl-5"
             />
+
+            {/* Category - Container*/}
             <div className="flex justify-between py-3 px-3 md:pl-5">
               <h2 className="text-color_green robotoSlab font-bold text-[18px] md:text-[22px]">
                 Best Served For
               </h2>
+
               <span className="absolute top-[5.2rem] left-[1.6rem] rounded-[15px] bg-color_green text-white font-bold robotoSlab px-3 py-1 capitalize md:text-[18px] ">
-                category
+                {post.category}
               </span>
             </div>
+
+            {/* Short Description - Container*/}
             <p className="py-2 px-4 text-color_midgray md:px-5 md:text-[18px]">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using ‘Content here,
-              content here’, making it look like readable English.
+              {post.shortDescription}
             </p>
+
+            {/* PrepTime, Persons, Stars  - Container*/}
             <div className="flex gap-2 py-3 xs:px-10 md:px-5 md:pb-6">
               <img
                 className="cook-time"
@@ -58,31 +63,29 @@ const Modal = ({ open, onClose }) => {
                 alt="cooking time img"
               />
               <span className="text-[15px] md:text-[17px] text-color_darkgray robotoSlab font-bold">
-                32 min
+                {post.preperationTime}
               </span>
 
               <img className="persons" src={plateIcon} alt="how many persons" />
               <span className="text-[15px] md:text-[17px] text-color_darkgray robotoSlab font-bold">
-                4 persons
+                {post.persons}
               </span>
 
               <img className="stars" src={starIcon} alt="how many stars" />
               <span className="text-[15px] md:text-[17px] text-color_darkgray robotoSlab font-bold">
-                2
+                {post.starsCount}
               </span>
             </div>
           </div>
+
           {/*Right side*/}
           <div className="md:w-[60%]">
+            {/* Recipe Description - Container */}
             <h2 className="xs:hidden md:block text-color_green robotoSlab font-bold  text-[22px] ml-5">
               Recipe Details
             </h2>
             <p className="xs:hidden md:block px-5 py-3 text-color_darkgray">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using ‘Content here,
-              content here’, making it look like readable English.
+              {post.recipeDescription}
             </p>
           </div>
         </div>

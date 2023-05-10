@@ -9,7 +9,6 @@ import { Loader } from "../../components";
 
 const Home = () => {
   const posts = useSelector((state) => state.posts);
-  console.log(posts);
 
   return (
     <div className="flex justify-center items-center flex-col gap-10">

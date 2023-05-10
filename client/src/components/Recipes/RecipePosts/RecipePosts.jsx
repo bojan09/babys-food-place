@@ -18,6 +18,7 @@ import {
   timeIcon,
   arrowsRightIcon,
 } from "../../../assets";
+import RecipePostPage from "../RecipePostPage/RecipePostPage";
 
 const RecipePosts = ({ post }) => {
   const [openModal, setOpenModal] = useState(false);
@@ -38,7 +39,11 @@ const RecipePosts = ({ post }) => {
         </span>
 
         {/* Recipe Modal */}
-        <Modal open={openModal} onClose={() => setOpenModal(false)} />
+        <Modal
+          post={post}
+          open={openModal}
+          onClose={() => setOpenModal(false)}
+        />
       </div>
 
       {/* Recipe Name and Short Description Container */}
@@ -67,10 +72,14 @@ const RecipePosts = ({ post }) => {
           <p className="text-[12px] text-color_darkgray robotoSlab font-bold">
             {post.persons}
           </p>
-          <img src={starIcon} alt="stars" className="w-[16.3px]" />
-          <p className="text-[12px] text-color_darkgray robotoSlab font-bold">
+          <button
+            onClick={() => {}}
+            className="text-[12px] text-color_darkgray robotoSlab font-bold"
+          >
+            <img src={starIcon} alt="stars" className="w-[16.3px]" />
+
             {post.starsCount}
-          </p>
+          </button>
         </div>
         {/* ArrowsRight Container */}
         <div

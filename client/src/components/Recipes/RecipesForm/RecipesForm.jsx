@@ -106,7 +106,7 @@ const RecipesForm = () => {
                   setPostData({ ...postData, category: e.target.value })
                 }
                 placeholder="Breakfast"
-                className="xs:w-[300px] md:w-[200px] text-center mt-2"
+                className="xs:w-[300px] md:w-[200px] mt-2"
               >
                 <option value="" disabled defaultChecked hidden>
                   Breakfast
