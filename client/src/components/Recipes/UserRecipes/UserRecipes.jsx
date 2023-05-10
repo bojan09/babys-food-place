@@ -11,11 +11,11 @@ import { updateRecipe } from "../../../constants";
 // assets
 import { trashIcon } from "../../../assets";
 
-const UserRecipes = ({ post }) => {
+const UserRecipes = ({ post, setCurrentId }) => {
   return (
     <div className=" md:w-[70vw] md:gap-[8rem] h-full mx-auto mt-4 py-4 rounded-md flex justify-center items-center  bg-white xs:w-[95vw] xs:gap-5 xs:text-[14px]">
       <div className="md:grid xs:flex md:grid-cols-8 items-center justify-between gap-[1rem]">
-        <Link to={updateRecipe}>
+        <Link to={updateRecipe} onClick={() => setCurrentId(post._id)}>
           {/* Recipe Title */}
           <h3 className="text-color_midgray font-bold md:text-[18px] md:w-[13rem] xs:w-[5rem] xs:text-start md:text-center">
             {post.title}

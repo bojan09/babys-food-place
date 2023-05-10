@@ -1,3 +1,6 @@
+import mongoose from "mongoose";
+
+// model
 import postModel from "../models/postModel.js";
 
 // GetPosts
@@ -11,7 +14,7 @@ export const getPosts = async (req, res) => {
   }
 };
 
-// GetPosts
+// CreatePosts
 export const createPost = async (req, res) => {
   const post = req.body;
   const newPost = new postModel(post);
@@ -22,4 +25,54 @@ export const createPost = async (req, res) => {
   } catch (error) {
     res.status(409).json({ message: message.error });
   }
+};
+
+// UpdatePosts
+// export const updatePost = async (req, res) => {
+//   const { id: _id } = req.params;
+//   const post = req.body;
+//   try {
+//     if (mongoose.Types.objectId.isValid(_id))
+//       return res.status(404).send("No post with that id");
+
+//     const updatePost = await PostModel.findByIdAndUpdate(...post, _id, {
+//       new: true,
+//     });
+//     res.json(updatePost);
+//   } catch (error) {
+//     res.status(409).json({ message: error });
+//   }
+// };
+
+export const updatePost = async (req, res) => {
+  const { id } = req.params;
+  const {
+    title,
+    category,
+    shortDescription,
+    recipeDescription,
+    preperationTime,
+    persons,
+    starsCount,
+    recipeImage,
+  } = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`No post with id: ${id}`);
+
+  const updatedPost = {
+    title,
+    category,
+    shortDescription,
+    recipeDescription,
+    preperationTime,
+    persons,
+    starsCount,
+    recipeImage,
+    _id: id,
+  };
+
+  await postModel.findByIdAndUpdate(id, updatedPost, { new: true });
+
+  res.json(updatedPost);
 };

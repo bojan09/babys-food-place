@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 // redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // actions
-import { createPost } from "../../../actions/posts";
+import { createPost, updatePost } from "../../../actions/posts";
 
 // fileBase for img upload
 import FileBase from "react-file-base64";
@@ -19,9 +19,19 @@ import { useMediaQuery } from "react-responsive";
 
 // assets
 import { blankImage } from "../../../assets";
+import { useEffect } from "react";
 
-const RecipesForm = () => {
+const RecipesForm = ({ currentId, setCurrentId }) => {
   const dispatch = useDispatch();
+
+  // getPostForUpdate
+  const post = useSelector((state) =>
+    currentId ? state.posts.find((p) => p._id === currentId) : null
+  );
+
+  useEffect(() => {
+    if (post) setPostData(post);
+  }, [post]);
 
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1224px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1000px)" });
@@ -37,10 +47,30 @@ const RecipesForm = () => {
     recipeImage: "",
   });
 
-  const handleSubmit = (e) => {
+  const clear = () => {
+    setCurrentId(0);
+    setPostData({
+      title: "",
+      category: "",
+      shortDescription: "",
+      recipeDescription: "",
+      preperationTime: "",
+      persons: "",
+      starsCount: "",
+      recipeImage: "",
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch(createPost(postData));
+    if (currentId === 0) {
+      dispatch(createPost(postData));
+      clear();
+    } else {
+      dispatch(updatePost(currentId, postData));
+      clear();
+    }
   };
 
   return (

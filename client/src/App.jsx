@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // react-router
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -51,11 +51,13 @@ import {
 } from "./constants";
 
 const App = () => {
+  const [currentId, setCurrentId] = useState(null);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+  }, [currentId, dispatch]);
 
   return (
     <div>
@@ -65,8 +67,16 @@ const App = () => {
           <Route path={mainPath} element={<Home />} />
           <Route path={recipeId} element={<RecipePage />} />
           <Route path={createRecipe} element={<CreateRecipes />} />
-          <Route path={myRecipes} element={<MyRecipes />} />
-          <Route path={updateRecipe} element={<RecipesForm />} />
+          <Route
+            path={myRecipes}
+            element={<MyRecipes setCurrentId={setCurrentId} />}
+          />
+          <Route
+            path={updateRecipe}
+            element={
+              <RecipesForm currentId={currentId} setCurrentId={setCurrentId} />
+            }
+          />
           <Route path={breakfast} element={<BreakfastRecipes />} />
           <Route path={brunch} element={<BrunchRecipes />} />
           <Route path={lunch} element={<LunchRecipes />} />

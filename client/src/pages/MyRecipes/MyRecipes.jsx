@@ -15,7 +15,7 @@ import { Loader } from "../../components";
 // assets
 import { plusIcon } from "../../assets";
 
-const MyRecipes = () => {
+const MyRecipes = ({ setCurrentId }) => {
   const posts = useSelector((state) => state.posts);
 
   return (
@@ -62,7 +62,11 @@ const MyRecipes = () => {
         ) : (
           <div className="flex justify-center items-center flex-wrap">
             {posts.map((post) => (
-              <UserRecipes key={post._id} post={post} />
+              <UserRecipes
+                key={post._id}
+                post={post}
+                setCurrentId={setCurrentId}
+              />
             ))}
           </div>
         )}
