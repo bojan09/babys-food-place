@@ -43,12 +43,14 @@ const RecipesForm = ({ currentId, setCurrentId }) => {
     recipeDescription: "",
     preperationTime: "",
     persons: "",
-    starsCount: "",
     recipeImage: "",
   });
 
+  useEffect(() => {
+    if (post) setPostData(post);
+  }, [post]);
+
   const clear = () => {
-    setCurrentId(0);
     setPostData({
       title: "",
       category: "",
@@ -56,7 +58,6 @@ const RecipesForm = ({ currentId, setCurrentId }) => {
       recipeDescription: "",
       preperationTime: "",
       persons: "",
-      starsCount: "",
       recipeImage: "",
     });
   };
@@ -64,7 +65,7 @@ const RecipesForm = ({ currentId, setCurrentId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (currentId === 0) {
+    if (!currentId) {
       dispatch(createPost(postData));
       clear();
     } else {

@@ -57,22 +57,40 @@ export const updatePost = async (req, res) => {
     recipeImage,
   } = req.body;
 
-  if (!mongoose.Types.ObjectId.isValid(id))
-    return res.status(404).send(`No post with id: ${id}`);
+  try {
+    if (!mongoose.Types.ObjectId.isValid(id))
+      return res.status(404).send(`No post with id: ${id}`);
 
-  const updatedPost = {
-    title,
-    category,
-    shortDescription,
-    recipeDescription,
-    preperationTime,
-    persons,
-    starsCount,
-    recipeImage,
-    _id: id,
-  };
+    const updatedPost = {
+      title,
+      category,
+      shortDescription,
+      recipeDescription,
+      preperationTime,
+      persons,
+      starsCount,
+      recipeImage,
+      _id: id,
+    };
 
-  await postModel.findByIdAndUpdate(id, updatedPost, { new: true });
+    await postModel.findByIdAndUpdate(id, updatedPost, { new: true });
 
-  res.json(updatedPost);
+    res.json(updatedPost);
+  } catch (error) {
+    return error;
+  }
+};
+
+export const deletePost = async (req, res) => {
+  const { id } = req.params;
+  try {
+    if (!mongoose.Types.ObjectId.isValid(id))
+      return res.status(404).send(`No post with id: ${id}`);
+
+    await postModel.findByIdAndRemove(id);
+
+    res.json({ message: "Post deleted successfully." });
+  } catch (error) {
+    return error;
+  }
 };

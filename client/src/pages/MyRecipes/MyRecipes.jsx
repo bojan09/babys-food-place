@@ -63,8 +63,8 @@ const MyRecipes = ({ setCurrentId }) => {
           <div className="flex justify-center items-center flex-wrap">
             {posts.map((post) => (
               <UserRecipes
-                key={post._id}
                 post={post}
+                key={post.id}
                 setCurrentId={setCurrentId}
               />
             ))}

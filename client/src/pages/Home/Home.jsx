@@ -25,7 +25,7 @@ const Home = () => {
         {!posts.length ? (
           <Loader />
         ) : (
-          <div className="flex justify-center items-center flex-wrap gap-12">
+          <div className="grid md:grid-cols-3  sm:grid-cols-2 xs:grid-cols-1 justify-center items-center flex-wrap gap-12">
             {posts
               .sort((a, b) => a.starsCount - b.starsCount)
               .map(
@@ -43,7 +43,7 @@ const Home = () => {
       {!posts.length ? (
         <Loader />
       ) : (
-        <div className="flex justify-center items-center flex-wrap gap-12">
+        <div className="grid md:grid-cols-3  sm:grid-cols-2 xs:grid-cols-1 justify-center items-center gap-12">
           {posts
             .sort((a, b) => a.starsCount - b.starsCount)
             .map(

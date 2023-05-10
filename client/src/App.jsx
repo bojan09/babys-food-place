@@ -51,6 +51,7 @@ import {
 } from "./constants";
 
 const App = () => {
+  const i = 9000;
   const [currentId, setCurrentId] = useState(null);
 
   const dispatch = useDispatch();
@@ -69,12 +70,16 @@ const App = () => {
           <Route path={createRecipe} element={<CreateRecipes />} />
           <Route
             path={myRecipes}
-            element={<MyRecipes setCurrentId={setCurrentId} />}
+            element={<MyRecipes key={i} setCurrentId={setCurrentId} />}
           />
           <Route
             path={updateRecipe}
             element={
-              <RecipesForm currentId={currentId} setCurrentId={setCurrentId} />
+              <RecipesForm
+                key={i}
+                currentId={currentId}
+                setCurrentId={setCurrentId}
+              />
             }
           />
           <Route path={breakfast} element={<BreakfastRecipes />} />

@@ -2,6 +2,12 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+// redux
+import { useDispatch } from "react-redux";
+
+// actions
+import { deletePost } from "../../../actions/posts";
+
 // date formating package from npm
 import dateFormat from "dateformat";
 
@@ -12,6 +18,8 @@ import { updateRecipe } from "../../../constants";
 import { trashIcon } from "../../../assets";
 
 const UserRecipes = ({ post, setCurrentId }) => {
+  const dispatch = useDispatch();
+
   return (
     <div className=" md:w-[70vw] md:gap-[8rem] h-full mx-auto mt-4 py-4 rounded-md flex justify-center items-center  bg-white xs:w-[95vw] xs:gap-5 xs:text-[14px]">
       <div className="md:grid xs:flex md:grid-cols-8 items-center justify-between gap-[1rem]">
@@ -33,7 +41,8 @@ const UserRecipes = ({ post, setCurrentId }) => {
         </h3>
         {/* Delete Button */}
         <button
-          onClick={() => {}}
+          onClick={() => dispatch(deletePost(post._id))}
+          type="submit"
           className="xs:my-1 w-[1.2rem] col-start-7 col-end-7 justify-self-end md:mr-[-2.3rem]"
         >
           <img src={trashIcon} alt="delete recipe" className="w-[35px]" />

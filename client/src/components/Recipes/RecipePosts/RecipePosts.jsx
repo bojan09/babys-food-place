@@ -77,7 +77,6 @@ const RecipePosts = ({ post }) => {
             className="text-[12px] text-color_darkgray robotoSlab font-bold"
           >
             <img src={starIcon} alt="stars" className="w-[16.3px]" />
-
             {post.starsCount}
           </button>
         </div>

@@ -31,7 +31,7 @@ const Navbar = () => {
         <img
           src={logoColor}
           alt="logo"
-          className="xs:w-[125px] md:w-[175px] xs:ml-2 md:m-0 p-[1rem]"
+          className="xs:w-[125px] md:w-[200px] xs:ml-2 md:m-0 p-[1rem]"
         />
       </Link>
 
