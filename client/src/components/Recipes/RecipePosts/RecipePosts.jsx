@@ -18,7 +18,6 @@ import {
   timeIcon,
   arrowsRightIcon,
 } from "../../../assets";
-import RecipePostPage from "../RecipePostPage/RecipePostPage";
 
 const RecipePosts = ({ post }) => {
   const [openModal, setOpenModal] = useState(false);
