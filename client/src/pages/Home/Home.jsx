@@ -45,7 +45,7 @@ const Home = () => {
       ) : (
         <div className="grid md:grid-cols-3  sm:grid-cols-2 xs:grid-cols-1 justify-center items-center gap-12">
           {posts
-            .sort((a, b) => a.starsCount - b.starsCount)
+            .sort((a, b) => b.starsCount - a.starsCount)
             .map(
               (post, index) =>
                 index < 6 && <RecipePosts key={post._id} post={post} />

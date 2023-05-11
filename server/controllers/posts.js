@@ -75,6 +75,22 @@ export const updatePost = async (req, res) => {
   }
 };
 
+export const likePost = async (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`No post with id: ${id}`);
+
+  const post = await postModel.findById(id);
+  const updatedPost = await postModel.findByIdAndUpdate(
+    id,
+    {
+      starsCount: post.starsCount + 1,
+    },
+    { new: true }
+  );
+  res.json(updatedPost);
+};
+
 export const deletePost = async (req, res) => {
   const { id } = req.params;
   try {

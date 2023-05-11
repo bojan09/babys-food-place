@@ -11,6 +11,9 @@ import { recipeId } from "../../../constants";
 // components
 import Modal from "../../Modal/Modal";
 
+// actions
+import { likePost } from "../../../actions/posts";
+
 // assets
 import {
   plateIcon,
@@ -72,8 +75,8 @@ const RecipePosts = ({ post }) => {
             {post.persons}
           </p>
           <button
-            onClick={() => {}}
-            className="text-[12px] text-color_darkgray robotoSlab font-bold"
+            onClick={() => dispatch(likePost(post._id))}
+            className="text-[12px] text-color_darkgray robotoSlab font-bold flex justify-center items-center gap-1"
           >
             <img src={starIcon} alt="stars" className="w-[16.3px]" />
             {post.starsCount}

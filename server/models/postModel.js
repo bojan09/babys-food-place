@@ -8,9 +8,12 @@ const postSchema = mongoose.Schema({
   recipeAuthor: String,
   preperationTime: Number,
   persons: Number,
-  starsCount: { type: Number, default: 0 },
+  starsCount: {
+    type: Number,
+    default: 0,
+  },
   recipeImage: String,
-  createdAt: { type: Date, default: new Date() },
+  createdAt: { type: Date },
 });
 
 const postModel = mongoose.model("postModel", postSchema);

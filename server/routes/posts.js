@@ -6,6 +6,7 @@ import {
   getBreakfastPosts,
   createPost,
   updatePost,
+  likePost,
   deletePost,
 } from "../controllers/posts.js";
 
@@ -22,6 +23,9 @@ router.post("/", createPost);
 
 // Update Post
 router.patch("/:id", updatePost);
+
+// Update Post
+router.patch("/:id/likePost", likePost);
 
 // Delete Post
 router.delete("/:id", deletePost);
