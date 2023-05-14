@@ -50,6 +50,9 @@ import {
   createAccount,
 } from "./constants";
 
+// google-login
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
 const App = () => {
   const i = 9000;
   const [currentId, setCurrentId] = useState(null);
@@ -61,7 +64,9 @@ const App = () => {
   }, [currentId, dispatch]);
 
   return (
-    <div>
+    <GoogleOAuthProvider
+      clientId={`${import.meta.env.VITE_APP_GOOGLE_OAUTH_CLIENT_ID}`}
+    >
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -70,16 +75,12 @@ const App = () => {
           <Route path={createRecipe} element={<CreateRecipes />} />
           <Route
             path={myRecipes}
-            element={<MyRecipes key={i} setCurrentId={setCurrentId} />}
+            element={<MyRecipes setCurrentId={setCurrentId} />}
           />
           <Route
             path={updateRecipe}
             element={
-              <RecipesForm
-                key={i}
-                currentId={currentId}
-                setCurrentId={setCurrentId}
-              />
+              <RecipesForm currentId={currentId} setCurrentId={setCurrentId} />
             }
           />
           <Route path={breakfast} element={<BreakfastRecipes />} />
@@ -93,7 +94,7 @@ const App = () => {
         </Routes>
         <Footer />
       </BrowserRouter>
-    </div>
+    </GoogleOAuthProvider>
   );
 };
 
