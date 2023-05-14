@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { Link } from "react-router-dom";
+
+// Create Account / Login
+import { createAccount, login } from "../../constants";
 
 // jsx code based on media query
 import { useMediaQuery } from "react-responsive";
@@ -6,6 +11,27 @@ import { useMediaQuery } from "react-responsive";
 const CreateAccount = () => {
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1224px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1000px)" });
+
+  const handleSubmit = () => {};
+  const handleChange = () => {};
+
+  const [isSignUp, setisSignUp] = useState(false);
+
+  {
+    /* If user is signed up or not ask  */
+  }
+  const switchMode = () => {
+    setisSignUp((prevIsSignUp) => !prevIsSignUp);
+    handleShowPassword(false);
+  };
+
+  {
+    /* Show password or don't show based on the click of a icon, from the input file  */
+  }
+  const [showPassword, setShowPassword] = useState(false);
+  const handleShowPassword = () =>
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+
   return (
     <div>
       {/* Create Account Heading - Container */}
@@ -33,7 +59,10 @@ const CreateAccount = () => {
         </div>
 
         {/* Form - Container */}
-        <form className="md:flex xs:text-center xs:mt-5 md:ml-[4rem] md:mr-[-2rem]">
+        <form
+          onSubmit={handleSubmit}
+          className="md:flex xs:text-center xs:mt-5 md:ml-[4rem] md:mr-[-2rem]"
+        >
           {/* Name & LastName - Container */}
           <div className="grid">
             <label className="robotoSlab font-bold text-color_orange">
@@ -42,6 +71,8 @@ const CreateAccount = () => {
             <input
               type="text"
               placeholder="John"
+              required
+              onClick={handleChange}
               className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
             />
 
@@ -53,6 +84,8 @@ const CreateAccount = () => {
               <input
                 type="text"
                 placeholder="Smith"
+                required
+                onClick={handleChange}
                 className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
               />
             </div>
@@ -66,11 +99,26 @@ const CreateAccount = () => {
                 <input
                   type="password"
                   placeholder="********"
+                  required
+                  onClick={handleChange}
                   className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
                 />
 
-                <button className="md:ml-2 md:mt-[4rem] xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4">
+                <button className="md:ml-2 md:mt-[2.45rem] xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4">
                   save
+                </button>
+
+                <button
+                  className="robotoSlab text-color_orange font-bold text-center"
+                  onClick={switchMode}
+                >
+                  {isSignUp ? (
+                    <Link to={login}>Already have an account? Sign in</Link>
+                  ) : (
+                    <Link to={createAccount}>
+                      Don't have an account? Create Account
+                    </Link>
+                  )}
                 </button>
               </div>
             )}
@@ -84,6 +132,8 @@ const CreateAccount = () => {
             <input
               type="email"
               placeholder="john@smith.com"
+              required
+              onClick={handleChange}
               className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
             />
 
@@ -94,6 +144,8 @@ const CreateAccount = () => {
               </label>
               <input
                 type="date"
+                required
+                onClick={handleChange}
                 className="xs:w-[300px] md:w-[300px] md:h-[50px] md:text-left mx-auto text-color_midgray"
               />
             </div>
@@ -107,6 +159,8 @@ const CreateAccount = () => {
                 <input
                   type="password"
                   placeholder="********"
+                  required
+                  onClick={handleChange}
                   className="md:mb-[8.45rem] xs:w-[300px] md:w-[300px] md:h-[50px]"
                 />
               </div>
@@ -122,6 +176,8 @@ const CreateAccount = () => {
               <input
                 type="password"
                 placeholder="********"
+                required
+                onClick={handleChange}
                 className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
               />
 
@@ -133,6 +189,8 @@ const CreateAccount = () => {
                 <input
                   type="password"
                   placeholder="********"
+                  required
+                  onClick={handleChange}
                   className="xs:w-[300px] md:w-[300px] md:h-[50px] text-center"
                 />
               </div>

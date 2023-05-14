@@ -13,10 +13,11 @@ const GuestNavbar = () => {
           LOG IN
         </button>
       </Link>
+
       <p className="text-color_orange font-bold mx-2">or</p>
+
       {/* Create Account */}
-      onClick={window.scrollTo(0, 0)}
-      <Link to={createAccount}>
+      <Link to={createAccount} onClick={window.scrollTo(0, 0)}>
         <button className="w-[178px] h-[44px] p-2 rounded-lg bg-color_green text-white font-bold">
           CREATE ACCOUNT
         </button>

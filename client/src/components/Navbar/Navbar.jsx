@@ -19,8 +19,10 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
+  const user = null;
+
   return (
-    <div className="flex md:justify-around items-center w-full mx-auto sm:pt-[50px] xs:py-[30px] sticky top-0 left-0 bg-primary z-10 sm:mb-3">
+    <div className=" xs:w-[90vw] md:w-[85vw] flex md:justify-around items-center mx-auto sm:pt-[50px] xs:py-[30px] sticky top-0 left-0 bg-primary z-10 sm:mb-3">
       {/* Logo */}
       <Link
         to={mainPath}
@@ -31,7 +33,7 @@ const Navbar = () => {
         <img
           src={logoColor}
           alt="logo"
-          className="xs:w-[125px] md:w-[200px] xs:ml-2 md:m-0 p-[1rem]"
+          className="xs:w-[155px] md:w-[200px] xs:ml-2 md:m-0 p-[1rem]"
         />
       </Link>
 
@@ -87,24 +89,24 @@ const Navbar = () => {
                 </Link>
               </li>
             ))}
+            {/* -------------------------------------------------------*/}
+            {/* ------------ Mobile: Guest & User Navbar ------------- */}
+            {/* -------------------------------------------------------*/}
 
-            {/* ----- Guest Mobile Navbar ----- 
-            <GuestMobileNavbar toggle={toggle} setToggle={setToggle} />*/}
-
-            {/* ----- User Mobile Navbar ----- */}
-            <UserMobileNavbar toggle={toggle} setToggle={setToggle} />
+            {!user ? (
+              <GuestMobileNavbar toggle={toggle} setToggle={setToggle} />
+            ) : (
+              <UserMobileNavbar toggle={toggle} setToggle={setToggle} />
+            )}
           </ul>
         </div>
       </div>
 
       {/* -------------------------------------------------------*/}
-      {/* User Navbar or Guest Navbar on Desktop, based on login */}
+      {/* ------------ Desktop: Guest & User Navbar ------------ */}
       {/* -------------------------------------------------------*/}
       <div className="xs:hidden md:flex ">
-        {/*  ----- Guest Navbar -----
-        <GuestNavbar />*/}
-        {/* ----- User Navbar ----- */}
-        <UserNavbar />
+        {!user ? <GuestNavbar /> : <UserNavbar />}
       </div>
     </div>
   );

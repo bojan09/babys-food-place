@@ -18,10 +18,6 @@ app.use(cors());
 // middleware
 app.use("/posts", postRoutes);
 
-app.get("/", (req, res) => {
-  res.send("APP IS RUNNING!");
-});
-
 // connect to database
 const PORT = process.env.PORT || PORT;
 mongoose

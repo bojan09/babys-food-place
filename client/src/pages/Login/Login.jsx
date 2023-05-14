@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
-// RoutePath
-import { userProfile } from "../../constants";
+// RoutePath, authPages
+import { userProfile, createAccount, login } from "../../constants";
 
 const Login = () => {
+  const handleSubmit = () => {};
+  const handleChange = () => {};
+
+  const [isSignUp, setisSignUp] = useState(false);
+
+  {
+    /* If user is signed up or not ask  */
+  }
+  const switchMode = () => {
+    setisSignUp((prevIsSignUp) => !prevIsSignUp);
+    handleShowPassword(false);
+  };
+
+  {
+    /* Show password or don't show based on the click of a icon, from the input file  */
+  }
+  const [showPassword, setShowPassword] = useState(false);
+  const handleShowPassword = () =>
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+
   return (
     <div>
       {/* Login Heading - Container */}
@@ -34,7 +54,10 @@ const Login = () => {
         </div>
 
         {/* Email & Password - Container */}
-        <div className="text-center grid justify-center md:w-[50%]">
+        <form
+          onSubmit={handleSubmit}
+          className="text-center grid justify-center md:w-[50%]"
+        >
           {/* Email - Container */}
 
           <label className="robotoSlab font-bold text-color_orange">
@@ -43,6 +66,8 @@ const Login = () => {
           <input
             type="email"
             placeholder="john@smith.com"
+            required
+            onClick={handleChange}
             className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
           />
 
@@ -52,19 +77,34 @@ const Login = () => {
               Password
             </label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="********"
+              required
+              onClick={(handleChange, handleShowPassword)}
               className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
             />
           </div>
 
           {/* Login Button - Container */}
-          <Link to={userProfile} className="md:ml-3 md:text-start">
+          <Link to={userProfile} className="md:ml-1 md:text-start">
             <button className="xs:mt-10 md:mt-5  xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] ">
               log in
             </button>
           </Link>
-        </div>
+
+          <button
+            className="robotoSlab text-color_orange font-bold text-center"
+            onClick={switchMode}
+          >
+            {isSignUp ? (
+              <Link to={login}>Already have an account? Sign in</Link>
+            ) : (
+              <Link to={createAccount}>
+                Don't have an account? Create Account
+              </Link>
+            )}
+          </button>
+        </form>
       </div>
     </div>
   );

@@ -97,6 +97,7 @@ const RecipesForm = ({ currentId, setCurrentId }) => {
               placeholder="Upload file"
               type="file"
               multiple={false}
+              required
               onDone={({ base64 }) =>
                 setPostData({ ...postData, recipeImage: base64 })
               }
@@ -117,6 +118,7 @@ const RecipesForm = ({ currentId, setCurrentId }) => {
               className="xs:w-[300px] md:w-[580px]"
               name="title"
               value={postData.title}
+              required
               onChange={(e) =>
                 setPostData({ ...postData, title: e.target.value })
               }
@@ -137,6 +139,7 @@ const RecipesForm = ({ currentId, setCurrentId }) => {
                   setPostData({ ...postData, category: e.target.value })
                 }
                 placeholder="Breakfast"
+                required
                 className="xs:w-[300px] md:w-[200px] mt-2"
               >
                 <option value="" disabled defaultChecked hidden>
@@ -164,6 +167,7 @@ const RecipesForm = ({ currentId, setCurrentId }) => {
                 onChange={(e) =>
                   setPostData({ ...postData, preperationTime: e.target.value })
                 }
+                required
                 className="xs:w-[55px] md:w-[165px] mx-auto xs:mt-4 xs:mb-4 md:mt-1 md:mb-0"
               />
             </div>
@@ -183,6 +187,7 @@ const RecipesForm = ({ currentId, setCurrentId }) => {
                 }
                 min="1"
                 max="15"
+                required
                 className="xs:w-[45px] md:w-[165px] xs:my-2 xs:mb-8 md:my-0 md:mb-0 md:mt-1 mx-auto"
               />
             </div>
@@ -200,6 +205,7 @@ const RecipesForm = ({ currentId, setCurrentId }) => {
               onChange={(e) =>
                 setPostData({ ...postData, shortDescription: e.target.value })
               }
+              required
               className="xs:w-[320px] md:w-[590px] xs:h-[220px] md:h-[180px]"
               placeholder="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage"
             ></textarea>
@@ -227,6 +233,7 @@ const RecipesForm = ({ currentId, setCurrentId }) => {
             onChange={(e) =>
               setPostData({ ...postData, recipeDescription: e.target.value })
             }
+            required
             className="xs:w-[320px] md:w-[460px] xs:h-[490px] md:h-[360px] xs:mx-auto md:mt-[-4.4rem]"
             placeholder="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures."
           ></textarea>
