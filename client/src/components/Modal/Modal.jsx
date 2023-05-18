@@ -2,6 +2,12 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
+// redux
+import { useDispatch } from "react-redux";
+
+// actions
+import { likePost } from "../../actions/posts";
+
 // RoutePath
 import { recipeId } from "../../constants";
 
@@ -10,6 +16,8 @@ import { plateIcon, starIcon, timeIcon, closeIcon, meal_1 } from "../../assets";
 
 const Modal = ({ open, onClose, post }) => {
   const [openModal, setOpenModal] = useState(false);
+  const dispatch = useDispatch();
+
   if (!open) return null;
 
   return (
@@ -71,10 +79,13 @@ const Modal = ({ open, onClose, post }) => {
                 {post.persons}
               </span>
 
-              <img className="stars" src={starIcon} alt="how many stars" />
-              <span className="text-[15px] md:text-[17px] text-color_darkgray robotoSlab font-bold">
+              <button
+                onClick={() => dispatch(likePost(post._id))}
+                className="text-[15px] text-color_darkgray robotoSlab font-bold flex justify-center items-center gap-1"
+              >
+                <img src={starIcon} alt="stars" className="w-[20px]" />
                 {post.starsCount}
-              </span>
+              </button>
             </div>
           </div>
 
