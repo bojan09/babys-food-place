@@ -35,7 +35,7 @@ const Login = () => {
     <div>
       {/* Login Heading - Container */}
       <div className="xs:mt-[-2rem] md:m-0">
-        <h1 className="textMainH ead md:after:w-[67vw] xs:after:w-[62vw] xs:text-[28px] sm:text-[36px] sm:mt-[4rem] xs:mt-[4rem] text-center">
+        <h1 className="textMainHead md:after:w-[67vw] xs:after:w-[62vw] xs:text-[28px] sm:text-[36px] sm:mt-[4rem] xs:mt-[4rem] text-center">
           Log in
         </h1>
       </div>
