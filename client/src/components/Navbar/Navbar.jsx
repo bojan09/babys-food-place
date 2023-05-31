@@ -19,7 +19,7 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
-  const user = null;
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
   return (
     <div className=" xs:w-[90vw] md:w-[87vw] flex md:justify-around items-center mx-auto sm:pt-[50px] xs:py-[30px] sticky top-0 left-0 bg-primary z-10 sm:mb-3">

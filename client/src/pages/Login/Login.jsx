@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+// redux
+import { useDispatch } from "react-redux";
+
+// Decode jwt code
+import jwt_decode from "jwt-decode";
+
+// google create/sign in user
+import { createOrGetUser } from "../../utilities/googleOAuth";
 
 // google login button
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 
 // RoutePath, authPages
-import { userProfile, createAccount, login } from "../../constants";
+import { userProfile, createAccount, login, AUTH } from "../../constants";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleSubmit = () => {};
   const handleChange = () => {};
 
@@ -29,7 +41,42 @@ const Login = () => {
   const handleShowPassword = () =>
     setShowPassword((prevShowPassword) => !prevShowPassword);
 
-  const user = null;
+  // user
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  console.log(user);
+
+  useEffect(() => {
+    const userLoggedIn = user?.result;
+
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, []);
+
+  // Google login functions
+  const googleSuccess = async (res) => {
+    const result = jwt_decode(res?.credential);
+    const token = res?.clientId;
+
+    console.log(token);
+
+    const { name, picture, sub } = result;
+    const user = {
+      _id: sub,
+      _type: "user",
+      userName: name,
+      image: picture,
+    };
+
+    try {
+      dispatch({ type: AUTH, data: { user } });
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const googleError = (error) => {
+    console.log(error);
+  };
 
   return (
     <div>
@@ -92,7 +139,7 @@ const Login = () => {
 
           {/* Login Button - Container */}
           <Link to={userProfile} className="md:ml-1 md:text-start">
-            <button className="xs:mt-10 md:mt-5  xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] ">
+            <button className="xs:mt-10 md:mt-5  xs:w-[310px] md:w-full h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] ">
               log in
             </button>
           </Link>
@@ -102,22 +149,25 @@ const Login = () => {
             onClick={switchMode}
           >
             {isSignUp ? (
-              <Link to={login}>Already have an account? Sign in</Link>
+              <div className="mt-3">
+                <Link to={login}>Already have an account? Sign in</Link>
+              </div>
             ) : (
-              <Link to={createAccount}>
-                Don't have an account? Create Account
-              </Link>
+              <div className="mt-3 ">
+                <Link to={createAccount}>
+                  Don't have an account? Create Account
+                </Link>
+              </div>
             )}
           </button>
           {/* Google Login Button - Container */}
           <div>
             {user ? (
-              <div>Logged in</div>
+              <div className="bg-color_lightgray p-3 rounded-full mt-4">
+                <h2 className="robotoSlab text-lg">You are logged in</h2>
+              </div>
             ) : (
-              <GoogleLogin
-                onSuccess={(response) => console.log(response)}
-                onError={(response) => console.log("Error")}
-              />
+              <GoogleLogin onSuccess={googleSuccess} onError={googleError} />
             )}
           </div>
         </form>
