@@ -29,6 +29,8 @@ const Login = () => {
   const handleShowPassword = () =>
     setShowPassword((prevShowPassword) => !prevShowPassword);
 
+  const user = null;
+
   return (
     <div>
       {/* Login Heading - Container */}
@@ -107,6 +109,17 @@ const Login = () => {
               </Link>
             )}
           </button>
+          {/* Google Login Button - Container */}
+          <div>
+            {user ? (
+              <div>Logged in</div>
+            ) : (
+              <GoogleLogin
+                onSuccess={(response) => console.log(response)}
+                onError={(response) => console.log("Error")}
+              />
+            )}
+          </div>
         </form>
       </div>
     </div>
