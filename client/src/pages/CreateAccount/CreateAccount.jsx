@@ -1,36 +1,101 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
-
-// Create Account / Login
-import { createAccount, login } from "../../constants";
-
 // jsx code based on media query
 import { useMediaQuery } from "react-responsive";
 
+// components
+import { FormInput } from "../../components";
+
 const CreateAccount = () => {
-  const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1224px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 1000px)" });
+  const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1224px)" });
 
-  const handleSubmit = () => {};
-  const handleChange = () => {};
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    birthday: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-  const [isSignUp, setisSignUp] = useState(false);
+  const inputs = [
+    {
+      id: 1,
+      name: "firstName",
+      type: "text",
+      placeholder: "John",
+      errorMessage:
+        "First name should be at least 3-16 characters and it souldn't include any special characters",
+      label: "First Name",
+      pattern: "^[A-Za-z0-9]{3,16}$",
+      required: true,
+    },
+    {
+      id: 2,
+      name: "lastName",
+      type: "text",
+      placeholder: "Smith",
+      errorMessage:
+        "Last name should be at least 3-16 characters and it souldn't include any special characters",
+      label: "Last Name",
+      pattern: "^[A-Za-z0-9]{3,16}$",
+      required: true,
+    },
 
-  {
-    /* If user is signed up or not ask  */
-  }
-  const switchMode = () => {
-    setisSignUp((prevIsSignUp) => !prevIsSignUp);
-    handleShowPassword(false);
+    {
+      id: 3,
+      name: "email",
+      type: "email",
+      placeholder: "john@smith.com",
+      errorMessage: "It should be a valid email",
+      label: "Email",
+      required: true,
+    },
+
+    {
+      id: 4,
+      name: "birthday",
+      type: "date",
+      placeholder: "Birthday here ...",
+      errorMessage: "Birthday is required",
+      label: "Birthday",
+      required: true,
+    },
+
+    {
+      id: 5,
+      name: "password",
+      type: "password",
+      placeholder: "********",
+      errorMessage:
+        "Password should be at least 8-20 characters and it should include at least 1 letter, 1 number, and 1 special character",
+      label: "Password",
+      pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+      required: true,
+    },
+
+    {
+      id: 6,
+      name: "confirmPassword",
+      type: "password",
+      placeholder: "********",
+      errorMessage: "Passwords don't match",
+      label: "Confirm Password",
+      pattern: formData.password,
+      required: true,
+    },
+  ];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(formData);
   };
 
-  {
-    /* Show password or don't show based on the click of a icon, from the input file  */
-  }
-  const [showPassword, setShowPassword] = useState(false);
-  const handleShowPassword = () =>
-    setShowPassword((prevShowPassword) => !prevShowPassword);
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
     <div>
@@ -40,7 +105,7 @@ const CreateAccount = () => {
       </h1>
 
       {/*  Container */}
-      <div className="md:flex mx-auto md:ml-[17rem] md:w-[65%] md:mt-[3rem] mb-[10%]">
+      <div className="md:flex mx-auto gap-[6rem]  md:ml-[17rem] md:w-[70%] md:mt-[3rem] mb-[10%]">
         {/* Secondary Heading & Paragraph - Container */}
         <div className="xs:mx-4 xs:my-4 md:m-0 robotoSlab md:w-[50%]">
           <h1 className="md:text-[46px] xs:text-[36px]  font-bold my-4 text-color_darkgray">
@@ -61,162 +126,25 @@ const CreateAccount = () => {
         {/* Form - Container */}
         <form
           onSubmit={handleSubmit}
-          className="md:flex xs:text-center xs:mt-5 md:ml-[4rem] md:mr-[-2rem]"
+          className="grid xs:text-center xs:mt-5  w-[50%]"
         >
-          {/* Name & LastName - Container */}
-          <div className="grid">
-            <label className="robotoSlab font-bold text-color_orange">
-              Name
-            </label>
-            <input
-              type="text"
-              placeholder="John"
-              required
-              name="firstName"
-              onClick={handleChange}
-              className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
-            />
-
-            {/* LastName - Container */}
-            <div className="xs:mt-5 md:m-0 text-center grid">
-              <label className="robotoSlab font-bold text-color_orange">
-                LastName
-              </label>
-              <input
-                type="text"
-                placeholder="Smith"
-                required
-                name="lastName"
-                onClick={handleChange}
-                className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
+          <div className="grid md:grid-cols-2 md:grid-row-3 md:gap-4">
+            {inputs.map((input) => (
+              <FormInput
+                key={input.id}
+                {...input}
+                value={formData[input.name]}
+                onChange={onChange}
               />
-            </div>
-
-            {/* Password  - Container */}
-            {isDesktopOrLaptop && (
-              <div className="xs:mt-5 md:m-0 md:grid">
-                <label className="robotoSlab font-bold text-color_orange">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  placeholder="********"
-                  required
-                  name="password"
-                  onClick={handleChange}
-                  className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
-                />
-
-                <button
-                  type="submit"
-                  className="md:ml-2 md:mt-[2.45rem] xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4"
-                >
-                  save
-                </button>
-
-                <button
-                  className="robotoSlab text-color_orange font-bold text-center"
-                  onClick={switchMode}
-                >
-                  {isSignUp ? (
-                    <Link to={login}>Already have an account? Sign in</Link>
-                  ) : (
-                    <Link to={createAccount}>
-                      Don't have an account? Create Account
-                    </Link>
-                  )}
-                </button>
-              </div>
-            )}
+            ))}
           </div>
 
-          {/* Email & Birthdate - Container */}
-          <div className="xs:mt-5 md:ml-[1rem] md:m-0 grid">
-            <label className="robotoSlab font-bold text-color_orange">
-              Email
-            </label>
-            <input
-              type="email"
-              placeholder="john@smith.com"
-              required
-              name="email"
-              onClick={handleChange}
-              className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
-            />
-
-            {/* Birthdate - Container */}
-            <div className="xs:mt-5 md:m-0 grid">
-              <label className="robotoSlab font-bold text-color_orange">
-                Birthdate
-              </label>
-              <input
-                type="date"
-                required
-                name="birthdate"
-                onClick={handleChange}
-                className="xs:w-[300px] md:w-[300px] md:h-[50px] md:text-left mx-auto text-color_midgray"
-              />
-            </div>
-
-            {/* Repeat Password  - Container */}
-            {isDesktopOrLaptop && (
-              <div className="xs:mt-5 md:m-0 md:grid">
-                <label className="robotoSlab font-bold text-color_orange">
-                  Repeat Password
-                </label>
-                <input
-                  type="password"
-                  placeholder="********"
-                  required
-                  name="repeatPassword"
-                  onClick={handleChange}
-                  className="md:mb-[8.45rem] xs:w-[300px] md:w-[300px] md:h-[50px]"
-                />
-              </div>
-            )}
-          </div>
-
-          {/* Password & Repeat Password - Container */}
-          {isMobile && (
-            <div className="xs:mt-5 md:m-0 grid">
-              <label className="robotoSlab font-bold text-color_orange">
-                Password
-              </label>
-              <input
-                type="password"
-                placeholder="********"
-                required
-                name="password"
-                onClick={handleChange}
-                className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
-              />
-
-              {/* Repeat Password  - Container */}
-              <div className="xs:mt-5 md:m-0 md:grid">
-                <label className="robotoSlab font-bold text-color_orange">
-                  Repeat Password
-                </label>
-                <input
-                  type="password"
-                  placeholder="********"
-                  required
-                  name="repeatPassword"
-                  onClick={handleChange}
-                  className="xs:w-[300px] md:w-[300px] md:h-[50px] text-center"
-                />
-              </div>
-            </div>
-          )}
-
-          {/* Save  - Button */}
-          {isMobile && (
-            <button
-              type="submit"
-              className="xs:mt-10 md:m-0 xs:w-[310px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4"
-            >
-              save
-            </button>
-          )}
+          <button
+            type="submit"
+            className="md:ml-2 md:mt-[2.45rem] xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4"
+          >
+            save
+          </button>
         </form>
       </div>
     </div>
