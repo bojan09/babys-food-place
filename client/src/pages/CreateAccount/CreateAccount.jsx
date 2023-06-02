@@ -72,6 +72,7 @@ const CreateAccount = () => {
               type="text"
               placeholder="John"
               required
+              name="firstName"
               onClick={handleChange}
               className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
             />
@@ -85,6 +86,7 @@ const CreateAccount = () => {
                 type="text"
                 placeholder="Smith"
                 required
+                name="lastName"
                 onClick={handleChange}
                 className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
               />
@@ -100,11 +102,15 @@ const CreateAccount = () => {
                   type="password"
                   placeholder="********"
                   required
+                  name="password"
                   onClick={handleChange}
                   className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
                 />
 
-                <button className="md:ml-2 md:mt-[2.45rem] xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4">
+                <button
+                  type="submit"
+                  className="md:ml-2 md:mt-[2.45rem] xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4"
+                >
                   save
                 </button>
 
@@ -133,6 +139,7 @@ const CreateAccount = () => {
               type="email"
               placeholder="john@smith.com"
               required
+              name="email"
               onClick={handleChange}
               className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
             />
@@ -145,6 +152,7 @@ const CreateAccount = () => {
               <input
                 type="date"
                 required
+                name="birthdate"
                 onClick={handleChange}
                 className="xs:w-[300px] md:w-[300px] md:h-[50px] md:text-left mx-auto text-color_midgray"
               />
@@ -160,6 +168,7 @@ const CreateAccount = () => {
                   type="password"
                   placeholder="********"
                   required
+                  name="repeatPassword"
                   onClick={handleChange}
                   className="md:mb-[8.45rem] xs:w-[300px] md:w-[300px] md:h-[50px]"
                 />
@@ -177,6 +186,7 @@ const CreateAccount = () => {
                 type="password"
                 placeholder="********"
                 required
+                name="password"
                 onClick={handleChange}
                 className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
               />
@@ -190,6 +200,7 @@ const CreateAccount = () => {
                   type="password"
                   placeholder="********"
                   required
+                  name="repeatPassword"
                   onClick={handleChange}
                   className="xs:w-[300px] md:w-[300px] md:h-[50px] text-center"
                 />
@@ -199,7 +210,10 @@ const CreateAccount = () => {
 
           {/* Save  - Button */}
           {isMobile && (
-            <button className="xs:mt-10 md:m-0 xs:w-[310px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4">
+            <button
+              type="submit"
+              className="xs:mt-10 md:m-0 xs:w-[310px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4"
+            >
               save
             </button>
           )}

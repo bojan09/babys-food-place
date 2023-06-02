@@ -21,8 +21,22 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = () => {};
-  const handleChange = () => {};
+  const initialState = {
+    email: "",
+    password: "",
+  };
+
+  const [formData, setFormData] = useState(initialState);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(formData);
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const [isSignUp, setisSignUp] = useState(false);
 
@@ -43,7 +57,6 @@ const Login = () => {
 
   // user
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
-  console.log(user);
 
   useEffect(() => {
     const userLoggedIn = user?.result;
@@ -110,13 +123,17 @@ const Login = () => {
         >
           {/* Email - Container */}
 
-          <label className="robotoSlab font-bold text-color_orange">
+          <label
+            name="email"
+            className="robotoSlab font-bold text-color_orange"
+          >
             Email
           </label>
           <input
             type="email"
             placeholder="john@smith.com"
             required
+            name="email"
             onClick={handleChange}
             className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
           />
@@ -130,17 +147,19 @@ const Login = () => {
               type={showPassword ? "text" : "password"}
               placeholder="********"
               required
+              name="password"
               onClick={(handleChange, handleShowPassword)}
               className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
             />
           </div>
 
           {/* Login Button - Container */}
-          <Link to={userProfile} className="md:ml-1 md:text-start">
-            <button className="xs:mt-10 md:mt-5  xs:w-[310px] md:w-full h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] ">
-              log in
-            </button>
-          </Link>
+          <button
+            type="submit"
+            className="xs:mt-10 md:mt-5  xs:w-[310px] md:w-full h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] "
+          >
+            log in
+          </button>
 
           <button
             className="robotoSlab text-color_orange font-bold text-center"
