@@ -56,8 +56,6 @@ const Login = () => {
     const result = jwt_decode(res?.credential);
     const token = res?.clientId;
 
-    console.log(token);
-
     const { name, picture, sub } = result;
     const user = {
       _id: sub,

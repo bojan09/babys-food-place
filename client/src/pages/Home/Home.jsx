@@ -20,7 +20,6 @@ const Home = () => {
         Fresh & New
       </h1>
 
-      {console.log(posts)}
       <div className=" flex justify-center items-center flex-wrap gap-12">
         {!posts.length ? (
           <Loader />

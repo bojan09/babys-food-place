@@ -106,7 +106,7 @@ const Navbar = () => {
       {/* ------------ Desktop: Guest & User Navbar ------------ */}
       {/* -------------------------------------------------------*/}
       <div className="xs:hidden md:flex ">
-        {!user ? <GuestNavbar /> : <UserNavbar />}
+        {user ? <GuestNavbar /> : <UserNavbar />}
       </div>
     </div>
   );
