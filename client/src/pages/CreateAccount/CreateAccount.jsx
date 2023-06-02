@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 
-// jsx code based on media query
-import { useMediaQuery } from "react-responsive";
-
 // components
 import { FormInput } from "../../components";
 
 const CreateAccount = () => {
-  const isMobile = useMediaQuery({ query: "(max-width: 1000px)" });
-  const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1224px)" });
-
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",

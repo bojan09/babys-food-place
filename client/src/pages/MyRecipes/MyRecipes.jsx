@@ -64,7 +64,7 @@ const MyRecipes = ({ setCurrentId }) => {
             {posts.map((post) => (
               <UserRecipes
                 post={post}
-                key={post.id}
+                key={post._id}
                 setCurrentId={setCurrentId}
               />
             ))}
