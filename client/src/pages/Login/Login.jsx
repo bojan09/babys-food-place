@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // redux
 import { useDispatch } from "react-redux";
@@ -8,25 +8,46 @@ import { useDispatch } from "react-redux";
 // Decode jwt code
 import jwt_decode from "jwt-decode";
 
-// google create/sign in user
-import { createOrGetUser } from "../../utilities/googleOAuth";
-
 // google login button
-import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
 
 // RoutePath, authPages
-import { userProfile, createAccount, login, AUTH } from "../../constants";
+import { AUTH } from "../../constants";
+
+// components
+import { FormInput } from "../../components";
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const initialState = {
+  const [formData, setFormData] = useState({
     email: "",
     password: "",
-  };
+  });
 
-  const [formData, setFormData] = useState(initialState);
+  const inputs = [
+    {
+      id: 1,
+      name: "email",
+      type: "email",
+      placeholder: "Your Email here",
+      errorMessage: "It should be a valid email",
+      label: "Email",
+      required: true,
+    },
+    {
+      id: 2,
+      name: "password",
+      type: "password",
+      placeholder: "Your password here",
+      errorMessage:
+        "Password should be at least 8-20 characters and it should include at least 1 letter, 1 number, and 1 special character",
+      label: "Password",
+      pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+      required: true,
+    },
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,26 +55,9 @@ const Login = () => {
     console.log(formData);
   };
 
-  const handleChange = (e) => {
+  const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  const [isSignUp, setisSignUp] = useState(false);
-
-  {
-    /* If user is signed up or not ask  */
-  }
-  const switchMode = () => {
-    setisSignUp((prevIsSignUp) => !prevIsSignUp);
-    handleShowPassword(false);
-  };
-
-  {
-    /* Show password or don't show based on the click of a icon, from the input file  */
-  }
-  const [showPassword, setShowPassword] = useState(false);
-  const handleShowPassword = () =>
-    setShowPassword((prevShowPassword) => !prevShowPassword);
 
   // user
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
@@ -67,7 +71,6 @@ const Login = () => {
   // Google login functions
   const googleSuccess = async (res) => {
     const result = jwt_decode(res?.credential);
-    const token = res?.clientId;
 
     const { name, picture, sub } = result;
     const user = {
@@ -116,69 +119,29 @@ const Login = () => {
           </p>
         </div>
 
-        {/* Email & Password - Container */}
         <form
           onSubmit={handleSubmit}
           className="text-center grid justify-center md:w-[50%]"
         >
-          {/* Email - Container */}
-
-          <label
-            name="email"
-            className="robotoSlab font-bold text-color_orange"
-          >
-            Email
-          </label>
-          <input
-            type="email"
-            placeholder="john@smith.com"
-            required
-            name="email"
-            onClick={handleChange}
-            className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
-          />
-
-          {/* Password - Container */}
-          <div className="xs:mt-5 md:m-0 grid">
-            <label className="robotoSlab font-bold text-color_orange">
-              Password
-            </label>
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="********"
-              required
-              name="password"
-              onClick={(handleChange, handleShowPassword)}
-              className="xs:w-[300px] md:w-[300px] md:h-[50px] mx-auto"
+          {inputs.map((input) => (
+            <FormInput
+              key={input.id}
+              {...input}
+              value={formData[input.name]}
+              onChange={onChange}
             />
-          </div>
+          ))}
 
           {/* Login Button - Container */}
           <button
             type="submit"
-            className="xs:mt-10 md:mt-5  xs:w-[310px] md:w-full h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] "
+            className="xs:mt-10 md:mt-5 md:mb-[2rem] md:ml-2 xs:w-[310px] md:w-[300px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px]  "
           >
             log in
           </button>
 
-          <button
-            className="robotoSlab text-color_orange font-bold text-center"
-            onClick={switchMode}
-          >
-            {isSignUp ? (
-              <div className="mt-3">
-                <Link to={login}>Already have an account? Sign in</Link>
-              </div>
-            ) : (
-              <div className="mt-3 ">
-                <Link to={createAccount}>
-                  Don't have an account? Create Account
-                </Link>
-              </div>
-            )}
-          </button>
           {/* Google Login Button - Container */}
-          <div>
+          <div className="xs:mx-auto md:ml-12">
             {user ? (
               <div className="bg-color_lightgray p-3 rounded-full mt-4">
                 <h2 className="robotoSlab text-lg">You are logged in</h2>

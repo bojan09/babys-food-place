@@ -79,18 +79,30 @@ textarea {
   resize: none;
 }
 
+input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+
+input:invalid[focused="true"]~span {
+  display: block;
+}
+
+label {
+  font-family: var(--ff-roboto-slab);
+  font-weight: bold;
+  color: var(--clr-orange);
+}
 
 @media screen and (max-width:500px) {
   label {
-    font-size: 20px;
+    font-size: 17px;
   }
 }
 
 @media screen and (min-width:505px) {
   label {
-    font-size: 17px;
+    font-size: 18px;
     text-align: left;
-    margin-left: 1rem;
   }
 }
 
