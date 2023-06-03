@@ -92,16 +92,10 @@ const CreateAccount = () => {
     },
   ];
 
-  const [isSignup, setIsSignup] = useState(false);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (isSignup) {
-      dispatch(signup(formData, navigate));
-    } else {
-      dispatch(signin(formData, navigate));
-    }
+    dispatch(signup(formData, navigate));
   };
 
   const onChange = (e) => {

@@ -17,6 +17,6 @@ export const likePost = (id) => API.patch(`/posts,/${id}/likePost`);
 export const deletePost = (id) => API.delete(`/posts,/${id}`);
 
 // sign in
-export const signIn = (formData) => API.post("/users/signin", formData);
+export const signIn = (formData) => API.post("/user/signin", formData);
 // sign up
-export const signUp = (formData) => API.post("/users/signup", formData);
+export const signUp = (formData) => API.post("/user/signup", formData);

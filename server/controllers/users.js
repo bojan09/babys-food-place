@@ -28,7 +28,7 @@ export const signin = async (req, res) => {
         .json({ message: "Invalid credentials, password is incorect" });
 
     // Generate tokens
-    const token = jwt.signin(
+    const token = jwt.sign(
       {
         email: existingUser.email,
         id: existingUser._id,
@@ -38,7 +38,7 @@ export const signin = async (req, res) => {
     );
 
     // Send token
-    res.status(200).json({ result: expiresIn, token });
+    res.status(200).json({ result: existingUser, token });
   } catch (err) {
     res.status(500).json({ message: "Something went wrong" });
     console.log(err);
@@ -66,19 +66,19 @@ export const signup = async (req, res) => {
   const result = await userModel.create({
     email,
     password: hashedPassword,
-    name: `${firstName} ${lastName}`,
+    confirmPassword: hashedPassword,
+    firstName: firstName,
+    lastName: lastName,
+    birthday: birthday,
   });
 
   // Generate tokens
-  const token = jwt.signup(
-    {
-      email: result.email,
-      id: result._id,
-    },
+  const token = jwt.sign(
+    { email: result.email, id: result._id },
     process.env.JWT_SECRET,
     { expiresIn: "1h" }
   );
 
   // Send token
-  res.status(200).json({ result: expiresIn, token });
+  res.status(200).json({ result, token });
 };
