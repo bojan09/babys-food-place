@@ -7,6 +7,8 @@ const postSchema = mongoose.Schema({
   recipeAuthor: String,
   preperationTime: Number,
   persons: Number,
+  name: String,
+  creator: String,
   category: [String],
   likes: {
     type: [String],
