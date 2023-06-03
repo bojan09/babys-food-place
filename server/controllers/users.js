@@ -1,10 +1,9 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-// import dotenv from "dotenv";
 import dotenv from "dotenv";
 dotenv.config();
 
-import userModel from "../models/userModel";
+import userModel from "../models/userModel.js";
 
 export const signin = async (req, res) => {
   // get userData from input
