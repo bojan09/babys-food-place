@@ -14,6 +14,9 @@ import { GoogleLogin } from "@react-oauth/google";
 // RoutePath, authPages
 import { AUTH } from "../../constants";
 
+// actions
+import { signup, signin } from "../../actions/auth.js";
+
 // components
 import { FormInput } from "../../components";
 
@@ -49,10 +52,16 @@ const Login = () => {
     },
   ];
 
+  const [isSignup, setIsSignup] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    if (isSignup) {
+      dispatch(signup(formData, navigate));
+    } else {
+      dispatch(signin(formData, navigate));
+    }
   };
 
   const onChange = (e) => {
