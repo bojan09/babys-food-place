@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 // postRoutes
 import postRoutes from "./routes/posts.js";
+import userRoutes from "./routes/users.js";
 // import dotenv from "dotenv";
 import dotenv from "dotenv";
 dotenv.config();
@@ -15,8 +16,9 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-// middleware
+// middleware / routes
 app.use("/posts", postRoutes);
+app.use("/user", userRoutes);
 
 // connect to database
 const PORT = process.env.PORT || PORT;
