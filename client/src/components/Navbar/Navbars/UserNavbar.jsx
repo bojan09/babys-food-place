@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 // react-router-dom
 import { Link, useLocation } from "react-router-dom";
 
+// jwt
+import decode from "jwt-decode";
+
 // redux
 import { useDispatch } from "react-redux";
 
@@ -11,19 +14,31 @@ import { logout, myRecipes, userProfile, LOGOUT } from "../../../constants";
 
 const UserNavbar = () => {
   const dispatch = useDispatch();
-  const location = useLocation;
+  const location = useLocation();
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+
+  useEffect(() => {
+    const token = user?.token;
+
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
+
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, [location]);
 
   const googleLogout = () => {
     dispatch({ type: LOGOUT });
   };
 
-  useEffect(() => {
-    const token = user?.result;
+  const localLogout = () => {
+    dispatch({ type: LOGOUT });
 
-    setUser(JSON.parse(localStorage.getItem("profile")));
-  }, [location]);
+    setUser(null);
+  };
 
   return (
     <div className="uppercase">
@@ -51,7 +66,7 @@ const UserNavbar = () => {
         <li>
           <Link
             to={logout}
-            onClick={googleLogout()}
+            onClick={(googleLogout, localLogout)}
             className="border-bottom pb-0.2 font-bold text-color_midgray"
           >
             log out

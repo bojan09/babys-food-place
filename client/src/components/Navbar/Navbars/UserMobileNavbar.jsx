@@ -1,10 +1,45 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+
+// react-router-dom
+import { Link, useLocation } from "react-router-dom";
+
+// jwt
+import decode from "jwt-decode";
+
+// redux
+import { useDispatch } from "react-redux";
 
 // RoutePath
-import { logout, myRecipes, userProfile } from "../../../constants";
+import { logout, myRecipes, userProfile, LOGOUT } from "../../../constants";
 
 const UserMobileNavbar = ({ toggle, setToggle }) => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+
+  useEffect(() => {
+    const token = user?.token;
+
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
+
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, [location]);
+
+  const googleLogout = () => {
+    dispatch({ type: LOGOUT });
+  };
+
+  const localLogout = () => {
+    dispatch({ type: LOGOUT });
+
+    setUser(null);
+  };
+
   return (
     <div className="uppercase">
       <ul className=" xs:inline-block md:flex items-center gap-4">
@@ -30,8 +65,8 @@ const UserMobileNavbar = ({ toggle, setToggle }) => {
 
         <li className="mb-2">
           <Link
-            onClick={() => setToggle(!toggle)}
             to={logout}
+            onClick={(googleLogout, localLogout)}
             className="border-bottom pb-0.4 font-bold text-color_midgray"
           >
             log out

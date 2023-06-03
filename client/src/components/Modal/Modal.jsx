@@ -27,7 +27,7 @@ const Modal = ({ open, onClose, post }) => {
         <div className="flex justify-between items-center py-3 px-3 md:px-5">
           <Link to={recipeId} onClick={window.scrollTo(0, 0)}>
             <h1 className="textSubHead xs:text-[18px] sm:text-[32px] robotoSlab ">
-              Recipe Title
+              {post.title}
             </h1>
           </Link>
 
