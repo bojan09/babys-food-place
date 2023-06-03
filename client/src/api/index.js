@@ -1,17 +1,22 @@
 import axios from "axios";
 
-// const url = `${import.meta.env.VITE_APP_SERVER_URL}`;
-const url = "http://localhost:8080/posts";
+// axios instant
+const API = axios.create({ baseURL: "http://localhost:8080" });
 
-export const fetchPosts = () => axios.get(url);
+export const fetchPosts = () => API.get("/posts");
 
-export const fetchBreakfastPosts = () => axios.get(`${url}/breakfast`);
+export const fetchBreakfastPosts = () => API.get(`/posts/breakfast`);
 
-export const createPost = (newPost) => axios.post(url, newPost);
+export const createPost = (newPost) => API.post("/posts", newPost);
 
 export const updatePost = (id, updatedPost) =>
-  axios.patch(`${url}/${id}`, updatedPost);
+  API.patch(`/posts,/${id}`, updatedPost);
 
-export const likePost = (id) => axios.patch(`${url}/${id}/likePost`);
+export const likePost = (id) => API.patch(`/posts,/${id}/likePost`);
 
-export const deletePost = (id) => axios.delete(`${url}/${id}`);
+export const deletePost = (id) => API.delete(`/posts,/${id}`);
+
+// sign in
+export const signIn = (formData) => API.post("/users/signin", formData);
+// sign up
+export const signUp = (formData) => API.post("/users/signup", formData);
