@@ -150,7 +150,7 @@ const Login = () => {
           </button>
 
           {/* Google Login Button - Container */}
-          <div className="xs:mx-auto md:ml-12">
+          <div className="xs:mx-auto xs:mt-4 md:mt-1 md:ml-12">
             {user ? (
               <div className="bg-color_lightgray p-3 rounded-full mt-4">
                 <h2 className="robotoSlab text-lg">You are logged in</h2>

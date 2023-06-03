@@ -131,7 +131,7 @@ const CreateAccount = () => {
         {/* Form - Container */}
         <form
           onSubmit={handleSubmit}
-          className="grid xs:text-center xs:mt-5  w-[50%]"
+          className="grid mx-auto xs:text-center xs:mt-5  md:w-[50%]"
         >
           <div className="grid md:grid-cols-2 md:grid-row-3 md:gap-4">
             {inputs.map((input) => (
@@ -146,7 +146,7 @@ const CreateAccount = () => {
 
           <button
             type="submit"
-            className="md:ml-2 md:mt-[2.45rem] xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4"
+            className="md:ml-2 md:mt-[2.45rem] xs:w-[310px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] my-4 mx-auto"
           >
             save
           </button>

@@ -18,18 +18,6 @@ const UserMobileNavbar = ({ toggle, setToggle }) => {
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
-  useEffect(() => {
-    const token = user?.token;
-
-    if (token) {
-      const decodedToken = decode(token);
-
-      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
-    }
-
-    setUser(JSON.parse(localStorage.getItem("profile")));
-  }, [location]);
-
   const googleLogout = () => {
     dispatch({ type: LOGOUT });
   };
@@ -39,6 +27,18 @@ const UserMobileNavbar = ({ toggle, setToggle }) => {
 
     setUser(null);
   };
+
+  useEffect(() => {
+    const token = user?.token;
+
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) localLogout();
+    }
+
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, [location]);
 
   return (
     <div className="uppercase">
@@ -66,8 +66,8 @@ const UserMobileNavbar = ({ toggle, setToggle }) => {
         <li className="mb-2">
           <Link
             to={logout}
-            onClick={(googleLogout, localLogout)}
-            className="border-bottom pb-0.4 font-bold text-color_midgray"
+            onClick={((googleLogout, localLogout), () => setToggle(!toggle))}
+            className="border-bottom md:pb-0.4 font-bold text-color_midgray"
           >
             log out
           </Link>

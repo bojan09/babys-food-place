@@ -29,7 +29,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className=" xs:w-[90vw] md:w-[87vw] flex md:justify-around items-center mx-auto sm:pt-[50px] xs:py-[30px] sticky top-0 left-0 bg-primary z-10 sm:mb-3">
+    <div className=" xs:w-full md:w-[87vw] flex md:justify-around items-center mx-auto sm:pt-[50px] xs:py-[30px] sticky top-0 left-0 bg-primary z-10 sm:mb-3">
       {/* Logo */}
       <Link
         to={mainPath}
