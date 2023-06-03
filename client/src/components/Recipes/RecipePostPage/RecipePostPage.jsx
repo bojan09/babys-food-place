@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+// react-router-dom
 import { Link } from "react-router-dom";
 
 // redux
@@ -43,6 +45,15 @@ const RecipePostPage = ({ post }) => {
     },
   };
 
+  // user
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+
+  useEffect(() => {
+    const userLoggedIn = user?.result;
+
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, []);
+
   return (
     <div>
       {/* Container */}
@@ -72,24 +83,24 @@ const RecipePostPage = ({ post }) => {
             {post.recipeDescription}
           </p>
 
-          {/*----------- Add ternary here, only if user is logged in this will show, otherwise hidden -----------*/}
-          {/* Recipe Made By - Container */}
-          <p className="robotoSlab text-color_orange font-bold mb-4 ml-4">
-            Recipe Made By: John Smith
-          </p>
-
-          {/* Edit Recipe - Container */}
-          <div className="xs:flex md:block flex-col justify-center items-center md:mt-[3rem] md:ml-4">
-            <p className="robotoSlab text-color_orange font-bold">
-              Hi John. Does the recipe need any changes?
+          {!user ? (
+            <p className="robotoSlab text-color_orange font-bold mb-4 ml-4">
+              Recipe Made By: {post.name}
             </p>
-            <Link to={updateRecipe}>
-              <button className="xs:mt-10 md:mt-5 xs:w-[175px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] ">
-                Edit Recipe
-              </button>
-            </Link>
-          </div>
+          ) : (
+            <div className="xs:flex md:block flex-col justify-center items-center md:mt-[3rem] md:ml-4">
+              <p className="robotoSlab text-color_orange font-bold">
+                Hi {post.name}. Does the recipe need any changes?
+              </p>
+              <Link to={updateRecipe}>
+                <button className="xs:mt-10 md:mt-5 xs:w-[175px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] ">
+                  Edit Recipe
+                </button>
+              </Link>
+            </div>
+          )}
         </div>
+
         {/* Recipe Picture - Container */}
         {isDesktopOrLaptop && (
           <img

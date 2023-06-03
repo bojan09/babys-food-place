@@ -24,6 +24,9 @@ import { useEffect } from "react";
 const RecipesForm = ({ currentId, setCurrentId }) => {
   const dispatch = useDispatch();
 
+  // get user from localStorage
+  const user = JSON.parse(localStorage.getItem("profile"));
+
   // getPostForUpdate
   const post = useSelector((state) =>
     currentId ? state.posts.find((p) => p._id === currentId) : null
@@ -66,10 +69,12 @@ const RecipesForm = ({ currentId, setCurrentId }) => {
     e.preventDefault();
 
     if (!currentId) {
-      dispatch(createPost(postData));
+      dispatch(createPost({ ...postData, name: user?.results?.name }));
       clear();
     } else {
-      dispatch(updatePost(currentId, postData));
+      dispatch(
+        updatePost(currentId, { ...postData, name: user?.results?.name })
+      );
       clear();
     }
   };
