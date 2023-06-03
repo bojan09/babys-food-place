@@ -77,17 +77,28 @@ export const updatePost = async (req, res) => {
 
 export const likePost = async (req, res) => {
   const { id } = req.params;
+
+  // if the user is allowed to like a post
+  if (!req.userId) return res.json({ message: "Unauthenticated" });
+
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send(`No post with id: ${id}`);
 
   const post = await postModel.findById(id);
-  const updatedPost = await postModel.findByIdAndUpdate(
-    id,
-    {
-      starsCount: post.starsCount + 1,
-    },
-    { new: true }
-  );
+
+  const index = post.likes.findIndex((id) => id === String(req.userId));
+
+  if (index === -1) {
+    // like the post
+    post.likes.push(req.userId);
+  } else {
+    // dislike the post
+    post.likes = post.likes.filter((id) => id !== String(req.userId));
+  }
+
+  const updatedPost = await postModel.findByIdAndUpdate(id, post, {
+    new: true,
+  });
   res.json(updatedPost);
 };
 

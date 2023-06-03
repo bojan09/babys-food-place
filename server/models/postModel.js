@@ -2,15 +2,15 @@ import mongoose from "mongoose";
 
 const postSchema = mongoose.Schema({
   title: String,
-  category: String,
   shortDescription: String,
   recipeDescription: String,
   recipeAuthor: String,
   preperationTime: Number,
   persons: Number,
-  starsCount: {
-    type: Number,
-    default: 0,
+  category: [String],
+  likes: {
+    type: [String],
+    default: [],
   },
   recipeImage: String,
   createdAt: { type: Date },

@@ -10,6 +10,9 @@ import {
   deletePost,
 } from "../controllers/posts.js";
 
+// Auth
+import auth from "../middleware/auth.js";
+
 const router = express.Router();
 
 // Get All Posts
@@ -19,15 +22,15 @@ router.get("/", getPosts);
 router.get("/breakfast", getBreakfastPosts);
 
 // Create Post
-router.post("/", createPost);
+router.post("/", auth, createPost);
 
 // Update Post
-router.patch("/:id", updatePost);
+router.patch("/:id", auth, updatePost);
 
 // Update Post
-router.patch("/:id/likePost", likePost);
+router.patch("/:id/likePost", auth, likePost);
 
 // Delete Post
-router.delete("/:id", deletePost);
+router.delete("/:id", auth, deletePost);
 
 export default router;
