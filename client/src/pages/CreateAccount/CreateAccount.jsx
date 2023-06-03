@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
+// redux
+import { useDispatch } from "react-redux";
+
 // components
 import { FormInput } from "../../components";
 
+// actions
+import { signup, signin } from "../../actions/auth.js";
+
 const CreateAccount = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -81,10 +92,16 @@ const CreateAccount = () => {
     },
   ];
 
+  const [isSignup, setIsSignup] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    if (isSignup) {
+      dispatch(signup(formData, navigate));
+    } else {
+      dispatch(signin(formData, navigate));
+    }
   };
 
   const onChange = (e) => {
