@@ -7,6 +7,7 @@ dotenv.config();
 import userModel from "../models/userModel";
 
 export const signin = async (req, res) => {
+  // get userData from input
   const { email, password } = req.body;
 
   try {
@@ -45,4 +46,40 @@ export const signin = async (req, res) => {
   }
 };
 
-export const signup = async (req, res) => {};
+export const signup = async (req, res) => {
+  // get userData from input
+  const { firstName, lastName, email, password, confirmPassword, birthday } =
+    req.body;
+
+  // Check if user is already in database
+  const existingUser = await userModel.findOne({ email });
+  if (existingUser)
+    return res.status(404).json({ message: "User already exists." });
+
+  // Check if passwords match
+  if (password !== confirmPassword)
+    return res.status(400).json({ message: "Passwords don't match" });
+
+  // Hash password
+  const hashedPassword = await bcrypt.hash(password, 12);
+
+  //   Create user
+  const result = await userModel.create({
+    email,
+    password: hashedPassword,
+    name: `${firstName} ${lastName}`,
+  });
+
+  // Generate tokens
+  const token = jwt.signup(
+    {
+      email: result.email,
+      id: result._id,
+    },
+    process.env.JWT_SECRET,
+    { expiresIn: "1h" }
+  );
+
+  // Send token
+  res.status(200).json({ result: expiresIn, token });
+};
