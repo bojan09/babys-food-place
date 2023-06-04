@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 // components
 import { RecipePosts, SearchRecipes } from "../../components/Recipes";
-import { Loader } from "../../components";
+import { Loader, Pagination } from "../../components";
 
 const Home = () => {
   const posts = useSelector((state) => state.posts);
@@ -51,6 +51,8 @@ const Home = () => {
             )}
         </div>
       )}
+
+      <Pagination />
     </div>
   );
 };

@@ -28,6 +28,16 @@ const Navbar = () => {
   // user
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
+  const googleLogout = () => {
+    dispatch({ type: LOGOUT });
+  };
+
+  const localLogout = () => {
+    dispatch({ type: LOGOUT });
+
+    setUser(null);
+  };
+
   useEffect(() => {
     const token = user?.token;
 
