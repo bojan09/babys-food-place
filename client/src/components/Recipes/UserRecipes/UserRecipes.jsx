@@ -37,7 +37,7 @@ const UserRecipes = ({ post, setCurrentId }) => {
 
         {/* Date Created */}
         <h3 className="text-color_midgray md:text-[18px] col-start-4 col-end-6 justify-self-center xs:mr-[.6rem] md:mr-[5rem] xs:w-[5rem] md:w-[7.2rem]">
-          {dateFormat(post.createdOn, "d.mm.yyyy")}
+          {dateFormat(post.createdAt, "dd.mm.yyyy")}
         </h3>
         {/* Delete Button */}
         <button

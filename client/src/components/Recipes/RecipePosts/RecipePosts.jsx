@@ -26,6 +26,9 @@ const RecipePosts = ({ post }) => {
   const [openModal, setOpenModal] = useState(false);
   const dispatch = useDispatch();
 
+  // get user from localStorage
+  const user = JSON.parse(localStorage.getItem("profile"));
+
   return (
     <div className="xs:w-[330px] md:w-[400px] h-fit bg-white">
       {/* Recipe Picture - Container */}

@@ -69,11 +69,11 @@ const RecipesForm = ({ currentId, setCurrentId }) => {
     e.preventDefault();
 
     if (!currentId) {
-      dispatch(createPost({ ...postData, name: user?.results?.name }));
+      dispatch(createPost({ ...postData, name: user?.result?.name }));
       clear();
     } else {
       dispatch(
-        updatePost(currentId, { ...postData, name: user?.results?.name })
+        updatePost(currentId, { ...postData, name: user?.result?.name })
       );
       clear();
     }

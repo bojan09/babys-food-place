@@ -14,6 +14,16 @@ export const getPosts = async (req, res) => {
   }
 };
 
+// GetUserPosts
+
+export const getUserPosts = async (req, res) => {
+  try {
+    const posts = await postModel.findById(userId);
+  } catch (err) {
+    res.status(404).json({ message: message.error });
+  }
+};
+
 // GetBreakfastPosts
 export const getBreakfastPosts = async (req, res) => {
   try {

@@ -3,6 +3,7 @@ import express from "express";
 // Route handlers
 import {
   getPosts,
+  getUserPosts,
   getBreakfastPosts,
   createPost,
   updatePost,
@@ -17,6 +18,9 @@ const router = express.Router();
 
 // Get All Posts
 router.get("/", getPosts);
+
+// Get All User Posts
+router.get("/user/:id", auth, getUserPosts);
 
 // Get All Posts
 router.get("/breakfast", getBreakfastPosts);
