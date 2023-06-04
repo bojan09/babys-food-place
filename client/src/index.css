@@ -264,6 +264,14 @@ a {
   display: none;
 }
 
+
+.input-file_for_user-profile input[type="file"],
+[role="button"] ::-webkit-file-upload-button {
+  border-radius: 50%;
+  width: 200px;
+}
+
+
 @media screen and (max-width: 540px) {
 
   .input-file input[type="file"],

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,6 @@ import { useMediaQuery } from "react-responsive";
 
 // assets
 import { blankImage } from "../../../assets";
-import { useEffect } from "react";
 
 const RecipesForm = ({ currentId, setCurrentId }) => {
   const dispatch = useDispatch();

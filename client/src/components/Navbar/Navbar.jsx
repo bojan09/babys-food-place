@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
+// react-router-dom
+import { Link, useLocation } from "react-router-dom";
+
+// jwt
+import decode from "jwt-decode";
 
 // constants - naVLinks & RoutePath
 import { navLinks, mainPath } from "../../constants";
@@ -18,15 +23,22 @@ import { logoColor, menu, closeIcon } from "../../assets";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+  const location = useLocation();
 
   // user
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
   useEffect(() => {
-    const token = user?.result;
+    const token = user?.token;
+
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) localLogout();
+    }
 
     setUser(JSON.parse(localStorage.getItem("profile")));
-  }, []);
+  }, [location]);
 
   return (
     <div className=" xs:w-full md:w-[87vw] flex md:justify-around items-center mx-auto sm:pt-[50px] xs:py-[30px] sticky top-0 left-0 bg-primary z-10 sm:mb-3">

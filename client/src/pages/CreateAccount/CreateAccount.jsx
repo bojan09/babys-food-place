@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { FormInput } from "../../components";
 
 // actions
-import { signup, signin } from "../../actions/auth.js";
+import { signup } from "../../actions/auth.js";
 
 const CreateAccount = () => {
   const dispatch = useDispatch();
