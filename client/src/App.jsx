@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 // react-router
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 // redux
 import { useDispatch } from "react-redux";
@@ -36,6 +36,7 @@ import { Navbar, Footer } from "./components";
 // route paths
 import {
   mainPath,
+  mainPathWithSearch,
   recipeId,
   createRecipe,
   updateRecipe,
@@ -54,7 +55,6 @@ import {
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const App = () => {
-  const i = 9000;
   const [currentId, setCurrentId] = useState(null);
 
   const dispatch = useDispatch();
@@ -70,7 +70,9 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path={mainPath} element={<Home />} />
+          <Route path="/" exact Component={() => <Navigate to={mainPath} />} />
+          <Route path={mainPath} exact element={<Home />} />
+          <Route path={mainPathWithSearch} exact element={<Home />} />
           <Route path={recipeId} element={<RecipePage />} />
           <Route path={createRecipe} element={<CreateRecipes />} />
           <Route

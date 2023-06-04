@@ -19,9 +19,10 @@ export const navLinks = [
 ];
 
 /*--------------*  Route paths *--------------*/
-export const mainPath = "/";
+export const mainPath = "/posts";
+export const mainPathWithSearch = "/posts/search";
 // Recipe
-export const recipeId = "/recipe/:id";
+export const recipeId = "/posts/:id";
 export const createRecipe = "/create-recipe";
 export const updateRecipe = "/update-recipe/:id";
 export const myRecipes = "/my-recipes";

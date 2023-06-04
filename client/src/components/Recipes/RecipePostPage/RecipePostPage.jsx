@@ -83,22 +83,19 @@ const RecipePostPage = ({ post }) => {
             {post.recipeDescription}
           </p>
 
-          {!user ? (
-            <p className="robotoSlab text-color_orange font-bold mb-4 ml-4">
-              Recipe Made By: {post.name}
-            </p>
-          ) : (
-            <div className="xs:flex md:block flex-col justify-center items-center md:mt-[3rem] md:ml-4">
-              <p className="robotoSlab text-color_orange font-bold">
-                Hi {post.name}. Does the recipe need any changes?
+          {user?.result?.googleId === post?.creator ||
+            (user?.result?._id === post?.creator && (
+              <p className="robotoSlab text-color_orange font-bold mb-4 ml-4">
+                Recipe Made By:
+                <span className="text-color_green">
+                  {" "}
+                  {user?.result?.firstName.charAt(0).toUpperCase() +
+                    user?.result?.firstName.slice(1)}{" "}
+                  {user?.result?.lastName.charAt(0).toUpperCase() +
+                    user?.result?.lastName.slice(1)}
+                </span>
               </p>
-              <Link to={updateRecipe}>
-                <button className="xs:mt-10 md:mt-5 xs:w-[175px] md:w-[210px] h-[45px] rounded-lg bg-color_green uppercase text-white font-bold text-[18px] ">
-                  Edit Recipe
-                </button>
-              </Link>
-            </div>
-          )}
+            ))}
         </div>
 
         {/* Recipe Picture - Container */}

@@ -88,10 +88,10 @@ const Modal = ({ open, onClose, post }) => {
               >
                 <img src={starIcon} alt="stars" className="w-[16.3px]" />
                 {post.likes.find(
-                  (like) => like === (user?._id || user?.result?._id)
+                  (like) => like === (user?.googleId?._id || user?.result?._id)
                 )
                   ? post.likes.length
-                  : 0}
+                  : post.likes.length}
               </button>
             </div>
           </div>

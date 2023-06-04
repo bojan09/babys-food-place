@@ -42,7 +42,7 @@ const Home = () => {
       {!posts.length ? (
         <Loader />
       ) : (
-        <div className="grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-2 xs:grid-cols-1justify-center items-center gap-12">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-2 xs:grid-cols-1 justify-center items-center gap-12">
           {posts
             .sort((a, b) => b.likes.length - a.likes.length)
             .map(

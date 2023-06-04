@@ -19,7 +19,7 @@ const LunchRecipes = () => {
       {!posts.length ? (
         <Loader />
       ) : (
-        <div className="grid md:grid-cols-3  sm:grid-cols-2 xs:grid-cols-1 justify-center items-center flex-wrap gap-12">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-2 xs:grid-cols-1 justify-center items-center flex-wrap gap-12">
           {posts.map((post) => (
             <RecipePosts key={post._id} post={post} />
           ))}
