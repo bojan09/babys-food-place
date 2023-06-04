@@ -6,6 +6,9 @@ import { Link, useLocation } from "react-router-dom";
 // jwt
 import decode from "jwt-decode";
 
+// redux
+import { useDispatch } from "react-redux";
+
 // constants - naVLinks & RoutePath
 import { navLinks, mainPath } from "../../constants";
 
@@ -23,6 +26,8 @@ import { logoColor, menu, closeIcon } from "../../assets";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+
+  const dispatch = useDispatch();
   const location = useLocation();
 
   // user

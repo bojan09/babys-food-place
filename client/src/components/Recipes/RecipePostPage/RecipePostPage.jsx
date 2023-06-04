@@ -6,9 +6,6 @@ import { Link } from "react-router-dom";
 // redux
 import { useSelector } from "react-redux";
 
-// RoutePath
-import { updateRecipe } from "../../../constants";
-
 // jsx code based on media query
 import { useMediaQuery } from "react-responsive";
 
@@ -127,7 +124,7 @@ const RecipePostPage = ({ post }) => {
             ) : (
               <div className="flex justify-center items-center flex-wrap gap-12">
                 {posts
-                  .sort((a, b) => a.starsCount - b.starsCount)
+                  .sort((a, b) => a.likes.count - b.likes.count)
                   .map(
                     (post, index) =>
                       index < 6 && <RecipePosts key={post._id} post={post} />

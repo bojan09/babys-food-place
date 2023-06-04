@@ -62,7 +62,7 @@ export const updatePost = async (req, res) => {
     recipeDescription,
     preperationTime,
     persons,
-    starsCount,
+    likes,
     recipeImage,
   } = req.body;
 
@@ -77,7 +77,7 @@ export const updatePost = async (req, res) => {
       recipeDescription,
       preperationTime,
       persons,
-      starsCount,
+      likes,
       recipeImage,
       _id: id,
     };

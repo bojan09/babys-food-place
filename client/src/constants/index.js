@@ -24,7 +24,7 @@ export const mainPathWithSearch = "/posts/search";
 // Recipe
 export const recipeId = "/posts/:id";
 export const createRecipe = "/create-recipe";
-export const updateRecipe = "/update-recipe/:id";
+export const updateRecipe = "/posts/update/:id";
 export const myRecipes = "/my-recipes";
 // Food category
 export const breakfast = "/breakfast";

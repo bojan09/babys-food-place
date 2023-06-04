@@ -63,6 +63,9 @@ const App = () => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
 
+  // get user from localStorage
+  const user = JSON.parse(localStorage.getItem("profile"));
+
   return (
     <GoogleOAuthProvider
       clientId={`${import.meta.env.VITE_APP_GOOGLE_OAUTH_CLIENT_ID}`}

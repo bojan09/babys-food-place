@@ -29,7 +29,7 @@ router.get("/breakfast", getBreakfastPosts);
 router.post("/", auth, createPost);
 
 // Update Post
-router.patch("/:id", auth, updatePost);
+router.patch("/update/:id", auth, updatePost);
 
 // Update Post
 router.patch("/:id/likePost", auth, likePost);

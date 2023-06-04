@@ -1,9 +1,29 @@
 import React from "react";
 
+// react-router-dom
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
+// jwt
+import decode from "jwt-decode";
+
+// redux
+import { useDispatch } from "react-redux";
+
 // assets
 import { searchIcon } from "../../../assets";
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
 const SearchRecipes = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const query = useQuery();
+  const page = query.get("page") || 1;
+  const searchQuery = query.get("searchQuery");
+
   /* Search - Container */
   return (
     <div className="flex justify-center items-center bg-color_lightgray rounded-full w-30vw">
