@@ -77,12 +77,19 @@ const RecipePosts = ({ post }) => {
           <p className="text-[12px] text-color_darkgray robotoSlab font-bold">
             {post.persons}
           </p>
+
+          {/* Star/Like Button */}
           <button
             onClick={() => dispatch(likePost(post._id))}
+            disabled={!user?.result}
             className="text-[12px] text-color_darkgray robotoSlab font-bold flex justify-center items-center gap-1"
           >
             <img src={starIcon} alt="stars" className="w-[16.3px]" />
-            {post.starsCount}
+            {post.likes.find(
+              (like) => like === (user?.result?.googleId || user?.result?._id)
+            )
+              ? post.likes.length
+              : 0}
           </button>
         </div>
         {/* ArrowsRight Container */}
