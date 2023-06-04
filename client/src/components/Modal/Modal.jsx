@@ -20,6 +20,9 @@ const Modal = ({ open, onClose, post }) => {
 
   if (!open) return null;
 
+  // get user from localStorage
+  const user = JSON.parse(localStorage.getItem("profile"));
+
   return (
     <div onClick={onClose} className="modal-overlay">
       <div className="modal md:w-[60vw]">
@@ -83,8 +86,12 @@ const Modal = ({ open, onClose, post }) => {
                 onClick={() => dispatch(likePost(post._id))}
                 className="text-[15px] text-color_darkgray robotoSlab font-bold flex justify-center items-center gap-1"
               >
-                <img src={starIcon} alt="stars" className="w-[20px]" />
-                {post.starsCount}
+                <img src={starIcon} alt="stars" className="w-[16.3px]" />
+                {post.likes.find(
+                  (like) => like === (user?._id || user?.result?._id)
+                )
+                  ? post.likes.length
+                  : 0}
               </button>
             </div>
           </div>
