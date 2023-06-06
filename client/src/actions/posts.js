@@ -1,4 +1,4 @@
-ns; // import everything from actions as api
+// import everything from actions as api
 import * as api from "../api";
 
 // actions
@@ -15,9 +15,11 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
-export const getPostBySearch = () => async (dispatch) => {
+export const getPostBySearch = (searchQuery) => async (dispatch) => {
   try {
-    const { data } = await api.fetchPostsBySearch(searchQuery);
+    const {
+      data: { data },
+    } = await api.fetchPostsBySearch(searchQuery);
 
     console.log(data);
   } catch (error) {

@@ -9,11 +9,12 @@ export const getPostsBySearch = async (req, res) => {
 
   try {
     const title = new RegExp(searchQuery, "i");
+
     const posts = await postModel.find({ title });
 
     res.status(200).json({ data: posts });
   } catch (error) {
-    res.status(404).json({ message: message.error });
+    res.status(404).json({ message: error.message });
   }
 };
 
@@ -24,7 +25,7 @@ export const getPosts = async (req, res) => {
 
     res.status(200).json(posts);
   } catch (error) {
-    res.status(404).json({ message: message.error });
+    res.status(404).json({ message: error.message });
   }
 };
 

@@ -15,7 +15,7 @@ const postSchema = mongoose.Schema({
     default: [],
   },
   recipeImage: String,
-  createdAt: { type: Date },
+  createdAt: { type: Date, default: new Date() },
 });
 
 const postModel = mongoose.model("postModel", postSchema);
