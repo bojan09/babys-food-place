@@ -2,6 +2,7 @@ import express from "express";
 
 // Route handlers
 import {
+  getPostsBySearch,
   getPosts,
   getPost,
   getBreakfastPosts,
@@ -15,6 +16,9 @@ import {
 import auth from "../middleware/auth.js";
 
 const router = express.Router();
+
+// Search Posts
+router.get("/search", getPostsBySearch);
 
 // Get All Posts
 router.get("/", getPosts);

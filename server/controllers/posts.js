@@ -3,6 +3,20 @@ import mongoose from "mongoose";
 // model
 import postModel from "../models/postModel.js";
 
+// getPostsBySearch
+export const getPostsBySearch = async (req, res) => {
+  const { searchQuery } = req.query;
+
+  try {
+    const title = new RegExp(searchQuery, "i");
+    const posts = await postModel.find({ title });
+
+    res.status(200).json({ data: posts });
+  } catch (error) {
+    res.status(404).json({ message: message.error });
+  }
+};
+
 // GetPosts
 export const getPosts = async (req, res) => {
   try {
