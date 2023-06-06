@@ -1,8 +1,8 @@
-// import everything from actions as api
+ns; // import everything from actions as api
 import * as api from "../api";
 
 // actions
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from "../constants";
+import { FETCH_ALL, CREATE, UPDATE, DELETE } from "../constants";
 
 // Action creators
 
@@ -15,10 +15,11 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
-export const getUserPosts = () => async (dispatch) => {
+export const getPostBySearch = () => async (dispatch) => {
   try {
-    const { data } = await api.fetchUserPosts();
-    dispatch({ type: FETCH_ALL, payload: data });
+    const { data } = await api.fetchPostsBySearch(searchQuery);
+
+    console.log(data);
   } catch (error) {
     console.log(error);
   }

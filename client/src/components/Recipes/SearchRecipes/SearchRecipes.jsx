@@ -9,6 +9,10 @@ import { useDispatch } from "react-redux";
 // assets
 import { searchIcon } from "../../../assets";
 
+// actions
+import { getPostBySearch } from "../../../actions/posts";
+
+// query
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -21,7 +25,7 @@ const SearchRecipes = () => {
 
   const searchPost = () => {
     if (searchRecipes.trim()) {
-      // dispatch fetchSearchPosts
+      dispatch(getPostBySearch({ searchRecipes }));
     } else {
       navigate("/");
     }
