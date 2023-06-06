@@ -10,7 +10,7 @@ import decode from "jwt-decode";
 import { useDispatch } from "react-redux";
 
 // constants - naVLinks & RoutePath
-import { navLinks, mainPath } from "../../constants";
+import { navLinks, mainPath, LOGOUT } from "../../constants";
 
 // components
 import {

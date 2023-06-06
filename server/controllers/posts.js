@@ -14,13 +14,17 @@ export const getPosts = async (req, res) => {
   }
 };
 
-// GetUserPosts
+// Get Post
 
-export const getUserPosts = async (req, res) => {
+export const getPost = async (req, res) => {
+  const { id } = req.params;
+
   try {
-    const posts = await postModel.findById(userId);
-  } catch (err) {
-    res.status(404).json({ message: message.error });
+    const post = await postModel.findById(id);
+
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
   }
 };
 
@@ -31,7 +35,7 @@ export const getBreakfastPosts = async (req, res) => {
 
     res.status(200).json(posts);
   } catch (error) {
-    res.status(404).json({ message: message.error });
+    res.status(404).json({ message: error.message });
   }
 };
 
@@ -49,7 +53,7 @@ export const createPost = async (req, res) => {
 
     res.status(201).json(newPost);
   } catch (error) {
-    res.status(409).json({ message: message.error });
+    res.status(404).json({ message: error.message });
   }
 };
 
@@ -86,7 +90,7 @@ export const updatePost = async (req, res) => {
 
     res.json(updatedPost);
   } catch (error) {
-    return error;
+    res.status(404).json({ message: error.message });
   }
 };
 
@@ -127,6 +131,6 @@ export const deletePost = async (req, res) => {
 
     res.json({ message: "Post deleted successfully." });
   } catch (error) {
-    return error;
+    res.status(404).json({ message: error.message });
   }
 };
