@@ -12,6 +12,7 @@ export const getPostsBySearch = async (req, res) => {
 
     const posts = await postModel.find({ title });
 
+    console.log("Hello world");
     res.status(200).json({ data: posts });
   } catch (error) {
     res.status(404).json({ message: error.message });

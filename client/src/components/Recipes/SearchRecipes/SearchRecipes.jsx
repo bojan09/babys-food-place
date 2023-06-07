@@ -18,6 +18,10 @@ function useQuery() {
 }
 
 const SearchRecipes = () => {
+  const query = useQuery();
+  const page = query.get("page") || 1;
+  const searchQuery = query.get("searchQuery");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -26,6 +30,7 @@ const SearchRecipes = () => {
   const searchPost = () => {
     if (searchRecipes.trim()) {
       dispatch(getPostBySearch({ searchRecipes }));
+      navigate(`/posts/search?searchQuery=${searchRecipes || "none"}`);
     } else {
       navigate("/");
     }
@@ -36,10 +41,6 @@ const SearchRecipes = () => {
       searchPost();
     }
   };
-
-  const query = useQuery();
-  const page = query.get("page") || 1;
-  const searchQuery = query.get("searchQuery");
 
   /* Search - Container */
   return (

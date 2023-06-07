@@ -18,8 +18,6 @@ export const fetchPosts = () => API.get("/posts");
 export const fetchPostsBySearch = (searchQuery) =>
   API.get(`/posts/search?searchQuery=${searchQuery.search || "none"}`);
 
-export const fetchBreakfastPosts = () => API.get(`/posts/breakfast`);
-
 export const createPost = (newPost) => API.post("/posts", newPost);
 
 export const updatePost = (id, updatedPost) =>
