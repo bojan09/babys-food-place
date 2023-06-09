@@ -12,9 +12,6 @@ import { searchIcon } from "../../../assets";
 // actions
 import { getPostBySearch } from "../../../actions/posts";
 
-// components
-import { Loader } from "../../../components";
-
 // query
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -22,6 +19,7 @@ function useQuery() {
 
 const SearchRecipes = () => {
   const query = useQuery();
+  const page = query.get("page") || 1;
   const searchQuery = query.get("searchQuery");
 
   const dispatch = useDispatch();
@@ -41,8 +39,6 @@ const SearchRecipes = () => {
   const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
       searchPost();
-    } else {
-      <Loader />;
     }
   };
 

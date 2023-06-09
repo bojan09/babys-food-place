@@ -3,11 +3,23 @@ import React from "react";
 // redux
 import { useSelector } from "react-redux";
 
+import { useLocation } from "react-router-dom";
+
 // components
 import { RecipePosts } from "../../../components/Recipes";
-import { Loader } from "../../../components";
+
+import { Loader, Pagination } from "../../../components";
+
+// query
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 const BreakfastRecipes = () => {
+  const query = useQuery();
+  const page = query.get("page") || 1;
+  const searchQuery = query.get("searchQuery");
+
   const posts = useSelector((state) => state.posts);
 
   return (
@@ -25,6 +37,7 @@ const BreakfastRecipes = () => {
           ))}
         </div>
       )}
+      <Pagination page={page} />
     </div>
   );
 };

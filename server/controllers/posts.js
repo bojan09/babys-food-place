@@ -12,7 +12,6 @@ export const getPostsBySearch = async (req, res) => {
 
     const posts = await postModel.find({ title });
 
-    console.log("Hello world");
     res.status(200).json({ data: posts });
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -59,13 +58,11 @@ export const getPostsByPage = async (req, res) => {
       .limit(LIMIT)
       .skip(startIndex);
 
-    res
-      .status(200)
-      .json({
-        data: posts,
-        currentPage: Number(page),
-        totalNumberOfPage: Math.ceil(total / LIMIT),
-      });
+    res.status(200).json({
+      data: posts,
+      currentPage: Number(page),
+      totalNumberOfPage: Math.ceil(TOTAL / LIMIT),
+    });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }

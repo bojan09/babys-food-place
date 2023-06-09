@@ -11,8 +11,7 @@ import {
   DELETE,
 } from "../constants";
 
-// Action creators
-
+// Get all the recipe posts
 export const getPosts = () => async (dispatch) => {
   try {
     const { data } = await api.fetchPosts();
@@ -22,6 +21,7 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
+// Get a single recipe post page
 export const getPost = (id) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
@@ -34,6 +34,7 @@ export const getPost = (id) => async (dispatch) => {
   }
 };
 
+// Pagination
 export const getPostsByPage = (page) => async (dispatch) => {
   try {
     const { data } = await api.fetchPostsByPage(page);
@@ -43,17 +44,19 @@ export const getPostsByPage = (page) => async (dispatch) => {
   }
 };
 
+// Search Recipes
 export const getPostBySearch = (searchQuery) => async (dispatch) => {
   try {
     const {
       data: { data },
     } = await api.fetchPostsBySearch(searchQuery);
-    dispatch({ type: FETCH_BY_SEARCH, payload: data });
+    dispatch({ type: FETCH_BY_SEARCH, payload: { data } });
   } catch (error) {
     console.log(error);
   }
 };
 
+// Create a new recipe
 export const createPost = (post) => async (dispatch) => {
   try {
     const { data } = await api.createPost(post);
@@ -64,6 +67,7 @@ export const createPost = (post) => async (dispatch) => {
   }
 };
 
+// Update a recipe
 export const updatePost = (id, post) => async (dispatch) => {
   try {
     const { data } = await api.updatePost(id, post);
@@ -74,6 +78,7 @@ export const updatePost = (id, post) => async (dispatch) => {
   }
 };
 
+// Like the recipe
 export const likePost = (id) => async (dispatch) => {
   try {
     const { data } = await api.likePost(id);
@@ -84,6 +89,7 @@ export const likePost = (id) => async (dispatch) => {
   }
 };
 
+// Delete the recipe
 export const deletePost = (id) => async (dispatch) => {
   try {
     await api.deletePost(id);
