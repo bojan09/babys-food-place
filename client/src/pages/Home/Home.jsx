@@ -3,11 +3,21 @@ import React from "react";
 // redux
 import { useSelector } from "react-redux";
 
+// react-router-dom
+import { useLocation, useNavigate } from "react-router-dom";
+
 // components
 import { RecipePosts, SearchRecipes } from "../../components/Recipes";
 import { Loader, Pagination } from "../../components";
 
+// query
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
 const Home = () => {
+  const query = useQuery();
+  const searchQuery = query.get("searchQuery");
   const page = query.get("page") || 1;
 
   const posts = useSelector((state) => state.posts);
