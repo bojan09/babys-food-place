@@ -8,7 +8,7 @@ import {
   LIKE,
 } from "../constants";
 
-export default (state = [], action) => {
+export default (state = { posts: [] }, action) => {
   switch (action.type) {
     // Fetch all the recipes
     case FETCH_ALL:

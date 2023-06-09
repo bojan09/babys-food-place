@@ -12,16 +12,7 @@ import { searchIcon } from "../../../assets";
 // actions
 import { getPostBySearch } from "../../../actions/posts";
 
-// query
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
-
 const SearchRecipes = () => {
-  const query = useQuery();
-  const page = query.get("page") || 1;
-  const searchQuery = query.get("searchQuery");
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

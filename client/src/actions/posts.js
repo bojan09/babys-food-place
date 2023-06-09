@@ -5,7 +5,6 @@ import * as api from "../api";
 import {
   FETCH_ALL,
   FETCH_BY_SEARCH,
-  START_LOADING,
   CREATE,
   UPDATE,
   DELETE,
@@ -37,8 +36,14 @@ export const getPost = (id) => async (dispatch) => {
 // Pagination
 export const getPostsByPage = (page) => async (dispatch) => {
   try {
-    const { data } = await api.fetchPostsByPage(page);
-    dispatch({ type: FETCH_ALL, payload: data });
+    const {
+      data: { data, currentPage, numberOfPages },
+    } = await api.fetchPosts(page);
+
+    dispatch({
+      type: FETCH_POSTS_PER_PAGINATION,
+      payload: { data, currentPage, numberOfPages },
+    });
   } catch (error) {
     console.log(error);
   }
@@ -50,7 +55,9 @@ export const getPostBySearch = (searchQuery) => async (dispatch) => {
     const {
       data: { data },
     } = await api.fetchPostsBySearch(searchQuery);
+
     dispatch({ type: FETCH_BY_SEARCH, payload: { data } });
+    console.log(data);
   } catch (error) {
     console.log(error);
   }
