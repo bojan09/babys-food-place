@@ -5,7 +5,10 @@ import {
   getPostsBySearch,
   getPosts,
   getPost,
-  getBreakfastPosts,
+  getBreakfast,
+  getBrunch,
+  getLunch,
+  getDinner,
   createPost,
   updatePost,
   likePost,
@@ -27,7 +30,16 @@ router.get("/", getPosts);
 router.get("/:id", getPost);
 
 // Get All Breakfast Posts
-router.get("/breakfast", getBreakfastPosts);
+router.get("/breakfast", getBreakfast);
+
+// Get All Brunch Posts
+router.get("/brunch", getBrunch);
+
+// Get All Lunch Posts
+router.get("/lunch", getLunch);
+
+// Get All Dinner Posts
+router.get("/dinner", getDinner);
 
 // Create Post
 router.post("/", auth, createPost);

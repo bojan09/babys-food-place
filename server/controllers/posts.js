@@ -44,8 +44,9 @@ export const getPost = async (req, res) => {
   }
 };
 
-// GetBreakfastPosts
-export const getBreakfastPosts = async (req, res) => {
+// Categories
+
+export const getBreakfast = async (req, res) => {
   try {
     const posts = await postModel.find({ category: /^breakfast/i });
 
@@ -54,6 +55,10 @@ export const getBreakfastPosts = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
+
+export const getBrunch = async (req, res) => {};
+export const getLunch = async (req, res) => {};
+export const getDinner = async (req, res) => {};
 
 // CreatePosts
 export const createPost = async (req, res) => {
