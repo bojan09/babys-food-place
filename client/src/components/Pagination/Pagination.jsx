@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // react-router-dom
 import { Link } from "react-router-dom";
 
-const Pagination = () => {
+// redux
+import { useDispatch, useSelector } from "react-redux";
+
+// actions
+import { getPostsByPage } from "../../actions/posts";
+
+const Pagination = ({ page }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (page) dispatch(getPostsByPage(page));
+  }, [page]);
+
   return (
     <div>
       <div className="flex items-center justify-between bg-inherit px-4 py-3 sm:px-6">

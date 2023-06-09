@@ -44,6 +44,19 @@ export const getPost = async (req, res) => {
   }
 };
 
+// GetPostsByPage
+export const getPostsByPage = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const post = await postModel.findById(id);
+
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
 // Categories
 
 export const getBreakfast = async (req, res) => {

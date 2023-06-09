@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 
 // react-router-dom
 import { useLocation, useNavigate } from "react-router-dom";
@@ -22,7 +22,6 @@ function useQuery() {
 
 const SearchRecipes = () => {
   const query = useQuery();
-  const page = query.get("page") || 1;
   const searchQuery = query.get("searchQuery");
 
   const dispatch = useDispatch();

@@ -8,6 +8,8 @@ import { RecipePosts, SearchRecipes } from "../../components/Recipes";
 import { Loader, Pagination } from "../../components";
 
 const Home = () => {
+  const page = query.get("page") || 1;
+
   const posts = useSelector((state) => state.posts);
 
   return (
@@ -52,7 +54,7 @@ const Home = () => {
         </div>
       )}
 
-      <Pagination />
+      <Pagination page={page} />
     </div>
   );
 };
