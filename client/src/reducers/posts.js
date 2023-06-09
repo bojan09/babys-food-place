@@ -6,10 +6,18 @@ import {
   UPDATE,
   DELETE,
   LIKE,
+  END_LOADING,
+  START_LOADING,
 } from "../constants";
 
-export default (state = { posts: [] }, action) => {
+export default (state = [], action) => {
   switch (action.type) {
+    case START_LOADING:
+      return { ...state, isLoading: true };
+
+    case END_LOADING:
+      return { ...state, isLoading: false };
+
     // Fetch all the recipes
     case FETCH_ALL:
       return action.payload;
@@ -20,12 +28,12 @@ export default (state = { posts: [] }, action) => {
         ...state,
         posts: action.payload.data,
         currentPage: action.payload.currentPage,
-        numberOfPages: action.payload.NumberOfPages,
+        numberOfPages: action.payload.numberOfPages,
       };
 
     // Search for Recipes
     case FETCH_BY_SEARCH:
-      return { ...state, posts: action.payload };
+      return { ...state, posts: action.payload.data };
 
     // Create a Recipe
     case CREATE:

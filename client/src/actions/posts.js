@@ -5,9 +5,12 @@ import * as api from "../api";
 import {
   FETCH_ALL,
   FETCH_BY_SEARCH,
+  FETCH_POSTS_PER_PAGINATION,
   CREATE,
   UPDATE,
   DELETE,
+  START_LOADING,
+  END_LOADING,
 } from "../constants";
 
 // Get all the recipe posts
@@ -44,6 +47,7 @@ export const getPostsByPage = (page) => async (dispatch) => {
       type: FETCH_POSTS_PER_PAGINATION,
       payload: { data, currentPage, numberOfPages },
     });
+    console.log(data);
   } catch (error) {
     console.log(error);
   }
@@ -62,7 +66,6 @@ export const getPostBySearch = (searchQuery) => async (dispatch) => {
     console.log(error);
   }
 };
-
 // Create a new recipe
 export const createPost = (post) => async (dispatch) => {
   try {
