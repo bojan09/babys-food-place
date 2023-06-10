@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-import { Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 // redux
-import { useDispatch } from "react-redux";
-
-// RoutePath
-import { recipeId } from "../../../constants";
+import { useDispatch, useSelector } from "react-redux";
 
 // components
 import Modal from "../../Modal/Modal";
 
 // actions
-import { likePost } from "../../../actions/posts";
+import { getPost, likePost } from "../../../actions/posts";
 
 // assets
 import {
@@ -24,10 +21,19 @@ import {
 
 const RecipePosts = ({ post }) => {
   const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { id } = useParams();
+
+  const { post, posts, isLoading } = useSelector((state) => state.posts);
+  const postDetails = () => navigate(`/posts/${post._id}`);
 
   // get user from localStorage
   const user = JSON.parse(localStorage.getItem("profile"));
+
+  useEffect(() => {
+    dispatch(getPost(id));
+  }, [id]);
 
   return (
     <div className="xs:w-[330px] md:w-[400px] h-fit bg-white">
@@ -53,11 +59,12 @@ const RecipePosts = ({ post }) => {
 
       {/* Recipe Name and Short Description Container */}
       <div className="h-[10rem] break-words mb-[3.5rem]">
-        <Link to={recipeId} onClick={window.scrollTo(0, 0)}>
-          <h2 className=" py-3 px-5 textSubHead text-[20px] robotoSlab ">
-            {post.title}
-          </h2>
-        </Link>
+        <h2
+          onClick={(window.scrollTo(0, 0), postDetails)}
+          className=" py-3 px-5 textSubHead text-[20px] robotoSlab cursor-pointer "
+        >
+          {post.title}
+        </h2>
 
         {/* Recipe - Short Description */}
         <p className="pt-3 px-5 text-color_midgray text-ellipsis overflow-hidden h-full">
