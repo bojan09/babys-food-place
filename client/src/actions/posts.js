@@ -4,6 +4,7 @@ import * as api from "../api";
 // actions
 import {
   FETCH_ALL,
+  FETCH_POST,
   FETCH_BY_SEARCH,
   FETCH_POSTS_PER_PAGINATION,
   CREATE,
@@ -43,13 +44,11 @@ export const getPost = (id) => async (dispatch) => {
 export const getPostsByPage = (page) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    const {
-      data: { data, currentPage, numberOfPages },
-    } = await api.fetchPostsByPage(page);
+    const { data } = await api.fetchPostsByPage(page);
 
     dispatch({
       type: FETCH_POSTS_PER_PAGINATION,
-      payload: { data, currentPage, numberOfPages },
+      payload: data,
     });
     dispatch({ type: END_LOADING });
   } catch (error) {
