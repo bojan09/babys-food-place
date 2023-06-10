@@ -10,7 +10,7 @@ import {
   START_LOADING,
 } from "../constants";
 
-export default (state = [], action) => {
+export default (state = { isLoading: true, posts: [] }, action) => {
   switch (action.type) {
     case START_LOADING:
       return { ...state, isLoading: true };
@@ -37,20 +37,26 @@ export default (state = [], action) => {
 
     // Create a Recipe
     case CREATE:
-      return [...state, action.payload];
+      return { ...state, posts: [...state.posts, action.payload] };
 
     // Update & Like a Recipe
     case UPDATE:
     case LIKE:
-      return state.map((post) =>
-        post._id === action.payload._id ? action.payload : post
-      );
+      return {
+        ...state,
+        posts: state.posts.map((post) =>
+          post._id === action.payload._id ? action.payload : post
+        ),
+      };
 
     // Delete a Recipe
     case DELETE:
-      return state.filter((post) => post._id !== action.payload);
+      return {
+        ...state,
+        posts: state.posts.filter((post) => post._id !== action.payload),
+      };
 
     default:
-      return state;
+      return { ...state, posts: state };
   }
 };

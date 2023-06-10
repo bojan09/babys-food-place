@@ -39,9 +39,8 @@ const Pagination = ({ page }) => {
         <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between gap-4 robotoSlab">
           <div>
             <p className="text-sm text-gray-700">
-              Showing <span className="font-medium">1</span> to{" "}
-              <span className="font-medium">{page}</span> of{" "}
-              <span className="font-medium">{numberOfPages}</span> results
+              Showing <span className="font-medium">page {page}</span> of{" "}
+              <span className="font-medium">{numberOfPages} pages</span> results
             </p>
           </div>
 

@@ -16,7 +16,7 @@ function useQuery() {
 }
 
 const BreakfastRecipes = () => {
-  const { posts } = useSelector((state) => state.posts);
+  const { posts, isLoading } = useSelector((state) => state.posts);
 
   const query = useQuery();
   const page = query.get("page") || 1;
@@ -27,7 +27,7 @@ const BreakfastRecipes = () => {
       <h1 className="textMainHead xs:text-[28px] sm:text-[36px] text-center md:after:w-[62vw] xs:after:w-[49vw]">
         Breakfast
       </h1>
-      {!posts?.length ? (
+      {isLoading ? (
         <Loader />
       ) : (
         <div className="grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-2 xs:grid-cols-1 justify-center items-center flex-wrap gap-12">
@@ -36,7 +36,7 @@ const BreakfastRecipes = () => {
           ))}
         </div>
       )}
-      <Pagination page={Number(page) || 1} />
+      <Pagination page={Number(page)} />
     </div>
   );
 };
