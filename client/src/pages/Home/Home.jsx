@@ -8,7 +8,7 @@ import { RecipePosts, SearchRecipes } from "../../components/Recipes";
 import { Loader } from "../../components";
 
 const Home = () => {
-  const posts = useSelector((state) => state.posts);
+  const { posts } = useSelector((state) => state.posts);
 
   return (
     <div className="flex justify-center items-center flex-col gap-10">

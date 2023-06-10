@@ -1,5 +1,6 @@
 import {
   FETCH_ALL,
+  FETCH_POST,
   FETCH_BY_SEARCH,
   FETCH_POSTS_PER_PAGINATION,
   CREATE,
@@ -20,7 +21,11 @@ export default (state = { isLoading: true, posts: [] }, action) => {
 
     // Fetch all the recipes
     case FETCH_ALL:
-      return action.payload;
+      return { ...state, posts: action.payload };
+
+    // Fetch recipe by ID
+    case FETCH_POST:
+      return { ...state, post: action.payload };
 
     // Pagination
     case FETCH_POSTS_PER_PAGINATION:
@@ -33,7 +38,7 @@ export default (state = { isLoading: true, posts: [] }, action) => {
 
     // Search for Recipes
     case FETCH_BY_SEARCH:
-      return { ...state, posts: action.payload.data };
+      return { ...state, posts: action.payload };
 
     // Create a Recipe
     case CREATE:

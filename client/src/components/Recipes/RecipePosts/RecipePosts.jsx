@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // components
 import Modal from "../../Modal/Modal";
+import { Loader } from "../../../components";
 
 // actions
 import { getPost, likePost } from "../../../actions/posts";
@@ -19,7 +20,7 @@ import {
   arrowsRightIcon,
 } from "../../../assets";
 
-const RecipePosts = ({ post }) => {
+const RecipePosts = () => {
   const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -28,12 +29,25 @@ const RecipePosts = ({ post }) => {
   const { post, posts, isLoading } = useSelector((state) => state.posts);
   const postDetails = () => navigate(`/posts/${post._id}`);
 
-  // get user from localStorage
-  const user = JSON.parse(localStorage.getItem("profile"));
-
   useEffect(() => {
     dispatch(getPost(id));
   }, [id]);
+
+  useEffect(() => {
+    if (post) {
+      dispatch(
+        getPostsBySearch({ search: "none", tags: post?.tags.join(",") })
+      );
+    }
+  }, [post]);
+
+  if (!post) return null;
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  // get user from localStorage
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   return (
     <div className="xs:w-[330px] md:w-[400px] h-fit bg-white">
