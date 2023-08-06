@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 
 // react-router-dom
 import { useLocation, useNavigate } from "react-router-dom";
@@ -12,9 +12,12 @@ import { searchIcon } from "../../../assets";
 // actions
 import { getPostBySearch } from "../../../actions/posts";
 
+// components
+import { Loader } from "../../../components";
+
 // query
 function useQuery() {
-  return new URLSearchParams(useLocation().searchRecipes);
+  return new URLSearchParams(useLocation().search);
 }
 
 const SearchRecipes = () => {
@@ -39,6 +42,8 @@ const SearchRecipes = () => {
   const handleKeyPress = (e) => {
     if (e.keyCode === 13) {
       searchPost();
+    } else {
+      <Loader />;
     }
   };
 

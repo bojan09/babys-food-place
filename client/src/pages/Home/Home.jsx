@@ -5,10 +5,10 @@ import { useSelector } from "react-redux";
 
 // components
 import { RecipePosts, SearchRecipes } from "../../components/Recipes";
-import { Loader } from "../../components";
+import { Loader, Pagination } from "../../components";
 
 const Home = () => {
-  const { posts } = useSelector((state) => state.posts);
+  const posts = useSelector((state) => state.posts);
 
   return (
     <div className="flex justify-center items-center flex-col gap-10">
@@ -21,7 +21,7 @@ const Home = () => {
       </h1>
 
       <div className=" flex justify-center items-center flex-wrap gap-12">
-        {!posts?.length ? (
+        {!posts.length ? (
           <Loader />
         ) : (
           <div className="grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-2 xs:grid-cols-1 justify-center items-center flex-wrap gap-12">
@@ -51,6 +51,8 @@ const Home = () => {
             )}
         </div>
       )}
+
+      <Pagination />
     </div>
   );
 };

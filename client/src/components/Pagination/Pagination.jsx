@@ -1,22 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 // react-router-dom
 import { Link } from "react-router-dom";
 
-// redux
-import { useDispatch, useSelector } from "react-redux";
-
-// actions
-import { getPostsByPage } from "../../actions/posts";
-
-const Pagination = ({ page }) => {
-  const { numberOfPages } = useSelector((state) => state.posts);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (page) dispatch(getPostsByPage(page));
-  }, [page]);
-
+const Pagination = () => {
   return (
     <div>
       <div className="flex items-center justify-between bg-inherit px-4 py-3 sm:px-6">
@@ -39,8 +26,9 @@ const Pagination = ({ page }) => {
         <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between gap-4 robotoSlab">
           <div>
             <p className="text-sm text-gray-700">
-              Showing <span className="font-medium">page {page}</span> of{" "}
-              <span className="font-medium">{numberOfPages} pages</span> results
+              Showing <span className="font-medium">1</span> to{" "}
+              <span className="font-medium">10</span> of{" "}
+              <span className="font-medium">97</span> results
             </p>
           </div>
 
@@ -71,9 +59,9 @@ const Pagination = ({ page }) => {
                 </svg>
               </Link>
               <Link
-                to={`/posts?page=${page}`}
+                to={`/posts?page=${1}`}
                 aria-current="page"
-                className="relative z-10 inline-flex items-center bg-color_orange px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 hover:bg-orange-500"
+                className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 1
               </Link>
@@ -81,6 +69,12 @@ const Pagination = ({ page }) => {
               <span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
                 ...
               </span>
+              <Link
+                to={"/"}
+                className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
+              >
+                8
+              </Link>
 
               <Link
                 to={"/"}

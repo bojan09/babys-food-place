@@ -12,6 +12,7 @@ export const getPostsBySearch = async (req, res) => {
 
     const posts = await postModel.find({ title });
 
+    console.log("Hello world");
     res.status(200).json({ data: posts });
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -38,31 +39,6 @@ export const getPost = async (req, res) => {
     const post = await postModel.findById(id);
 
     res.status(200).json(post);
-  } catch (error) {
-    res.status(404).json({ message: error.message });
-  }
-};
-
-// GetPostsByPage
-export const getPostsByPage = async (req, res) => {
-  const { page } = req.query;
-
-  try {
-    const LIMIT = 8;
-    const startIndex = Number(page) - 1 * LIMIT; // get the starting Index of every page
-    const TOTAL = await postModel.countDocuments({});
-
-    const posts = await postModel
-      .find()
-      .sort({ _id: -1 })
-      .limit(LIMIT)
-      .skip(startIndex);
-
-    res.status(200).json({
-      data: posts,
-      currentPage: Number(page),
-      numberOfPages: Math.ceil(TOTAL / LIMIT),
-    });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }

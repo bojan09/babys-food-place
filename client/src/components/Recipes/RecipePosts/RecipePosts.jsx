@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import { useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // redux
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+
+// RoutePath
+import { recipeId } from "../../../constants";
 
 // components
 import Modal from "../../Modal/Modal";
-import { Loader } from "../../../components";
 
 // actions
-import { getPost, likePost } from "../../../actions/posts";
+import { likePost } from "../../../actions/posts";
 
 // assets
 import {
@@ -20,31 +22,9 @@ import {
   arrowsRightIcon,
 } from "../../../assets";
 
-const RecipePosts = () => {
+const RecipePosts = ({ post }) => {
   const [openModal, setOpenModal] = useState(false);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { id } = useParams();
-
-  const { post, posts, isLoading } = useSelector((state) => state.posts);
-  const postDetails = () => navigate(`/posts/${post._id}`);
-
-  useEffect(() => {
-    dispatch(getPost(id));
-  }, [id]);
-
-  useEffect(() => {
-    if (post) {
-      dispatch(
-        getPostsBySearch({ search: "none", tags: post?.tags.join(",") })
-      );
-    }
-  }, [post]);
-
-  if (!post) return null;
-  if (isLoading) {
-    return <Loader />;
-  }
 
   // get user from localStorage
   const user = JSON.parse(localStorage.getItem("profile"));
@@ -73,12 +53,11 @@ const RecipePosts = () => {
 
       {/* Recipe Name and Short Description Container */}
       <div className="h-[10rem] break-words mb-[3.5rem]">
-        <h2
-          onClick={(window.scrollTo(0, 0), postDetails)}
-          className=" py-3 px-5 textSubHead text-[20px] robotoSlab cursor-pointer "
-        >
-          {post.title}
-        </h2>
+        <Link to={recipeId} onClick={window.scrollTo(0, 0)}>
+          <h2 className=" py-3 px-5 textSubHead text-[20px] robotoSlab ">
+            {post.title}
+          </h2>
+        </Link>
 
         {/* Recipe - Short Description */}
         <p className="pt-3 px-5 text-color_midgray text-ellipsis overflow-hidden h-full">
